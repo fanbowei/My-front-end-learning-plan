@@ -1,0 +1,13 @@
+常见的get请求
+浏览器地址栏输入网址时
+可以发送外部资源的html标签(img a link script)
+发送ajax请求时明确指出了使用get请求
+form表单提交时候没有指明方式,默认使用get
+
+常见的post请求
+发送ajax时明确指出了使用post
+使用第三方发送ajax请求库时明确指出使用post
+form表单提交时明确指出使用post方式
+
+
+ 

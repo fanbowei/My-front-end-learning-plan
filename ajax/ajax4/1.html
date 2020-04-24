@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button>
+        按钮
+    </button>
+</body>
+</html>
+<script src="myajax.js"></script>
+    <script>
+       var btn=document.querySelector('button')
+btn.onclick=function () {
+//url?key=value&key=value
+ajax('1.php',{"username":"23","userpassword":"132456"},3000,function (xmlhttp) {
+alert(xmlhttp.responseText)
+},function () {
+
+})
+}
+</script>

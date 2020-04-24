@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            height: 300px;
+            width: 300px;
+        }
+        img{
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h2 id="info"></h2>
+    <div class="box1">
+        <img src="未标题-1.jpg" alt="" id="zp">
+        <button id="pre">上一张</button>
+        <button id="next">下一张</button>
+    </div>
+</body>
+</html>
+<script>
+    var name1=["未标题-1.jpg" , "未标题-2.jpg" , "未标题-3.jpg" , "未标题-4.jpg" , "未标题-5.jpg"];
+    alert(name);
+    var index=0;
+    var zp=document.getElementById("zp");
+    var info=document.getElementById("info")
+    var next=document.getElementById("next");
+    info.innerHTML="当前第"+ (index+1) +"图片"
+    next.onclick=function(){
+        index++;
+        if(index==name1.length)
+        index=0;
+        zp.src=name1[index];
+    
+        info.innerHTML="当前第"+ (index+1) +"图片"
+    }
+    var pre=document.getElementById("pre"); 
+     pre.onclick=function(){
+            index--;
+            if(index==-1)
+            index=4;
+            zp.src=name1[index];
+         
+        info.innerHTML="当前第"+ (index+1) +"图片"
+        }
+    
+
+</script>

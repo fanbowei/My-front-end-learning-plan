@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+
+    var oldtime=Date.now()
+    setTimeout(function () {  console.log(Date.now()-oldtime)},2000)
+   
+</script>
+<!-- 
+    定时器真的是定时执行的吗?
+    定时器并不会保证真的定时执行
+    一般会延迟一点,也有可能会延迟很长
+
+    定时器回调函数是在分线程执行的吗
+    在主线程执行,js是单线程
+
+    定时器如何实现
+    后面会讲
+
+    不要再定时器后面放任务量特别大的代码
+    
+ -->

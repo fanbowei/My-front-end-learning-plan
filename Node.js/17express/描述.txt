@@ -1,0 +1,5 @@
+node.js是一个基于javascript运行的服务器语言,基于node.js的express把原先许多操作变得简单
+灵活,一系列强大特性帮助我们创建各种web应用和丰富的http工具,使用express可以快速搭建一个完整功能的完整
+
+创建模板  express name -e
+启动服务 SET DEBUG=appbook:* \& npm start

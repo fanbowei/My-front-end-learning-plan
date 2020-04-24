@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+      function iterator(){
+          let that=this
+        let index=0//标识指针起始位置
+        return {//指针对象
+            next(){//指针对象的next方法
+                console.log(this)
+                return index<that.length?{value:that[index++],done:false}:{value:that[index++],done:true};
+            }
+        }
+     }
+     let arr=[1,2,3,4,5];
+     Array.prototype[Symbol.iterator]=iterator;
+     for(let i of arr)
+     {
+         console.log(i)//底层中每次调用的都是返回的指针对象,各不相同,this指向每次返回的对象,所以在接口一开始就要缓存this使其指向调用的数组
+     }
+</script>

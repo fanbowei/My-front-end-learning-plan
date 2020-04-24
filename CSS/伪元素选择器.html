@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* 伪元素表示一些特殊并不真是的元素 */
+        /* 用：：开头 */
+        /* first-letter表示第一个子母
+        first-line表示第一行
+        selection表示选中的内容 */
+        p::first-letter{color:red;}
+        p::first-line{background-color:blue;}
+        p::selection{color:red}
+        /* before after表示元素的开头和结尾，必须结合conte
+        n（添加内容）使用 */
+        div::after{
+            content:'ccc';
+            color:red;
+        }
+        div::before{
+            content: "asdasd";
+            color:seagreen;
+        }
+    </style>
+
+</head>
+<body>
+    <p>dfklsdj<br>fljsdf</p>
+    <div>aaaaaaaa</div>
+</body>
+</html>

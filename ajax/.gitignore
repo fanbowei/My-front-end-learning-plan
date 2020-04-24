@@ -1,0 +1,26 @@
+.DS_Store
+**/node_modules
+**/dist
+/exercise
+# local env files
+/fa
+/懒加载
+.env.local
+/实用工具
+.env.*.local
+/小米商城.zip
+/性能优化
+/桌面
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+.idea
+**/.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

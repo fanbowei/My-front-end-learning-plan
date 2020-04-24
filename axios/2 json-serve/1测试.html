@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="box1">get请求</button>
+    <button id="box2">post请求</button>
+    <button id="box3">put请求</button>
+    <button id="box4">delete请求</button>
+</body>
+
+</html>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    box1.onclick=function(){
+        axios.get('http://localhost:3000/posts/?id=1') //http://localhost:3000/posts/1
+        .then(
+            (res)=>{
+               console.log(res); 
+            }
+        )
+    }
+
+
+    box2.onclick=function(){
+        axios.post('http://localhost:3000/posts',{"id":"111","title":"fbw"})
+        .then(
+            (res)=>{
+               console.log(res); 
+            }
+        )
+    }
+
+    box3.onclick=function(){
+        axios.put('http://localhost:3000/posts/11',{"tittle":'asd'})
+        .then(
+            (res)=>{
+               console.log(res); 
+            }
+        )
+    }
+
+    box4.onclick=function(){
+        axios.delete('http://localhost:3000/posts/11')
+        .then(
+            (res)=>{
+               console.log(res); 
+            }
+        )
+    }
+</script>

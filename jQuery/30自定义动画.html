@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            height: 100px;
+            width: 100px;
+            background-color: red;
+            position: absolute;
+            top:40px
+        }
+    </style>
+</head>
+<body>
+    <!-- animate（）
+    parenms  一组包含作为动画属性和终值样式属性及其值的集合
+    speed
+    function -->
+    <div></div>
+    </div>
+    <button>逐渐扩大</button>
+    <button>移动到指定位置</button>
+    <button>移动指定距离</button>
+    <button>停止动画</button>
+</body>
+</html>
+<script src="js/jquery-3.4.1.js"></script>
+<script>
+    $('button').eq(0).on('click',function(){
+        $('div').animate({
+            width:200,
+            height:200,
+        })
+    })
+
+    $('button').eq(1).on('click',function(){
+        $('div').animate({
+            left:200,
+            top:200,
+        },3000)
+    })
+    $('button').eq(2).on('click',function(){
+        $('div').animate({
+            left:'+=200',
+            top:'+=200',
+        },2000)
+    })
+    $('button').eq(3).on('click',function(){
+        $('div').stop();
+    })
+    
+    
+</script>

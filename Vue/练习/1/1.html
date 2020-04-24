@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="demo">
+        Ask a yes/no question:<input type="text" v-model="question"><br>
+        {{answer}}
+    </div>
+</body>
+</html>
+
+<script src='../../ku/vue.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js'></script>
+<script>
+    
+    new Vue({
+        el:'.demo',
+        data:{
+            question:'',
+            answer:'I cannot give you an answer until you ask a question!'
+        },
+        watch: {
+            async question(newv,oldv){
+                if(this.question=='')
+                {
+                    this.answer='I cannot give you an answer until you ask a question!'
+                    return
+                }
+                this.answer='Waiting for you to stop typing...'
+                await (()=>{
+                    return new Promise((succ,erro)=>{
+                        setTimeout(() => {
+                            succ()
+                        }, 500);
+                    })
+                })()
+                this.getanswer()
+            },
+        },
+        methods: {
+            getanswer(){
+                if(this.question.indexOf('?')==-1)
+                {
+                    this.answer = 'Questions usually contain a question mark. ;-)'
+                    return
+                }
+                let vm=this
+                axios.get('http://127.0.0.1:3000/').then((data)=>{
+                    if(data.data.indexOf(vm.question.split('?')[0])!==-1)
+                    {
+                        vm.answer='OK'
+                        
+                    }
+                    else 
+                    {
+                        vm.answer='NO'
+                        
+                    }
+                }).catch((erro)=>{
+                    console.log(erro);
+                })
+                
+            }
+        },
+    })
+
+</script>

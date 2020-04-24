@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册</title>
+</head>
+<body>
+    <h2><%=neterr%></h2>
+    <form action="http://localhost:3000/register/" method="post">
+        邮箱<input type="email" name='email'><span style='color:red'><%=errmsg.email%><br></span>
+        昵称<input type="text" name='nick_name'><span style='color:red'><%=errmsg.nick_name%><br></span> 
+        密码<input type="password" name='password'><span style='color:red'><%=errmsg.password%><br></span>
+        确认<input type="password" name='re_password'><span style='color:red'><%=errmsg.re_password%><br></span>
+        <input type="submit" value='确定'>
+    </form>
+</body>
+</html>

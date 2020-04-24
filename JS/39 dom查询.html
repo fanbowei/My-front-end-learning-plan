@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            list-style: none;
+            text-decoration: none;
+            margin: 0;
+            padding: 0;
+        }
+        .box1,.box2{
+            
+            width: 300px;
+            border: 1px solid black;
+            margin-left: 200px;
+            padding-left: 20px;
+            padding: 30px ;
+            float:left; 
+            clear: both;
+        }
+    
+        .box2{
+            clear: both;
+        }
+        .city::after,.game::after{
+            content:"";
+            display: table;
+            clear: both;
+        }
+         li{
+            float: left;
+            width: 50px;
+            line-height:50px;
+            text-align: center;
+            border: 1px solid black;
+            background-color: chartreuse;
+        }
+      .list{
+        width: 300px;
+            border: 1px solid black;
+            margin-left: 30px;
+            padding-left: 20px;
+            padding: 30px ;
+            float: left;
+      }
+    </style>
+</head>
+<body>
+ 
+    <div class="box1">
+        <span>你喜欢哪个城市?</span>
+        <ul class="city">
+            <li id="bj">北京</li>
+            <li>上海</li>
+            <li>东京</li>
+            <li>首尔</li>
+        </ul>
+
+
+        <span>你喜欢的单机游戏?</span>
+        <ul class="game">
+            <li>红警</li>
+            <li>实况</li>
+            <li>极品</li>
+            <li>魔兽</li>
+        </ul>
+    </div>
+
+    <div class="list">
+        <div ><button id="d1">查找所有bj节点</button></div>
+        <div ><button id="d2">查找所有li节点</button></div>
+        <div ><button id="d3">查找name=gender节点</button></div>
+        <div ><button id="d4">city下面所有li节点</button></div>
+        <div ><button id="d5">返回city所有的子节点</button></div>
+        <div ><button id="d6">返回bj的父节点</button></div>
+        <div ><button id="d7">返回username的value的属性值</button></div>
+        <div ><button id="d8">返回bj的文本值</button></div>
+
+    </div>
+    <div class="box2">
+        <form action="">
+            <div class="check1">
+                <span>gender:</span>
+                <input type="radio" name="gender" value="male">Male
+                <input type="radio" name="gender" value="female">Female
+            </div>
+
+            <div class="inp">
+                name:<input type="text" value="abcde" name="username">
+            </div>
+
+        </form>
+    </div>
+
+
+    
+    <script>
+// 定义一个函数用来获取指定元素
+function myclick(idstr,fun){ 
+        var d1=document.getElementById(idstr);
+            d1.onclick=fun;
+}
+        //查找bj节点
+        var d1=document.getElementById("d1");
+        d1.onclick=function(){
+            var bj=document.getElementById("bj");
+            alert(bj);
+            // innerhtml通过这个属性可以获取到元素内部的html代码,对于自结束标签没有意义
+            alert(bj.innerHTML);
+        }
+        // 查找所有li对象
+        var d2=document.getElementById("d2");
+        d2.onclick=function(){
+            var lis=document.getElementsByTagName("li")
+            // 这个方法会返回一个类数组对象，所有查询到的元素都会封装
+            // alert(lis.length);
+            // 遍历所有的li
+            for(var i=0;i<lis.length;i++)
+            alert(lis[i].innerHTML)
+        }
+        // 查找name=gender节点
+        var d3=document.getElementById("d3");
+        d3.onclick=function(){
+            var gender=document.getElementsByName("gender")
+           for(var i=0;i<gender.length;i++)
+           alert(gender[i].value);
+        //    读取标签的属性  标签.属性 但是class不行，应为class是js的保留字
+        // 使用class要使用classname
+}
+// 返回city下面所有的li节点
+        var d4=document.getElementById("d4");
+        var city=document.getElementsByClassName("city");
+        d4.onclick=function(){
+            var li=city[0].getElementsByTagName("li");
+            for(var i=0;i<li.length;i++)
+            alert(li[i].innerHTML);
+}
+// 返回city所有的子节点
+        var d5=document.getElementById("d5");
+        var city=document.getElementsByClassName("city");
+        d5.onclick=function(){
+            var li1=city[0].childNodes;
+            var li2=city[0].children;
+            // childnodes会获取包括文本（空格换行）的所有子节点
+            // children只会获取所有的字元素  元素不等于节点   p36
+            for(var i=0;i<li2.length;i++)
+            alert(li2[i].innerHTML);
+            // firstelementchild 返回第一个字元素
+
+}
+// 返回bj的所有父节点
+//         var d6=document.getElementById("d6");
+//         var bj=document.getElementById("bj");
+//         d6.onclick=function(){
+//             var parenbj=bj.parentNode;
+//             alert(parenbj.className);
+// }
+
+myclick("d6",function(){
+    var bj=document.getElementById("bj");
+     var parenbj =bj.parentNode;
+     alert(parenbj.className);
+})
+
+// innertext 可以获取元素内部的文本内容
+
+
+// 返回username的value的属性值
+        var d7=document.getElementById("d7");
+        d7.onclick=function(){
+            var username=document.getElementsByName("username");
+            var val=username[0].value;
+            alert(val);
+}
+       
+            myclick("d8",function(){
+                var bj=document.getElementById("bj");
+                // var txt=bj.innerHTML;
+                // var txt=bj.innerText
+                var txt=bj.firstChild; //获取北京的子节点然后获取节点值就是文本内容
+                alert(txt.nodeValue);
+            })
+
+        </script>
+</body>
+</html>
+<!-- 
+    parennode 获取当前节点的父节点
+    previoussibling 当前节点的前一个兄弟节点
+    nextsibling 当前节点的后一个兄弟节点
+ -->

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+//打印obj对象时候，实际上返回的时tostring的返回值
+        function person(name,age)
+        {
+            this.name=name;
+            this.age=age;
+        
+        }
+        person.prototype.toString=function(){
+            return "sss";
+        }
+        var obj=new person(1,2);
+        console.log(obj);
+        obj=null;
+
+
+
+    </script>
+
+    <!-- 垃圾回收（gc）
+         垃圾过多，程序运行过慢
+         当一个对象没有任何变量或者属性对它进行引用，我们永远无法操作该对象，它就是垃圾
+         会占用大量空间，所以会被清理
+         在js中有自动的垃圾回收机制，会自动将垃圾对象从内存中销毁，我们不能也不需要操作
+         操作：obj=null；
+        -->
+</body>
+</html>

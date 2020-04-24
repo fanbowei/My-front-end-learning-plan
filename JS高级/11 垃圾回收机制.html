@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    //作用域 全局(加载script标签就有,关闭游览器没有)
+    //局部 (函数定义的时候产生作用域 ,代码执行完销毁的执行上下文对象,但是作用域一直存在)
+
+
+    //垃圾回收机制(GC) garbage collection
+    /*
+        1.计数清除(老版本的ie 和chrome) 看内存的地址身上有几个指针指向,当一个内存地址的指针个数为0,这块内存就要马上被回收
+
+            缺点
+            var obj1={a:obj2};  两个变量互相指向对象,当obj1和obj2都为null的时候,里面还有变量指向对象,但是对象无法调用,永远无法回收
+            var obj2={a:obj1};
+
+
+        2.标记清除 进入到代码执行的环境以后检测到需要使用的变量就在其身上加上一个标记,在代码执行完以后(函数)就会在之前加标记的变量身上加上一个出场标记
+        闭包的原理就是保证不被加上出场标记
+
+    */
+</script>

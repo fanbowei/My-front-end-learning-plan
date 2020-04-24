@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+
+    function sendajax(url,method,data={}){
+        return new Promise((succ,erro)=>{
+            let xhr = new XMLHttpRequest()
+
+        xhr.onreadystatechange=function(){
+            if(xhr.readyState===4)
+            {
+                if(xhr.status<300&&xhr.status>=200)
+                {
+                    succ({
+                    data:xhr.response,
+                    status:xhr.status,
+                    statustext:xhr.statusText,
+                    })
+                }
+                else 
+                {
+                    erro(new Error('请求出错了'))
+                }
+                
+                
+            }
+           
+        }
+
+        
+        
+        
+        let datakeys=Object.keys(data)
+        datakeys=datakeys.reduce((pre,now)=>{
+            return pre.toString()+now+':'+data[now]+'&'
+        },'?')
+        
+        if(method.toLowerCase()==='get')
+        {
+            xhr.open(method,url+datakeys)
+            xhr.send()
+        }
+        else
+        {
+            
+            xhr.open(method,url)
+            //设置post特有的请求头
+            xhr.setRequestHeader('content-type','application/x-www-form-urlencoded')
+            xhr.send(datakeys);
+        }
+
+            })
+    }
+
+
+    (async ()=>{
+        let data1=await sendajax('http://127.0.0.1:3000/test_get','get',{name:1,age:2})
+        console.log(data1);
+        let data2=await sendajax('http://127.0.0.1:3000/test_post','post',{name:1,age:2})
+        console.log(data2);
+    })()
+
+   
+
+    // sendajax('http://127.0.0.1:3000/test_get','get',{name:1,age:2}).then((data)=>{
+    //     console.log(data);
+
+    //     sendajax('http://127.0.0.1:3000/test_post','post',{name:1,age:2}).then((data)=>{
+    //     console.log(data);
+    // })
+    // })
+   
+</script>

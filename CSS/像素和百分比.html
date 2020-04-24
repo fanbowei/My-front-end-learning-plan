@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+
+/* 百分比可以根据父元素的长度改变而改变 */
+        }
+        .box1{
+            width:50%;
+            height: 50%;
+            background-color: orange;
+        }
+        .box3{
+            /* em根据字体的大小来计算1em=1font-size */
+            width: 10em;
+            height: 10em;
+            background-color: orchid;
+        }
+        /* rem相当于html根字体的大小 */
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="box1"></div>
+    </div>
+    <div class="box3"></div>
+</body>
+</html>

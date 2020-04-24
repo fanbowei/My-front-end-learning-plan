@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<!-- 
+    //作用:定义匿名函数
+    
+    基本语法:
+        没有参数:()=>console.log('xxx')
+        一个参数 i=>i+2
+        大于一个参数:(i,j)=>i+j
+        函数体不用大括号:默认返回结果
+        函数体如果有多个语句,需要用{}包围,若有需要返回的内容,需要手动返回
+        使用场景:多用来定义回调函数
+    
+    特点:
+    1.简洁
+    2.箭头函数没有自己的this,箭头函数的this不是调用的时候决定的,而是在定义的时候所处在的对象(执行上下文对象)
+    3.扩展理解:箭头函数的this看外层是否有函数,如果有外层函数的this就是看内部箭头函数的this
+    如果没有,z则this指向window
+ -->
+
+ <script>
+
+
+    //  function fun(){
+    //      console.log('fun')
+    //  }
+                                    //箭头左边
+     let fun=()=>console.log('fun');//没有形参的情况下小括号不能省略,只有一个形参小括号可以省略
+     fun();
+
+     let fun1=(a)=>console.log(a);
+     fun1('fun1');
+
+    //当有多个形参小括号不能省略
+    let fun2=(a,b,c)=>console.log(a+b+c)
+    fun2('a','b','c');
+
+     (()=>console.log('fun'))();//箭头函数立即执行
+
+    //箭头右边  _>函数体
+    //当函数体只有一条语句或者表达式的是否{}可以省略,如果省略了大括号,会自动返回当前语句或者表达式的结果
+    //当函数体有多条语句{}不可以省略,当有{},返回值由return决定,需要手动设置返回值
+    console.log(((a,b,c)=>{let d=a+b+c;return d})(1,2,3))
+ </script>

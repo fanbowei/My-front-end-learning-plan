@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            height: 100px;
+            width: 100px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div class="box"></div> -->
+    <input type="text">
+    
+    <!-- 
+        键盘事件 onkeydowun 按键被按下  如果按着某键不松开会一直触发
+        当连续触发时第一次和第二次之间会卡一次，防止误操作
+
+       onkeyup 按键被松开
+        键盘事件一般绑定给可以获取焦点的对象，或者document
+     -->
+</body>
+</html>
+<script>
+    var box=document.getElementsByClassName("box")[0];
+    var input=document.getElementsByTagName("input")[0];
+    // document.onkeydown=function(event){
+    //     event=event||window.event;
+    //     //keycode可以记录按下键的unicode编码，事件对象除了keycode还提供了
+    //     // altkey ctrlkey shiftkey 这三个来判断这三个键是否被按下 按下返回true
+    //     if(event.keyCode==89&&event.ctrlKey)
+    //     alert("")
+    // }
+        
+        //     document.onkeydown=function(event){
+        //         boxstyle=getComputedStyle(box);
+        //     if(event.keyCode==65)
+        //     {box.style.left=parseInt(boxstyle.left)+10+"px";}
+        // }
+
+
+        
+        input.onkeydown=function(event){
+            if(event.keyCode>=96&&event.keyCode<=105)
+            {return false;}
+        }
+</script>

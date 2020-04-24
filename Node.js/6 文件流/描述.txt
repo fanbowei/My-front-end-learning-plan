@@ -1,0 +1,11 @@
+stream是一个抽象接口,node中有很多对象实现了这个接口,例如,对http服务器发起请求的request对象就是一个
+stream,还有stdout
+
+node.js stream有四种流
+Readable 可读操作 Writeable 可写操作 Duplex 可读写操作 Transform 操作被写入数据,然后读出来
+
+所有的stream对象都是eventemitter的实例,常用的事件有:
+data 当有数据可读是触发
+end 没有更多数据可读触发
+error 在接受和写入过程中发生错误触发
+finish 所有数据已被写入到底层系统是触发

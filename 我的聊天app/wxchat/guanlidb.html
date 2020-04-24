@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: lightblue;
+        }
+        *{
+            list-style:none;
+        }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <ul>
+            <li v-for="(item, index) in db" :key="index">
+                用户名 {{item.username}} <br> 头像地址 {{item.headering}} <button @click='deletedb(index)'>删除</button>
+            </li>
+        </ul>
+
+        <div>
+            添加用户<br>
+            用户名: <input type="text" v-model="username"><br>
+            头像地址:<input type="text" v-model="headering"> <button @click='inputdb'>添加</button> <br><br><br>
+            用户名不要重复<br><button @click='senddb'>提交</button>
+        </div>
+    </div>
+</body>
+</html>
+</script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+   
+    new Vue({
+        el:'.app',
+        data() {
+            return {
+                db:'',
+                username:'',
+                headering:'',
+            }
+        },
+        async created(){
+            db= await axios.get('http://localhost:3000/api/getuserlist')
+            this.db=db.data
+            this.db.push({
+                username:'小明',
+                headering:'http://192.168.124.3:3000/images/1.jpg'
+            })
+        },
+        methods: {
+            async deletedb(i)
+            {
+                this.db.splice(i,1)
+            },
+            inputdb(){
+                let newdb={
+                    username:this.username,
+                    headering:this.headering,
+                }
+                this.db.push(newdb)
+            },
+            async senddb(){
+                console.log(this.db);
+                let instance = axios.create({ headers: {'content-type': 'application/x-www-form-urlencoded'} });
+                db= await instance.post('http://local:3000/api/updatauserlist', JSON.stringify(this.db)).then(res => res.data).catch((err)=>{
+                    console.log(err.response);
+                });
+                console.log(db);
+                
+            }
+        },
+    })
+
+</script>

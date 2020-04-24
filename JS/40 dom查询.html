@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box1">
+        <div class="box2">asdsad
+            <div class="box3q">acccc</div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    // 获取body标签
+    // var body=document.getElementsByTagName("body")[0];
+    var body=document.body;
+    var html=document.documentElement;
+
+    // document.queryselector 可以根据选择器的字符串作为参数，根据css选择器来查询一个节点
+    // 该方法只会返回一个唯一的元素，如果多个满足，则返回第一个
+
+    // document。queryselectorall 返回所有的元素
+    var div=document.querySelector(".box2 div")
+    alert(div.innerHTML);
+</script>

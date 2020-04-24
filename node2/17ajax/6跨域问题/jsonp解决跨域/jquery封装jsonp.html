@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script src="./js/jquery-3.4.1.js">
+    /*
+    地址栏get请求:返回数据渲染在一个新的页面上
+    ajax-get请求:返回的数据返回给xhr对象
+    */
+</script>
+
+<script>
+    function dosomething(a){
+        console.log(a);
+    }
+    $.ajax('http://127.0.0.1:3000/test_get',{
+        dataType:'jsonp',
+        method:'get',
+        data:{name:1,age:2},
+        success:(data)=>{
+            console.log(data);
+        },
+        error:(data)=>{
+            console.log(data);
+        }
+    })
+</script>

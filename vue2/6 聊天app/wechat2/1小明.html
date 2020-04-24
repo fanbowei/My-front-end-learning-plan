@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script src='./js/socket.io.js'></script>
+<script>
+    //封装发送函数
+    function send(data){
+       con.emit('senduser',data)
+    }
+
+
+    
+   let con=io.connect('http://localhost:3000')  
+   con.on('connect',function(){
+       console.log('连接成功');
+   })
+   //监听新加入的用户
+   con.on('adduser',function(data){
+       console.log(data);
+   })
+
+   //监听发送过来的data
+   con.on('sendclient',(data)=>{
+        console.log(data.content);   
+   })
+   
+   
+</script>

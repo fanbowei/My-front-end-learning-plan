@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="app" v-li>
+        <input type="text" v-focus>
+    </div>
+</body>
+</html>
+
+<script src='../ku/vue.js'></script>
+
+<script>
+    Vue.directive('focus',{
+        bind(){
+            console.log('第一次指令帮定到元素上面');
+        },
+        //插入函数,在元素往父元素插入的时候调用
+        inserted(el,binding,vnode,oldvnode){
+            el.focus()
+            console.log(binding);
+            console.log(vnode);
+            console.log(oldvnode);
+        },
+        //组件更新的时候调用
+        updata(){
+
+        },
+        //组件解绑的时候调用
+        unbind(){
+
+        }
+    })
+
+
+
+    Vue.directive('li',{
+        inserted(el){
+            let str='<ul>'
+            for(let i=0;i<5;i++)
+            {
+                str+=`<li>${el.innerHTML}</li>`
+            }
+            str+='</ul>'
+            el.innerHTML+=str
+        }
+    })
+
+
+
+    new Vue({
+        el:'.app',
+        data:{
+
+        },
+    })
+</script>

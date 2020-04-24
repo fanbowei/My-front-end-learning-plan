@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<!-- 
+    1 通过class定义类/实现类的继承
+    2 在类中通过constructor定义构造方法
+    3 通过new来创造类的实例
+    4 通过extends来实现类的继承
+    5 通过super调用父类的构造方法
+    6 重写从父类继承的一般方法
+ -->
+
+ <script>
+     class peoson{
+        constructor(name,age){
+            this.name=name;
+            this.age=age
+        }
+        showmsg(){//类的一般方法定义在实例的隐式原型对象中
+            return this.name
+        }
+        //类的静态方法,给类添加方法
+        static  show=function() {
+            console.log('函数的方法')
+          }
+     };
+     let person1=new peoson('xm',11)
+     console.log(person1.showmsg())
+     peoson.show()
+ </script>

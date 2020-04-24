@@ -1,0 +1,52 @@
+creat
+
+db.集合名.insert(文档对象)
+db.集合名.insertOne(文档对象)\
+db.集合名.insertMany([文档对象,文档对象])
+
+read
+db.集合名.find(查询条件[,投影])
+举例db.students,find({age:18}) 查找所有年龄位18的所有的信息
+db.students.find({age:18,name'jack})查询所有年龄位18且名字位jack
+
+常用操作符
+<,<=,>,>=,!== 对应为$lt $lte,$gt ,$gte,$name
+举例db.students.find({age:{$lte18}})年龄时小于等于二十的
+
+逻辑或 使用 $in或 $or
+查找年龄为18或者二十的学生
+db.students.find({age:{$in:[18,20]}})
+db.students.find({$or:[{age:18},age{20}]})
+
+逻辑非 $in
+
+正则匹配
+举例 db.students.find({name:/^t/})
+
+能写函数:
+db.students.find({$where:function(){
+    return this.name==='zhangsan'&&this.age==18
+}})
+
+投影
+,{xxx:0,xxx:1} 0代表假,1代表真
+
+
+
+更新
+db.students.updata(查询条件,要更新的内容[,配置对象])
+这样更新会替换掉整个文档的对象但是id不受影响
+db.students.updata({name:'xh'},{age:19})
+
+使用$set修改指定的内容其他数据不变,不过只能匹配一个
+db.students.updata({name:'xh'},{$set:{age:19}})
+
+修改多个文档对象,匹配多个,把所有的对象都替换
+db.students.updata({name:'xh'},{$set:{age:17},{multi:true}})
+
+db.students.updataOne
+db.students.updataMany
+
+db.students.remove(查询条件)
+删除所有年龄小于等于19的学生
+db.students.remove({age:{$lte:19}})

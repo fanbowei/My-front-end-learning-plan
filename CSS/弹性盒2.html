@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .box{
+        width: 800px;
+
+
+        /* aline -self:用来覆盖当前弹性元素上的aling-items */
+        /* align-items 设置元素再辅轴上如何对齐
+        stretch:将同一行的元素的长度设置相同
+        flex-start 元素不会拉伸,沿着元素辅轴的起边对齐(flex-end  center)
+        base-line 沿着文字的基线对齐 */
+        height: 300px;
+        border:10px solid red;
+        display: flex;
+        margin: 100px auto;
+        
+        /* flex-flow 同时设置wrap和direction */
+
+
+        /* align -content 辅轴上的空白如何对齐 */
+        /* justify-content 如何分配主轴的空白空间可选值: */
+        /* flex-start 元素沿着主轴的起边排列
+            flex-end 元素沿着主轴的终边排列 
+            center 元素居中排列
+            space-around空白分配到每个元素的两侧
+            space-evenly空配分配到元素的单侧
+            space-between空配分配到元素的中间*/
+    }
+    .box div{
+       
+        width: 100px;
+        flex-shrink: 0;
+
+    }
+/* flex-wrap设置弹性元素是否再弹性容器中自动换行 
+    默认值:nowrap不会自动换行
+        wrap自动换行(沿着辅轴方向自动换行)
+        wrap-reverse 沿着辅轴的反方向换*/
+    .box1{
+        background-color:yellow;
+    }
+    .box2{
+        background-color:violet;
+    }
+    .box3{
+        background-color: turquoise;
+    }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <div class="box3"></div>
+    </div>
+</body>
+</html>
+

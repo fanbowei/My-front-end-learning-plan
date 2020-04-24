@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- [属性名]选择含有指定属性的元素 -->
+    <!-- [属性名=属性值]选择含有指定属性和属性值的元素 -->
+    <!-- [属性名^=属性值]选择以属性值开头的元素 -->
+    <!-- [属性名$=属性值]选择以属性值结尾的元素 -->
+    <!-- [属性名*=属性值]选择以属性值中有特值的的元素 -->
+    <style>
+        p[title]{color:red;}
+        p[title=aaa]{color:blue;}
+        p[title^=aa]{color:snow;}
+        p[title$=c]{color:slateblue;}
+        p[title*=a]{color:black;}
+    </style>
+
+</head>
+<body>
+    <p title="aaa">aaaaaaaaaaaaaa</p>
+    <p title="abc">aaaaaaaaaaaaaa</p>
+    <p title="aadc">aaaaaaaaaaaaaa</p>
+    <p>aaaaaaaaaaaaaa</p>
+    <p>aaaaaaaaaaaaaa</p>
+</body>
+</html>

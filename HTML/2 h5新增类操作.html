@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div data-fbw='fbw'>asd</div>
+    <button>anniu</button>
+    <!-- h5新增加了classlist 里面保存着属性的class值，可以调用add remove toggle 来增删改查class -->
+</body>
+</html>
+<script>
+    var div=document.getElementsByTagName('div')[0];
+    var b=document.getElementsByTagName("button")[0]
+    b.onclick=function(){
+   div.classList.toggle("box")
+    }
+    div.dataset.fbw="123"//自定义属性无法通过property来设置但是js中设置了一个data集合，只要自定义属性前面加上data-就可以激活data集合
+    //如果标签中有 aa-aa 则在js中要换成驼峰命名aaAa
+   
+    
+</script>

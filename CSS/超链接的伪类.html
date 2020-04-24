@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* link表示正常的链接（没访问过的链接） */
+        /* visited表示访问过的链接
+        只能实用于a，别的元素不能使用，别的元素不涉及是否访问过 */
+        a:link{color:red;} 
+        /* 由于隐私的问题，在visited的里面font-size并不能改，只能改颜色 */
+        a:visited{color:blue;}
+        /* hover表示鼠标移入的状态 */
+        a.red:hover{color:greenyellow;}
+        /* active用来表示鼠标点解 */
+        a:active{color:palegreen;}
+    </style>
+
+</head>
+<body>
+    <a class="red" href="https://baidu.com" target="black">baidu</a><br>
+    <a href="https://hao123.com">baidu</a><br>
+    <a href="https://baidu123.com">baidu</a>
+</body>
+</html>

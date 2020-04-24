@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<!-- 默认情况下cookie生命周期是一次会话 expires可以设置周期
+如果cookie设置了过期时间没有过期,那么下次打开游览器还是存在的
+cookie不能一次性设置多条
+cookie只有20-50个左右,大小为kkb左右
+cookie 只能在同一个浏览器的同一个路径下访问
+默认情况下下一级的路径也可以访问cookie
+如果想让上一级路径也访问,就需要将cookie保存到根路径下
+document.cookie="name=za;path=/;"
+如果需要在不同的域名下也能访问就绪要添加domain=127.0.0.1-->
+<script>
+   document.cookie='age:18;expires='+date.toGMTString()+';';
+   alert(document.cookie)
+    
+    
+
+</script>

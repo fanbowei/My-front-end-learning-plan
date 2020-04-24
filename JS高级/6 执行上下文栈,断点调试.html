@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        代码分类 全局代码 函数代码
+
+        全局执行上下文
+        在执行全局代码之前将window确定为全局执行上下文
+        对全局数据进行预处理
+        var 定义的全局变量=>undefind 添加为window属性
+        funcion声明的全局函数=>赋值,添加为window this一样
+
+        函数执行上下文
+        在调用函数,准备执行函数体之前,创建对应的函数执行上下文对象
+        对局部数据进行预处理
+        形参变量=>赋值(实参)=>添加为执行上下文的属性
+        arguments=>赋值(实参列表),添加为执行上下文属性
+        var 定义的局部变量=>undefind ,添加为执行上下文属性
+        function声明的函数=>赋值为fun,添加为上下文的方法
+        this=>赋值(调用函数的对象)
+        开始执行函数
+     -->
+</body>
+</html>
+<script>
+    //变量提升
+    //js引擎在js代码正式执行前会做一些预处理 寻找var 和funciont关键字
+    //找到var 以后将var后边的变量提前声明但是不赋值
+    //找到function后定义函数
+    console.log(a);//结果undefind
+    var a=10;
+    //断点 debugger 或者控制台(推荐控制台)
+
+
+
+    //
+    //执行上下文(执行上下文环境)
+    //创建空对象(执行上下文对象)
+    //该空对象用于收集变量,函数,函数的参数(变量提升)
+    //创建作用域链
+    //确认this的指向
+
+
+    //执行上下文栈
+    //在全局执行上下文(window)确定后,将其添加到栈中
+    //在函数执行上下文创建后,将其添加到栈中
+    //在当前函数执行完之后,将其栈顶对象移除
+    //在所有代码执行完之后,栈中只有window
+
+</script>

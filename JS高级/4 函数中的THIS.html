@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>    
+//this 是一个关键字 一个内置的引用变量
+//this 代表当前函数调用的对象 再定义函数时没有确认.只有在执行函数时候才会动态确认
+console.log(this)//当前this指向全局window 局部this指向调用的对象 构造函数中指向实例
+//call和aplly可以修改this的指向
+
+function a() {
+    this.i=1;
+  }
+  var fun1=new a();
+  //new执行的操作 1创建一个空对象 2执行函数 3确认this的指向 4,返回执行的结果
+  
+
+  function aaa() {
+    console.log(this)
+    }
+    aaa();
+    //this指向window 因为 aaa()=window.aaa()
+</script>

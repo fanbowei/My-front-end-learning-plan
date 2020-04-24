@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 对象的分类
+        1 内建对象
+            es标准中定制的对象，可以在任何es中使用
+        2 宿主对象（游览器对象） 由js的运行环境提供的对象
+        3 自定义对象
+            自己创建的对象 -->
+
+            <!-- 使用new关键字调用函数  -->
+            <script>
+                var obj=new Object();
+                obj.name=12;
+                obj.name="11"
+                // delete obj.name;
+                console.log(obj.name);
+                console.log("name" in obj)
+            </script>
+
+            <!-- 在对象中保存的值叫属性
+                向对象中添加属性 语法： 对象.属性名=属性值 -->
+                <!-- 删除对象属性 语法：delete 对象。属性 -->
+
+                <!-- 对象的属性名不强制要求遵守标识符规范
+                如果需要特殊的属性名要特殊的方式
+            语法： 对象["属性名"]=属性值 
+                【】可以直接传递一个变量，会变量值对应的属性-->
+
+
+                <!-- js对象的属性值可以是任意的数据类型 -->
+                <!-- in运算符 通过该运算符可以检查一个对象中是否含有指定的属性 -->
+</body>
+</html>

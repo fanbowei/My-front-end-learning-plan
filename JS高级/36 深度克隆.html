@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<!-- 
+    深度克隆
+    1 数据分为基本(string number boolean undefind null)和对象数据类型
+
+    基本数据类型的特点:存储的时该对象的实际数据
+
+    对象数据类型的特点:存储的是该对象在栈中的引用,真实数据存放在堆中
+
+    2复制数据
+    基本数据类型存放的就是实际的数据,可以直接复制
+
+    克隆数据:对象 数组
+        1 区别:浅拷贝/深度拷贝
+        判断:拷贝是否产生了新的数据还是拷贝的是数据的引用
+        知识点:对象数据直接存放的是栈中的引用,直接复制是对象的引用
+
+        2常用的拷贝技术
+        arr.concat()数据浅拷贝
+        arr.slice()数据浅拷贝
+
+        JSON.parse(JSON.stringify(arr/obj)):数组或对象深拷贝,但不能处理函数数据
+        
+
+ -->
+
+
+ <script>
+     let obj={'name':'xm',obj2:{'name':'xn'}};//浅拷贝相当于遍历数组赋值
+     let arr=[1,2,3,4,5,{'name':'xn'}];
+     let arr1=arr.concat();
+     arr1[5].name='rrr'
+     console.log(arr)
+
+    let obj2={}
+     Object.assign(obj2,obj)//得出结论依然浅拷贝
+     obj2['obj2']['name']='aaa'
+     console.log(obj)
+
+
+     console.log('--------------------------------------------------')
+     //实现深度克隆
+     function cloneit(target) {
+         let obj;
+         if(target instanceof Array)
+         {
+             obj=[];
+
+         }
+          if(target instanceof Object)
+         {
+         
+             obj={};
+            
+         }
+         if(!(target instanceof Object||target instanceof Array)){
+             return target;
+         }
+
+         for(let i in target)
+         {
+            
+             if(target[i] instanceof Object||target[i] instanceof Array)
+             {
+          
+                 obj[i]=cloneit(target[i])
+                
+             }
+             else{
+                obj[i]=target[i]
+             }
+         }
+         return obj;
+       }
+
+       let obj4={'name':'xm',obj5:{'name':'xh',obj7:{name:'xl'}}}
+       let obj6=cloneit(obj4)
+       obj6.obj5.name='ccc'
+       obj6.obj5.obj7.name='cccc'
+       console.log(obj4)
+       console.log(obj6)
+ </script>

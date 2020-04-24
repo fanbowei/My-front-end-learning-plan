@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        ejs常用的三种语法
+        < %xxx% > xxx可以替换任何的js代码,不会输出任何内容给游览器
+
+        < %-xxxx% > xxx可以替换任意的js变量 能识别html标签
+        < %=xxxx% > xxx可以替换任意的js变量 不能识别html标签
+     -->
+     <div>
+         <%
+         for(var i=0;i<data.length; i++)
+         {%>
+        <ul>
+            <li><%=data[i].name%></li>
+            <li><%=data[i].age%></li>
+        </ul>
+
+         <%}%>
+         
+     </div>
+</body>
+</html>

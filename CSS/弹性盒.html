@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+<style>
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+ul{
+    width: 800px;
+    border: 1px solid red;
+    display: flex;
+    flex-direction: row;
+    /* flex-direction用来指定弹性元素的排列方式 可选值:
+    row :默认值(水平排列 左到右) row-revers 反向的
+    clown 纵向排列(上到下) clown-reverse 反向的*/
+    /* 主轴:弹性元素的排列方式称为主轴
+        侧轴:与主轴方向垂直的为侧轴 */
+}
+li{
+    text-align: center;
+    font-size: 30px;
+    line-height: 100px;
+    flex-grow: 1;
+}
+/* 弹性元素的属性
+    flex-grow:用来指定弹性元素的伸展系数 */
+    /* 父元素的剩余空间会按照剩余元素的比例进行分配 */
+    /* flex-shrink 当父元素中的空间不足以容纳所有的子元素,则对子元素进行收索 */
+li:nth-child(1){
+    width: 100px;
+    height: 100px;
+    background-color: khaki;
+    
+}
+li:nth-child(2){
+    width: 100px;
+    height: 100px;
+    background-color:lawngreen;
+}
+li:nth-child(3){
+    width: 100px;
+    height: 100px;
+    background-color:lightpink;
+}
+</style>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <!-- flex弹性盒
+        是css的另一种布局手段,它主要用来代替浮动完成页面的布局
+        flex可以使元素具有弹性 让元素跟页面的大小改而改变 
+        弹性容器:要使用伸缩盒,必须要将元素设置为弹性容器
+        display:flex   inline-flex
+        -->
+        <!-- 弹性元素:弹性容器的直接子(后代不是)元素使弹性元素 -->
+</body>
+</html>

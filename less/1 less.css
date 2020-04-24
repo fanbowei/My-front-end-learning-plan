@@ -1,0 +1,21 @@
+/*
+使用@来声明一个变量
+作为普通值来使用。直接使用@变量
+作为选择器和属性名 .@{值}
+作为url @{url}
+变量是在所有的样式加载完成后才会加载
+*/
+.outer {
+  width: 100px;
+}
+.innerr {
+  height: 100px;
+}
+.dd,
+.ddd {
+  padding: calc(100px+100);
+}
+.ddd {
+  width: 100px;
+}
+/*# sourceMappingURL=./1 less.css.map */

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        $.each()遍历数组或者对象中的数据
+        $.trim()去除字符串两边的空格
+        $.type(obj)得到数据的类型
+        $.siarray(obj)判断是否是数组
+        $.isfunciton(obj)判断是否是函数
+        $.parseJson(json)解析json字符串转换成js对象/数组
+     -->
+</body>
+</html>
+<script src="js/jquery-3.4.1.js"></script>
+<script>
+    var jss='{"name":"tom","age":18}'
+    var b=$.parseJSON(jss);
+    alert(b);
+</script>

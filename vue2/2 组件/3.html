@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="app">
+        <ul>
+            <!-- 根组件传值到副组件 -->
+            <pro-com v-for="(item, index) in prolist" @proname='changename' :produ='item' :methodname='changename'></pro-com>
+        </ul>
+        <h1>最终选择的产品是:{{prolistname}}</h1>
+    </div>
+</body>
+</html>
+<script src='../ku/vue.js'></script>
+<script>
+    let com=Vue.component('pro-com',{
+        props:['produ','methodname'],
+        template:`<li>
+                <h3>产品名称:{{produ.title}}</h3>
+                <h4>产品描述:{{produ.brief}}</h4>
+                <p>产品价格:{{produ.price}}</p>
+                <button @click='methodname(produ.title)'>click</button>
+                  </li>`,
+        data(){
+            return{
+
+            }
+        },
+        methods: {
+            
+          
+        },
+    })
+
+
+    let app=new Vue({
+        el:'.app',
+        data:
+        {
+            prolist:
+            [
+                {title:'产品1',price:'50',brief:'asd'},
+                {title:'产品2',price:'10',brief:'asd'},
+                {title:'产品3',price:'30',brief:'asd'},
+                
+            ],
+            prolistname:''
+        },
+        methods:{
+            changename(data){
+                this.prolistname=data
+                //传入子组件this不会改变
+            }
+        }
+
+    })
+</script>

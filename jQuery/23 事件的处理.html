@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .outer{
+            height: 200px;
+            width: 200px;
+            background-color: blue;
+            position: relative;
+        }
+        .inner{
+            height: 100px;
+            width: 100px;
+            background-color: red;
+            position: absolute;
+            top:50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner"></div>
+    </div>
+    <button>取消绑定所有事件</button>
+    <button>取消绑定mouseover事件</button>
+    <button>测量事件坐标</button>
+    <a href="http://baidu.com" class="a">百度一些</a>
+</body>
+</html>
+<script src="js/jquery-3.4.1.js"></script>
+<script>
+    // $('.outer').click(function(e){
+    //     alert("")
+    // })
+
+    $('.outer').on('click',function(){
+        alert("2");
+    })
+
+
+
+
+
+
+    // $('.inner').mouseenter(function(){
+    //     alert("")
+    // })
+    // .mouseleave(function(){
+    //     alert("")
+    // })
+
+    // $('.inner').on('mouseenter',function(){
+    //     alert("")
+    // })
+    // .on('mouseleave',function(){
+    //     alert("")
+    // })
+
+    $('.inner').hover(function(){alert("")},function(){alert("")})
+        //hover模仿css鼠标悬停，有两个函数参数，表示进入和离开（等于mouseenter+mouseleave）
+     
+
+
+
+
+        //.off()解除所有的事件的监听,
+        $('button').first().click(function(){
+            $('.inner').off();
+        })
+        //.off(),带上参数名，解除指定的事件监听
+        $('button').eq(1).click(function(){
+            $('.inner').off("mouseenter")
+        })
+
+
+//event.clientX Y相对于视口左上角的位置
+//event.pageX Y相对于页面左上角的位置
+//event.offsetX Y相对于事件元素的左上角
+        $('button').eq(2).click(function(e){
+            console.log(e.clientX,e.clientY)
+        })
+
+
+        //event.stoppropagetion 阻止事件的冒泡 
+        //event.preventDefault  阻止事件的默认行为
+
+        $('.inner').on('click',function(e){
+            alert("1");
+            e.stopPropagation();
+        })
+
+
+        $('.a').click(function(e){
+            if(Date.now()%2==0)
+            {
+                e.preventDefault();
+            }
+        })
+</script>

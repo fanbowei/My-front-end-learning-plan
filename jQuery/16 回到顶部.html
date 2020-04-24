@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 2000px;
+        }
+        div{
+            position: fixed;
+            height: 50px;
+            width: 50px;
+            background-color: red;
+            top: 800px;
+            left: 1700px;
+            cursor: pointer;
+        
+            
+
+
+        }
+    </style>
+</head>
+<body>
+    
+    <div onselectstart="return false" >
+回到顶部
+    </div>
+</body>
+</html>
+<script src="js/jquery-3.4.1.js"></script>
+<script>
+    var time
+    $('div').click(function(){
+        var num=$('body,html').scrollTop();
+        time= setInterval(function(){
+
+            if(num<=30)
+            {
+                num=0;
+                $('body,html').scrollTop(num);
+                clearInterval(time);
+
+            }
+            else
+            {
+                $('body,html').scrollTop(num-=30);
+            }
+           
+               
+        },10.7) 
+    })
+
+    
+</script>

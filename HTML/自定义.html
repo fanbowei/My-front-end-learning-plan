@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../fa/css/all.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            list-style: none;
+            text-decoration: none;
+        }
+        body,html{
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+        .warp{
+            height: 100%;
+            width: 100%;
+            background-color: #383838;
+            min-width: 400px;
+        }
+        video{
+            vertical-align: bottom;
+        }
+        .control{
+            position: absolute;
+            height: 25px;
+            background-color: #2a2a2a;
+        }
+        
+        .btn{
+            float: left;
+            position: absolute;
+           width: 55px;
+           height: 25px;
+           background-color: #383838;
+        }
+        .others{
+            display: flex;
+            position: absolute;
+            float: right;
+            width: 230px;
+            height: 25px;
+            right: 0;
+            bottom: 0;
+            background-color: #383838;
+            justify-content: space-between;
+        }
+        .progress{
+            width: auto;
+            position: absolute;
+            height: 25px;
+            left: 0;
+            right: 0;
+            margin: 0 230px 0 55px;
+            background-color: b#383838;
+        }
+        .wrap{
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            margin:auto 0;
+            left: 0;
+            width: 100%;
+            background-color: #737373;
+            height: 3px;
+           
+        }
+         .inner{
+            height:7px ;
+            width: 9px;
+            background-color: white;
+            border-radius: 2px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            margin: auto 0;
+        }
+        .btn span{
+            display: inline-block;
+            height: 11px;
+            width: 9px;
+            background-color: white;
+            margin-left: 9px;
+        }
+        .others .time span{
+            line-height: 25px;
+            font-size: 12px;
+            color: white;
+        }
+        .others .time{
+            width: 120px;
+        }
+        .others .switch{
+            margin-right: 7px;
+            width: 9px;
+            height: 11px;
+            margin-top: 7px;
+            background-color: white;
+        }
+        .wrap0{
+            width: 80px;
+            height: 25px;
+            background-color: #383838;
+            position: static;
+        }
+        .progress1{
+            width: 80px;
+            padding: 0;
+            margin:0;
+            left:124px;
+            top: 0;
+            
+            
+        }
+        .wrap{
+            height: 3px;
+        }
+        .inner1{
+            position: absolute;
+
+        }
+        .fullscreen{
+            width: 25px;
+            height: 25px;
+            background-color: white;
+        }
+
+    </style>
+
+    <script>
+        window,onload=function(){
+          
+            var video=document.getElementsByTagName('video')[0];
+            var control=document.getElementsByClassName('control')[0];
+            var progress=document.querySelector('.progress');
+            var inner=document.querySelector('.progress .wrap .inner');
+            video.width=document.documentElement.clientWidth;
+            video.height=document.documentElement.clientHeight-control.offsetHeight;
+
+            window.onresize=function(){
+                var progressStyle=getComputedStyle(progress,null)
+                video.width=document.documentElement.clientWidth;
+                video.height=document.documentElement.clientHeight-control.offsetHeight;
+                inner.style.left=wrap4.style.width=video.currentTime/video.duration*parseInt(progressStyle.width)-9+'px';
+                
+            }
+
+
+            //拖拽
+           
+            
+            inner.onmousedown=function(){
+                //获取定位父元素的宽度
+                var progressStyle=getComputedStyle(progress,null)
+              document.onmousemove=function(e){
+                inner.style.left=parseInt(e.clientX)-55+"px"
+                if(parseInt(inner.style.left)<=0)
+                inner.style.left=0
+                if(parseInt(inner.style.left)>=parseInt(progressStyle.width)-9)
+                inner.style.left=parseInt(progressStyle.width)-9+'px'
+              }
+              document.onmouseup=function(){
+                 document.onmousedown=null;
+                 document.onmousemove=null;
+              }
+
+            return false;
+            }
+
+            var progress1=document.querySelector('.progress1')
+            var inner1=document.querySelector('.inner1');
+            inner1.onmousedown=function(e){
+                //获取定位父元素的宽度
+                var progressStyle1=getComputedStyle(progress1,null)
+                //获取鼠标当前水平位置,获取进度条当前位置
+                var preboxstyle=getComputedStyle(inner1,null);
+                var prebox=parseInt(preboxstyle.left);
+                var prepoint=parseInt(e.clientX)
+              document.onmousemove=function(e){
+                //   获取现在鼠标位置
+                var nowpoint=parseInt(e.clientX);
+                inner1.style.left=wrap3.style.width=prebox+nowpoint-prepoint+"px"
+                video.volume=parseInt(inner1.style.left)/parseInt(progressStyle1.width)*1
+
+                if(parseInt(inner1.style.left)<=0)
+              {
+                inner1.style.left=wrap3.style.width=0          
+                 document.onmousedown=null;
+                 document.onmousemove=null;
+              
+              }
+                if(parseInt(inner1.style.left)>=parseInt(progressStyle1.width)-9)
+                {
+                    inner1.style.left=wrap3.style.width=parseInt(progressStyle1.width)-9+'px'
+                    document.onmousedown=null;
+                 document.onmousemove=null;
+                }
+              }
+              document.onmouseup=function(){
+                 document.onmousedown=null;
+                 document.onmousemove=null;
+              }
+
+            return false;
+            }
+        
+
+        //设置按钮的点击事件
+        var wrap3=document.querySelector('.wrap3')
+        var progressStyle1=getComputedStyle(progress1,null);
+        inner1.style.left=wrap3.style.width=parseInt(progressStyle1.width)-9+'px'
+        var start=document.querySelector('.start');
+        var stop=document.querySelector('.stop');
+        var music=document.querySelector('.switch')
+        var full=document.querySelector('.fullscreen')
+        var wrap4=document.querySelector('.wrap4')
+            //暂停播放
+        start.onclick=function(){          
+            if(video.paused)
+            {
+                video.play();            
+            }
+            else
+            {
+                video.pause();    
+            }          
+        }
+        //设置重新播放
+        stop.onclick=function(){
+            video.load();
+        }
+        
+        //设置进度条
+        wrap4.style.width=0+'px'
+        video.ontimeupdate=function(){
+            var progressStyle=getComputedStyle(progress,null)
+            inner.style.left=wrap4.style.width=video.currentTime/video.duration*parseInt(progressStyle.width)-9+'px';
+            if(parseInt(inner.style.left)<=0)
+            wrap4.style.width=0+'px'
+
+            //得到当前的视频时间和总时间
+            var nowtime=video.currentTime;
+            var Time=video.duration;
+            nh=Math.floor(nowtime/3600);
+            if(nh<10)
+            {
+                nh='0'+nh
+            }
+            nm=Math.floor(nowtime%3600/60)
+            if(nm<10)
+            {
+                nm="0"+nm
+            }
+            ns=Math.floor(nowtime%3600%60)
+            if(ns<10)
+            {
+                ns='0'+ns
+            }
+
+                //总时间
+            Ph=Math.floor(Time/3600);
+            if(Ph<10)
+            {
+                Ph='0'+Ph
+            }
+            Pm=Math.floor(Time%3600/60)
+            if(Pm<10)
+            {
+                Pm="0"+Pm
+            }
+            Ps=Math.floor(Time%3600%60)
+            if(Ps<10)
+            {
+                Ps='0'+Ps
+            }
+            console.log(Ps)
+            time2.textContent="/"+Ph+":"+Pm+':'+Ps
+            time1.textContent=+nh+":"+nm+':'+ns
+            
+
+        }
+
+
+         //设置进度条点击事件
+         progress.addEventListener('click',function(e){
+            var progressStyle=getComputedStyle(progress,null);
+            var nowpointleft=parseInt(e.clientX)-55-9;
+            //设置当前播放时间
+            video.currentTime=nowpointleft/parseInt(progressStyle.width)*video.duration
+        },false)
+
+
+        //设置静音按钮
+        music.onclick=function(){
+           if(video.muted)
+           {
+            inner1.style.left=wrap3.style.width=parseInt(progressStyle1.width)-9+'px'
+            video.muted=!video.muted
+           }
+           else{
+            inner1.style.left=wrap3.style.width=0 
+            video.muted=!video.muted
+           }
+        }
+
+        //设置音量大小
+        progress1.onclick=function(e){
+            var progressStyle1=getComputedStyle(progress1,null)
+
+            video.volume=(parseInt(e.clientX)-parseInt(getOffsetLeft(progress1)))/parseInt(progressStyle1.width)
+            inner1.style.left=wrap3.style.width=(parseInt(e.clientX)-parseInt(getOffsetLeft(progress1)))+'px'
+            if(parseInt(inner1.style.left)<=0)
+              {
+                inner1.style.left=wrap3.style.width=0                   
+              }
+                if(parseInt(inner1.style.left)>=parseInt(progressStyle1.width)-9)
+                {
+                    inner1.style.left=wrap3.style.width=parseInt(progressStyle1.width)-9+'px'
+                }
+              
+
+            // console.log(parseInt(e.clientX))
+            // console.log(parseInt(getOffsetLeft(progress1)))
+            // console.log(parseInt(parseInt(progressStyle1.width)))
+           
+        }
+
+        //设置时间
+        var time1=document.getElementsByClassName('time1')[0];
+        var time2=document.querySelector('.time2');
+
+
+        var getOffsetLeft = function(obj){
+              var tmp = obj.offsetLeft;
+              var node= obj.offsetParent;
+              while(node!= null){
+              tmp += node.offsetLeft;
+                node= node.offsetParent;
+               }
+            return tmp;
+            }
+
+//设置点击全屏
+           
+            full.status=false; 
+        full.onclick=function(){
+            //调用全屏的api
+            if(!full.status)
+            {
+                full.status=!full.status
+                var docElm = document.documentElement;  
+        //W3C   
+        if (docElm.requestFullscreen) {  
+            docElm.requestFullscreen();  
+        }  
+            //FireFox   
+        else if (docElm.mozRequestFullScreen) {  
+            docElm.mozRequestFullScreen();  
+        }  
+            //Chrome等   
+        else if (docElm.webkitRequestFullScreen) {  
+            docElm.webkitRequestFullScreen();  
+        }  
+            //IE11   
+        else if (elem.msRequestFullscreen) {  
+            elem.msRequestFullscreen();  
+        }  
+
+            }
+            else
+            {
+                full.status=!full.status
+                if (document.exitFullscreen) {  
+            document.exitFullscreen();  
+        }  
+        else if (document.mozCancelFullScreen) {  
+            document.mozCancelFullScreen();  
+        }  
+        else if (document.webkitCancelFullScreen) {  
+            document.webkitCancelFullScreen();  
+        }  
+        else if (document.msExitFullscreen) {  
+            document.msExitFullscreen();  
+        }  
+
+            }
+        }
+        }
+       
+    </script>
+</head>
+<body>
+    <div class="warp">
+        <video src="xiaoban.mp4"></video>
+        <div class="control" style="min-width: 400px;">
+            <div class="btn"> <!--左边的按钮 -->
+                <span class="start"></span><!--开始按钮 -->
+                <span class="stop"></span><!--停止按钮 -->
+            </div>
+
+
+            <div class="progress"><!--中间的进度条 -->
+
+                <div class="wrap"><!--进度条的外部灰色容器 -->
+                    <div class="inner"></div><!--小方块 -->       
+                    <div class="wrap4" style="background-color: red;height: 3px;"></div> <!--进度条内部小方块走过的地方容器 -->
+                </div>
+            </div>
+
+
+            <div class="others"><!--右边的按钮 -->
+
+                <div class="time"><!--显示时间 -->
+                    <span class="time1">00:00:00</span><span class="time2">/00:00:00</span>
+                </div>
+
+                <div class="switch"><!--音量 -->
+                    <span></span>
+                </div>
+
+                <div class="wrap0 wrap"><!--音量的进度条 -->
+                    <div class="progress1 progress"><!--中间的进度条 -->
+                        <div class="wrap1 wrap"><!--进度条的外部灰色容器 -->
+                            <div class="inner inner1"></div><!--小方块 -->
+                            <div class="wrap2 wrap3" style="background-color: red;height: 3px;"></div>    <!--进度条内部小方块走过的地方容器 -->    
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fullscreen"><!-- 全屏按钮-->
+                    <span></span>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</body>
+</html>

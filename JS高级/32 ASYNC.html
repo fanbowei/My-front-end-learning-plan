@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<!-- 
+    async
+    概念:真正意义上去解决异步回调问题,同步流程表达异步操作
+    本质: generator的语法糖(改进升级,更好用)
+    语法: 
+    async function foo(){
+        await 异步操作;
+        await 异步操作;
+    }
+
+    特点:
+    1不需要像generator去调用next方法,遇到await等待,当前的异步操作完成就往下执行
+    2返回的总是primise的对象,可以用then方法进行下一步操作
+    3async汽车带generator函数的*,await取代generatoe的yield
+    4语义上更加的明确,使用简单
+ -->
+
+ <script>
+     function promise(){
+         return new Promise((succ,erro)=>{
+            setTimeout(() => {
+                console.log('异步任务执行完成')
+                let date='服务器发送的数据'
+                succ(date);//修改状态的同时可以发出数据
+            }, 2000);
+         })
+     }
+
+     async function fun() {
+         console.log('函数开始执行');
+         let date=await promise();
+         console.log(date)
+         console.log('函数据徐执行')
+       };
+       fun()
+ </script>

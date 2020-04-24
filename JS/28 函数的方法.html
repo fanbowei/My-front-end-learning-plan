@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var a=2;
+        function fun(){
+            var a=1;
+            alert(this.a);
+            alert(arguments[0]);
+        }
+        fun("a",1);
+        
+    </script>
+    <!-- 函数的对象 
+    call（）可以将一个对象指定为第一个参数，此时this会指向指定的对象，形参可以在后面依次传递
+    apply（）需要将形参封装到一个数组中-->
+
+    <!-- 在调用函数时，浏览器会每次传递两个隐含参数
+        1 this
+        2 arguments 封装实参的对象
+        arguments是一个类数组，也可以通过索引来操作数据。length为实参的个数
+        即使不定义形参，也可以通过arguments来调用实参
+        callee对应一个函数对象，就是指向的函数对象-->
+</body>
+</html>

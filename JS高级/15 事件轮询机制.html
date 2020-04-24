@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    
+</script>
+<!-- 
+    1 如何证明js执行是单线程的
+    settimeout()的回调函数是在主线程执行的
+    定时器的回调函数只有在运行栈中的代码全部执行完后才有可能执行
+
+    2 为什么js要用单线程,而不用多线程?
+    Javascript作为游览器的脚本语言,Java script的主要用途是与用户互动,以及操作dom
+    则决定了它只能是单线程,不然会有很复杂的同步问题
+
+    3 代码的分类
+    初始化代码
+    回调代码
+
+    4 js引擎执行代码的基本流程
+    先执行初始化代码:包含一些特别的代码
+    设置定时器
+    绑定监听
+    发送ajax请求
+    后面的某个时刻才会执行回调函数
+
+    单线程的特点:
+    代码从上到下依次执行
+    同步任务可能会导致阻塞
+
+    同步的代表 alert() console.log() 赋值语句
+    异步的代表  定时器 事件的回调
+
+
+    
+ -->

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="body">
+        {{myname}}
+        <input type="text" name="" id="" v-model="myname2">
+    </div>
+</body>
+</html>
+
+<script src='../ku/vue.js'></script>
+<script>
+    let vm=new Vue({
+      el:'.body',
+      data:{
+          firstname:'a',
+          lastname:'s',     
+      } ,
+      computed: {
+          myname:{
+            get(){
+                return this.firstname+this.lastname;
+            },
+            set(){
+                console.log('---------')
+            }
+          },
+          myname2:{
+            get(){
+                return this.firstname+this.lastname;
+            },
+            set(){
+                console.log('---------')
+            }
+          }
+      },
+    })
+
+    if({})
+    console.log('true');
+</script>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<!-- 
+    从对象或数组中提取数据,并赋值给变量
+    对象的解构赋值
+    let {n,a}={n:tom,a:12};
+    数组的解构赋值
+    let [a,b]=[1,'aa']
+ -->
+
+ <script>
+     let obj={'username':'ad',age:12};
+     let {age}=obj
+     console.log(age)
+
+     let arr=[1,2,3,4,5,6,7,8]
+     let[a,b,c,d]=arr//a,b,c,d代表0,1,2,3
+     console.log(a,b,c,d)
+
+     function fun({username,age}) {
+        console.log(username,age)
+       }
+       fun(obj)
+ </script>

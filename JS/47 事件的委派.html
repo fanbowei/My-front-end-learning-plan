@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            list-style: none;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <button >点我以下</button>
+    <ul class="u1">
+        <li><a href="javascript:;" class="a">lianjie1</a></li>
+        <li><a href="javascript:;" class="a">lianjie2</a></li>
+        <li><a href="javascript:;" class="a">lianjie3</a></li>
+    </ul>
+</body>
+</html>
+<script>
+    var arra=document.getElementsByClassName("a");
+    var btn=document.getElementsByTagName("button")[0];
+    // for(var i=0;i<arra.length;i++)
+    // {
+    //     arra[i].onclick=function(){
+    //         alert("woshia");
+    //     }
+    // }
+
+
+     arra[0].parentNode.parentNode.onclick=function(){
+        // 如果触发的元素是期望的元素就执行，否则不执行 target可以返回触发事件的对象(鼠标点击谁返回谁)
+            if(arguments[0].target.className=="a")
+             alert("woshia");
+            }
+    btn.onclick=function(){
+        var li=document.createElement("li");
+        li.innerHTML='<a href="javascript:;" class="a">lianjie1</a>'
+        arra[0].parentNode.parentNode.appendChild(li);
+    }
+</script>
+<!-- 
+    只绑定一次事件，可以应用到多个元素上面，即使元素是后面添加的
+    可以绑定给共同的祖先元素，触发冒泡事件 叫做事件的委派
+    事件的委派可以减少事件绑定的次数，极高程序性能
+
+
+    如果触发的元素是期望的元素就执行，否则不执行
+ -->

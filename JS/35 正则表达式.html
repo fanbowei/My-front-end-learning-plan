@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // .表示任意字符 转义字符\.表示单纯的点  \\表示一个斜杠字符串中一样
+        //\w表示任意字母数字_ \W与小w相反
+        //\d表示任意的数字 \s表示空格 \b表示单词边界
+        var reg=/\./;
+        var c="adf";
+        alert(reg.test(c));
+
+
+        var str="   admin      ";
+        str=str.replace(/\s/g,"");
+        alert(str);
+        // str.replace(/^\s*/) 去除开头的空格
+        // str.replace(/\s*$/) 去除结尾的空格
+        // str.replace(/^\s*|\s*$/g) 去除开头与结尾的空格
+
+        var reg6=/^\w{1,}(\.\w)*@\w*\.\w{2,5}(\.\w{2,5})*$/g;
+        var c7="125752@qq.com.cn";
+        alert(reg6.test(c7));
+
+    </script>
+    <!-- 邮箱的表达式 
+        任意字母或数字 .任意字母或数字 @ 任意字母数字 。任意字母（2-5） .任意字母（2-5）-->
+</body>
+</html>

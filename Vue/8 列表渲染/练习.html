@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="demo">
+        <input type="text" v-model="searchname">
+        <ul>
+            <li v-for="(person, index) in filterpersons" :key="index">{{person.id}}--{{person.name}}--{{person.age}}</li>
+        </ul>
+        <button @click="ordertype='up'">年龄升序</button>
+        <button @click="ordertype='down'">年龄降序</button>
+        <button @click="ordertype='pre'">原本顺序</button>
+    </div>
+</body>
+</html>
+<script src='../ku/vue.js'></script>
+
+<script>
+    new Vue({
+        el:'.demo',
+        data:
+        {
+            persons:
+            [
+                {id:1,name:'tom',age:18},
+                {id:2,name:'bob',age:28},
+                {id:3,name:'ac',age:98},
+            ],
+            searchname:'',
+            ordertype:'pre',
+        },
+        computed: 
+        {
+            //进行过滤
+            filterpersons()
+            {
+                const {persons,searchname,ordertype}=this
+
+                const arr= persons.filter((p,index)=>p.name.indexOf(searchname)!=-1)
+                
+                //进行排序处理
+                if(ordertype!=='pre')
+                {
+                    if(ordertype==='up')
+                    {
+                        arr.sort((p1,p2)=>{
+                            return p1.age-p2.age
+                        })
+                    }
+                    if(ordertype==='down')
+                    {
+                        arr.sort((p1,p2)=>{
+                            return p2.age-p1.age
+                        })
+                    }
+                }
+                return arr
+            },
+
+            
+           
+        },
+
+    })
+</script>

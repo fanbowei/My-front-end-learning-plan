@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+                 /* 发生样式的冲突时，由选择器的权重决定样式
+                 权重：内联选择器          1.0.0.0
+                       id选择器           0.1.0.0
+                       类和伪类选择器      0.0.1.0
+                       元素选择器         0.0.0.1   */
+                       /* 通配选择器（*） 0.0.0.0
+                          继承的样式没有优先级 */
+                       /* 比较优先级时候，需要将所有的选择器
+                       的优先级相加
+                       选择器的累加不会超过其数量级 
+                       如果选择器优先级相同，优先使用靠后的颜色（覆盖掉）*/
+                       /* 可以在某一个样式的后面加上一个！important，可
+                       以获取最高级的优先级，可以超过内联样式 */
+                #box{color:rosybrown;}
+                .aa{color: sandybrown;}
+                p{color: slateblue;}
+                </style>
+</head>
+<body>
+    <p style="color: red;" id="box" class="aa">asdfasdf</p>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .box1{
+        width: 400px;
+        height: 400px;
+        background-color: darkgoldenrod;
+
+    }
+    .box2{
+        height: 100px;
+        width: 100px;
+        background-color: darkgray;
+        animation-name: text;
+        animation-duration: 2s;
+        /* 动画的执行次数 animation iteration count
+            infinite 永远的 */
+        animation-iteration-count: infinite;
+        /* animation-direction 指定动画的运行方向
+        默认值：normal 从from到to
+            reverse 反向的
+            alternate  第一次执行正向，第二次执行反向
+            alternate-reverse 第一次反向，第二次正向*/
+        animation-direction:alternate ;
+/* 设置动画的执行状态
+running 默认值，动画执行
+paused 动画暂停 */
+        animation-play-state: running;
+
+/* 动画的填充模式animation-fill-made
+none 默认值，动画执行完毕。回到原来位置
+forword 动画执行完毕，元素停止在动画结束的位置
+backwards 动画延时等待时，元素 处于开始状态
+ */
+        animation-fill-mode: ;
+    }
+    /* 动画和过度类似。都可以实现一些动态的效果
+    不同的是过度需要某个属性发生变化 
+    动画可以自动触发*/
+    @keyframes text{
+        to{margin-left: 700px;}
+        /* to表示动画的开始位置 */
+        from{margin-left: 0px;}
+        /* from表示动画的结束位置 */
+    }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="box2"></div>
+    </div>
+</body>
+</html>

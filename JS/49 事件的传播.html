@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            height: 300px;
+            width: 300px;
+            background-color: burlywood;
+        }
+        .box2{
+            height: 200px;
+            width: 200px;
+            background-color: chartreuse;
+        }
+        .box3{
+            height: 100px;
+            width: 100px;
+            background-color: darkblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="box2">
+            <div class="box3"></div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    var box1=document.getElementsByClassName("box1")[0];
+    var box2=document.getElementsByClassName("box2")[0];
+    var box3=document.getElementsByClassName("box3")[0];
+    
+    function bind(obj,eventstring,callback){
+    // 要绑定的对象   事件的字符串   回调函数
+    if(obj.addEventListener)
+    obj.addEventListener(eventstring,callback,false);
+    else
+    obj.attachEvent("on"+eventstring,function(){
+        callback.call(obj);
+    });   
+}
+bind(box1,"click",function(){ alert("1")})
+bind(box2,"click",function(){ alert("2")})
+bind(box3,"click",function(){ alert("3")})
+    
+
+</script>
+<!-- 
+    事件的传播：微软和网景有不同的理解
+    微软认为事件由内向外穿，也就是先触发当前元素的事件，然后才祖先元素，也就是事件的冒泡
+    网景公司认为事件由外向内传
+    w3c综合了两个方案，将事件传播分成三个阶段
+    1 捕获阶段，在捕获阶段时候从最外层祖先元素来时，向目标元素进行捕获，但是默认不会触发事件
+    2 目标阶段 事件捕获到目标元素
+    3 冒泡阶段 事件从目标元素到祖先元素传递，依次触发祖先元素上的事件
+
+    如果希望在捕获阶段执行事件，可以将addeventlistener第三参数改成true
+ -->

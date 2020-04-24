@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=`, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    function aa() {
+        function aaa() 
+        {
+            alert('')
+          }
+          return aaa
+      }
+
+    aa()();
+
+
+    //使用闭包封装框架
+    //函数内部的内容外部无法访问,但是可以通过return或者挂在window上面暴露出去,这样就形成了闭包,虽然函数执行完了,但是内部的函数依然可以使用外部函数的参数
+    (function (window) {
+        function dothing(){
+            alert('do')
+        }
+        window.dothing=dothing
+      })(window);
+
+      dothing();
+
+
+    //   var name='the window'
+    //   var object={
+    //       'name':'myobjcet',
+    //       getnamefunction:function(){
+    //           return function () { 
+    //               return this.name
+    //            }
+    //       }
+    //   }
+    //   console.log(object.getnamefunction()())
+    //   //输出等价于 (function(){return this.window})()  函数自调用this指向window
+
+
+    var name='the window'
+      var object={
+          'name':'myobjcet',
+          getnamefunction:function(){
+              var that=this  //形成闭包 缓存this
+              return function () { 
+                  return that.name
+               }
+          }
+      }
+
+</script>

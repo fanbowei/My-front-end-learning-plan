@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            height: 200px;
+            width: 200px;
+            background-color: blue;
+            position: relative;
+            left: 10px;
+        }
+        .box2{
+            height: 100px;
+            width: 100px;
+            background-color: red;
+            position: absolute;
+            top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="box2">测试offset</div>
+    </div>
+
+    <div class="box3">
+        <button id="btn1">读取offset和position</button>
+        <button id="btn2">设置offset</button>
+    </div>
+</body>
+</html>
+<script src="js/jquery-3.4.1.js"></script>
+<script>
+    $('#btn1').click(function(){
+        var $obj=$('.box1').offset();
+        console.log($obj.left,$obj.top)//offset 读取元素相对于页面左上角的左边
+        var position=$('.box2').position();
+        console.log(position.left,position.top);//positon读取元素相对于最近开启了定位的祖先元素的位置
+    })
+
+
+    $('#btn2').click(function(){
+        $('.box2').offset({
+            left:50,
+            top:100//设置相对于页面左上角的偏移量，传入一个对象，有left和tio
+        })
+    })
+</script>

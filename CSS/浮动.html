@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    div{
+        width: 100px;
+        height: 100px;
+        background-color: #bfa;
+        /* float 用来设置元素在父元素中浮动
+            可选值：none默认值 不动 
+            left 向左浮动
+            right 向右浮动 */
+            /* 元素设置浮动后，水平等式不必要满足 */
+        
+        }
+        div.box1{float:right;}
+    /* 元素浮动以后会从文档流中脱离不再占用位置 */
+    /* 浮动元素不会从父元素中溢出 */
+    /* 如果浮动元素上面时一个没有浮动的块元素。
+        浮动元素无法上移
+         */
+         /* 浮动元素不会超过它上浮的兄弟元素最多和他
+         兄弟元素平级 */
+         /* 浮动元素不会盖住文字 */
+         /* 脱离文档流块元素不独占一行 */
+         /* 行内元素脱离文档流会变成块元素 */
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box"></div>
+</body>
+</html>

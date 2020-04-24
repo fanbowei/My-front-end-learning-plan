@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //当访问对象的一个属性或者方法，它会现在对象自身中寻找，如果没有回去原型函数中寻找，如果没有会在原型的原型中寻找，知道object中寻找
+        
+        function create()
+        {
+         
+        }
+        create.prototype.fun=function(){
+            alert("ss");
+        }
+// 可以使用hasownprototype来检查对象自身是否含有
+// object对象没有原型
+        var obj=new create();
+        obj.fun();
+        alert(obj.a);
+    </script>
+    <!-- 原型函数 prototype
+        这个属性对应一个对象
+        如果函数作为普通函数调用prototype没有作业
+        当函数作为构造函数时创造的实例都会有个隐含属性指向构造函数的原型对象
+        可以通过_proto_来访问属性 -->
+</body>
+</html>

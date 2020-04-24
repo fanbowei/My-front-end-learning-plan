@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        location 封装了游览器地址栏信息
+     -->
+     <button>点我一下</button>
+</body>
+</html>
+<script>
+    var btn=document.getElementsByTagName("button")[0];
+    btn.onclick=function(){
+        // alert(location);
+        //直接打印location，获取当前页面的完整信息
+
+        location="http://www.baidu.com"
+        //如果直接修改location的属性为一个完整的路径，或者相对路径
+        //则我们页面会跳转到该路径，并且会生成相应的历史记录
+
+
+        //assign用来跳转其他页面和直接修改location一样
+        //reload 相当于刷新页面 如果在方法中传递一个true会强制清空缓存
+        //replace 使用新的页面替换旧的页面，且会不生成历史记录
+    }
+</script>

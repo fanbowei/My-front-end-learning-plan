@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- ++a 和a++ 先看第一位是谁 如果是值就用a的原值 然后加加  
+            如果想看到运算符 先运算 
+     -->
+
+
+     <button>anniu</button>
+     <button>anniu</button>
+     <button>anniu</button>
+</body>
+</html>
+
+<script>
+    // var btn=document.getElementsByTagName('button');
+    // for(var i=0;i<btn.length;i++)
+    // {
+    //     btn[i].index=i
+    //     btn[i].onclick=function(){
+    //         alert(this.index);
+    //     }
+    // }
+
+
+    var btn=document.getElementsByTagName('button');
+    for(var i=0;i<btn.length;i++)
+    {
+        (function (i) {
+            btn[i].onclick=function(){
+            alert(i);
+        }
+          })(i);
+    }
+
+    //闭包
+    function a1() {
+        var num=1
+        return function () {
+            alert(num)
+          }
+      }
+      var a2=a1();
+      a2();
+</script>
+<!-- 
+    如何产生闭包
+    当一个嵌套的内部函数引用了嵌套外部函数的变量(函数),就产生了闭包
+ 
+    闭包就是一个闭合的容器 闭包就是一个对象 
+    闭包的形成条件 函数嵌套 内部函数引用外部函数的局部变量 外部函数要调用
+
+    作用 延长外部局部变量的生命周期
+    (局部解析中有性能优化,如果嵌套函数没有调用就不会预定义)
+    
+    闭包的缺点
+    占内存 不及时清理闭包容易导致内存溢出
+
+    使用闭包的时候怎么避免闭包带来的缺点
+    1能不用就不用 2及时清理闭包(内部函数指向null)
+
+    闭包的使用场景
+    解决循环遍历加监听的问题  将内部的函数返出来  将函数作为参数传给宁一个函数
+-->

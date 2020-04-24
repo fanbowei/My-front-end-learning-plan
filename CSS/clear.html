@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .box1{
+        width: 100px;
+        height: 100px;
+        background-color: chartreuse;
+        float: left;
+    }
+    .box2{
+        width: 200px;
+        height: 200px;
+        background-color:yellow;
+        float: right;
+    }
+    .box3{width: 100px;
+        height: 100px;
+        background-color:cornflowerblue;
+        clear: both;
+        /* clear:清除浮动元素对当前元素的影响
+            left清除左浮动元素的影响
+            right清除右浮动元素的影响
+            both：清除两侧中最大的影响
+             原理：游览器自动为元素添加一个上边距*/
+    }
+    </style>
+</head>
+<body>
+    <div class="box1">1</div>
+    <div class="box2"></div>
+    <div class="box3">3</div>
+</body>
+</html>

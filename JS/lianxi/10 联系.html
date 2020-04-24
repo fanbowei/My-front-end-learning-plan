@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            height: 100px;
+            width: 100px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+
+    </div>
+</body>
+</html>
+
+<script>
+    var box=document.getElementsByClassName("box")[0];
+    var boxstyle=getComputedStyle(box);
+    var set
+    setInterval(function(){
+        
+        if(set==65)
+        {
+            box.style.left=parseInt(boxstyle.left)-10+"px";
+        }
+        if(set==68)
+        {
+            box.style.left=parseInt(boxstyle.left)+10+"px";
+        }
+        if(set==83)
+        {
+            box.style.top=parseInt(boxstyle.top)+10+"px";
+        }
+        if(set==87)
+        {
+            box.style.top=parseInt(boxstyle.top)-10+"px";
+        }
+    
+    },50)
+    document.onkeydown=function(event){
+        
+        if(event.keyCode==65)
+        {
+            set=event.keyCode;
+        }
+        if(event.keyCode==68)
+        {
+            set=event.keyCode;
+        }
+        if(event.keyCode==83)
+        { set=event.keyCode;
+        }
+            
+        if(event.keyCode==87)
+        {
+            set=event.keyCode;
+        }
+//设置当按键松开时，div不移动
+        document.onkeyup=function(){
+            set=0;
+        }
+        return false;
+    }
+</script>

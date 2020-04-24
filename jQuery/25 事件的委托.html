@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>aa</li>
+        <li>aa</li>
+        <li>aa</li>
+    </ul>
+    <button>添加</button>
+    <!-- 给元素绑定事件，后添加的元素没有事件，这时候可以给父元素或族元素绑定事件 -->
+    <!-- 当操作了子元素，事件会冒泡到父元素 -->
+    <!-- 父元素不会直接处理事件，而是根据event。target得到发生事件的子元素 -->
+</body>
+</html>
+
+<script src="js/jquery-3.4.1.js"></script>
+<script>
+    // $('ul').click(function(e){
+    //     $(e.target).css('color','red')
+    // })
+        $('ul').on('click','li',function(){
+            $(this).css('color','red')
+            })
+
+    $('button').click(function(){
+        $(this).prev().append('<li>aa</li>')
+    })
+</script>

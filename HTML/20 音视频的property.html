@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <audio src="xiaoban.mp4" autoplay controls></audio>
+    <video src="xiaoban.mp4" height="1"></video>
+    <!-- 媒体的property属性
+        duration 媒体总时间（只读）
+        currenttime 开始播放到现在所用的时间（可读写）
+        muted 是否静音 （可读写 比volume优先级高）
+        volume 0.0-1.0的音量相对值（可读写）
+        paused 媒体是否暂停（只读）
+        ended 媒体是否播放完毕（只读）
+        error 媒体发生错误返错误代码（只读）
+        currensrc 以字符串返回媒体的地址    
+
+
+        视频多的部分
+        poster 视频播放的预览图（读写）
+        videowidth/height 视频的实际尺寸（只读）
+    -->
+
+</body>
+</html>
+
+<script>
+    var music=document.getElementsByTagName('audio')[0];
+    var movie=document.getElementsByTagName('video')[0];
+
+    // setTimeout(function(){
+    //     console.log(music.duration)//视频或者音频没有加载完成，前面加上一个计时器等待加载完
+    // },500)
+
+        //muted 和volume之间不会同步当设置muted的时候，volume也要设置为0
+        music.muted='true';
+        music.volume=0
+</script>

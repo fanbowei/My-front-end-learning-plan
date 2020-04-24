@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- controls不需要给值，是否让用户控制 
+    autoplay大部分游览器不会自动播放，考虑用户体验
+loo 代表音乐是否循环-->
+    <audio src="xiaoban.mp4" controls autoplay loop></audio>
+    <!-- 对于不支持的游览器，不会识别audio的标签但是会识别字，对于识别的游览器
+    会直接跳过字去寻找地址。如果游览器不支持视频的格式，则会去播放第二个格式 -->
+    <audio >
+        对不起您的游览器不支持！
+        <source src="xiaoban.mp4">
+        <source src=xiaoban.mp4>
+        <embed src="xiaoban.mp4" type="audio/mp4">
+    </audio>
+    <video src="xiaoban.mp4"autoplay controls loop width=500></video>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 条件渲染
+        v-if
+        v-else
+        v-show
+
+        2比较v-if与v-show
+        show只是隐藏元素,v-if删除元素
+        如果需要频繁切换v-show较好
+    -->
+
+    <div class="box">
+        <p v-if="ok">成功</p>
+        <p v-else>失败</p>
+        <button v-on:click="ok=!ok">点击</button>
+
+        <p v-show="ok">yes</p>
+        <p v-show="!ok">no</p>
+    </div>
+</body>
+</html>
+
+<script src='../ku/vue.js'></script>
+
+<script>
+    new Vue({
+        el:'.box',
+        data:
+        {
+            ok:true,
+            no:false,
+        },
+    })
+</script>

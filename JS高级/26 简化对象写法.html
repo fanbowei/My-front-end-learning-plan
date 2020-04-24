@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<!-- 
+    简化对象的写法
+    省略同名的属性值
+    省略方法的function
+ -->
+ <script>
+    let a=10;
+    let b=11;
+
+    let obj={
+        a,//a=a
+        b,//b=b
+        seta(a)
+        {
+            this.a=a
+        }
+    }
+    obj.seta(20)
+   //  console,log(obj)
+
+
+</script>
+ <!-- 
+     ...运算符
+     rest(可变)参数
+     用来取代arguments 但比arguments灵活,只能是最后部分形参参数
+
+     扩展运算符
+     let arr1=[1,2,3]
+     let arr2=[2,...arr1,1,6]
+     arr2.push(...arr1)
+  -->
+  <script>
+      //形参默认值
+      function fun(age=10,name=20,...v){//收集实参的真数组
+        console.log(v)//...v必须放在最后,他不会收集定义的参数
+      }
+      fun(1,4,6)
+
+      //...遍历数组
+      let arr1=[1,2,3,4]
+      console.log(...arr1)
+
+      //不能遍历对象,因为对象没有iterator接口
+  </script>
+ 

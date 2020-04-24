@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    //创建异步对象
+    var xhr = new XMLHttpRequest()
+    //给对象绑定事件监听
+    xhr.onreadystatechange=function(){
+        if(xhr.readyState===4&&xhr.status<=300&&xhr.status>=200)
+        {
+            console.log(JSON.parse(xhr.response));
+        }
+    }
+    //指定发送请求的方式,地址,参数
+    xhr.open('get','http://127.0.0.1:3000/test_get/?name=ke&age=18')
+
+    //发送请求
+    xhr.send();
+
+</script>
+
+<!-- 
+    xhr中有五种状态
+    0:当xhr被实例化出来,状态就是0,即初始化状态
+    1:请求还没有发出去,即send()没有发出去
+    2:请求已经发出去了,即send()方法调用,不能修改请求头,响应头和响应首行已经回来了
+    3:数据回来了但是数据可能不完整
+    4:数据完整回来了
+    
+    
+ -->

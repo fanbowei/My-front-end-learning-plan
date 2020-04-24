@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .out{
+        border: 10px red solid;
+        overflow: hidden;
+    }
+    .in{height: 100px;
+    width: 100px;
+    background-color: blue;
+    
+    float: left;
+    /* 再浮动布局中，父元素默认被子元素撑开，当子元素 浮动后，无法撑起父元素 */
+    }
+    /* bfc（block-formatting ontext）块级格式化环境 bfc时css中的一个隐藏的属性
+    元素开启bfc后元素会变成一个独立的布局区域
+    开启bfc的元素不会被其他元素覆盖
+    开启bfc后子元素和父元素的外边距不会重叠
+    开启bfc可以包含浮动的子元素*/
+    /* 设置元素的浮动开启bfc （子元素浮动，父元素也开启浮动）
+    2.行内块：display inline-block
+    3.将元素的overflow设置为一个非visible的值 overfl：hidden*/
+    
+    </style>
+</head>
+<body>
+    <div class="out">
+        <div class="in"></div>
+    </div>
+</body>
+</html>

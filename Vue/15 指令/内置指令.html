@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        常用内置指令
+        v:text 更新元素textcontent
+        v-html 更新元素的innerHTML
+        v-if 如果为true 当前标签才会输出到页面
+        v-else 如果为false,当前标签才会输出到页面
+        v-show 通过控制display样式来控制显示/隐藏
+        v-for 遍历数组/对象
+        v-on 绑定事件监听
+        v-bind 强制绑定解析表达式
+        v-model 双向数据绑定
+        ref 为某个元素注册一个唯一的标识,vue对象通过$els属性访问这个元素对象
+        v-clock 使用它防止闪现表达式,与css配合:[v-clock]{display:none} 
+     -->
+     <div class="demo">
+         <p v-text="msg">{{msg}}</p>    <!--p.innertext=msg  替换中间所有的值-->
+         <p >{{msg}}----</p>                <!--操作的是中间的文本节点-->
+         <p v-html="msg" ref="my">{{msg}}</p>        <!--p.innerHTML=msg-->
+         <button @click="test">ddd</button>
+     </div>
+</body>
+</html>
+
+<script src='../ku/vue.js'></script>
+<script>
+    
+    new Vue({
+        el:'.demo',
+        data:{
+            msg:'<a href="http://baidu.com">build</a>'
+        },
+        methods: {
+            test(){
+                alert(this.$refs.my.innerHTML)
+            }  
+        },
+    })
+</script>

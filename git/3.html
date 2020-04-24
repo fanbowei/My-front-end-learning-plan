@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        高层命令
+        git init 初始化仓库
+        git status  查看文件的状态
+        git diff  详细的查看文件的状态
+        git add ./   将修改的添加到暂存区
+        git commit -m "注释"  将暂存区的提交到版本库
+        git commit -a -m可以自动提交跟踪修改的文件
+        git log 查看日志
+        git log --oneline 简写日志
+    -->
+
+    <!-- 
+        杀手功能 
+        git config --global alias.xx xxxx 起别名
+        git log --oneline --decorate --graph --all
+        显示全部分支
+        git branch      显示分支列表
+        git branch xxx      创建分支  
+        git branch -D xxx   强制删除删除分支
+        git branch xxx commitHash  创建一个新的分支并且使分支指向对应的提交对象
+        git checkout xxx    切换分支
+        git merge secn      快进合并分支(同一分支上)
+     -->
+
+     <!-- 
+         git rm -r --cached .   #主要这个点一定要写 
+        -->
+
+     <!-- 
+         分支的本质：就是指向提交对象的可变指针
+      -->
+
+      
+
+
+
+
+
+
+
+    <!-- 
+        git操作最基本的流程
+        创建工作目录 git init 
+        对工作目录进行修改 创建文件...
+        git add ./   他会监控工作区的状态树，使用它会把工作时的所有变化提交到暂存区，包括文件内容修改(modified)以及新文件(new)，但不包括被删除的文件。
+                git hash-object -w 文件名 (修改了多少个文件目录的文件,此命令就要执行多少次)
+                git updata-index
+        git commit -m "注释内容"
+                git weite-tree
+                git commit -tree
+    -->
+
+</body>
+</html>

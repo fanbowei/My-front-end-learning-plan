@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html{
+            perspective: 800px;
+            /* 设置当前页面的视距为800px */
+        }
+    .box1{
+   
+        background-color: darkgreen;
+
+        /* 变形就是通过css来改变元素的形状或者位置不会影响页面的布局 
+        平移：translatex（）沿着x轴平移translatey（）沿着y轴平移*/
+
+        /* 利用position来居中只能适用于盒子的大小固定 */
+        /* z轴属于立体效果,浏览器默认不支持透视 ,如果要看见必要要给游览器设置视距*/
+        position: absolute;
+        left: 50%;
+        transform:translateX(-50%);
+        top:50%;
+        transform:translateY(-50%);
+        transform: translateZ(100px);
+        transform: rotateX(0.2turn);
+/* 通过旋转可以使元素沿着xyz轴旋转指定的角度
+rotatex元素沿着x轴旋转 */
+
+/* backface viuibaility 元素背面是否显示 hidden隐藏 visable 显示*/
+    }
+    </style>
+
+</head>
+<body>
+    <div class="box1">
+啊顶顶顶顶顶顶顶
+    </div>
+</body>
+</html>

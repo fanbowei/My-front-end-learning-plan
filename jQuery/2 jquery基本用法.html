@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.4.1.js"></script>
+    <script>
+        //使用原生dom
+        window.onload=function(){
+            var btn=document.getElementsByTagName("button")[0];
+            btn.onclick=function(){
+                var username=document.getElementsByTagName("input")[0].value;
+                alert(username);
+            }
+        }
+    </script>
+
+    <!-- 使用jQuery实现 -->
+    <script>
+        //绑定文档加载完成的监听
+        $(function(){
+            $('#b2').click(function(){
+                //给btn2绑定监听
+                var username=$('#i1').val();
+                alert(username);
+            })
+            
+        })
+    </script>
+    
+</head>
+<body>
+    用户名:<input type="text" id="i1">
+    <button id="b1">确认</button>
+    <button id="b2">确认jquery</button>
+</body>
+</html>

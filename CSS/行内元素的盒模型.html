@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+      span{
+          
+          /* 行内元素 不支持修改高和宽
+          行内元素可以修改内边距，外边距，边框但是不会影响到块元素*/
+          /* padding:50px; */
+          /* border: 100px blue solid; */
+          margin:100px;
+        background-color:yellowgreen;
+    }
+    div{visibility:hidden;;width:200px;height: 200px;background-color: red;}
+    a{display: inline-block;width: 100px;height: 100px;background-color: blue;}
+    
+    </style>
+</head>
+<body>
+
+     <span class="box">aaaa</span>
+     <div class="box1" ></div>
+     <a href="" >aaaa</a><a href="">asdasd</a>
+     <!--display:可取值
+          inline 将元素设置为行内元素
+        block将元素设置为块元素
+    inline-block行内块元素（可以设置长和宽又不会独占一行）-->
+    <!-- visibility用来设置元素的显示状态
+    visible 元素在页面中显示
+    hidden 元素不显示，但是占据位置 -->
+     
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 如果两个库都有$就会存在冲突，这时候jQuery可以释放$的使用权，保证另一个库可以正常的使用
+    jquery。noconflict -->
+</body>
+</html>
+<script src="31 1.js"></script>
+<script src="js/jquery-3.4.1.js"></script>
+<script>
+    jQuery.noConflict();
+    $();
+</script>

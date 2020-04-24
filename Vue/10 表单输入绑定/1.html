@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 使用v-model(双向数据绑定)自动收集数据
+    text/textarea
+    checkbox
+    radio
+    select
+    -->
+    <div class="demo">
+        <form action="/xxx" @click.prevent="">
+            <span>用户名:</span>
+            <input type="text" v-model="user.username"><br>
+
+            <span>密码:</span>
+            <input type="password" v-model="user.password"><br>
+
+            <span>性别:</span>
+            <input type="radio"  id="female" value="女" v-model="user.sex">
+            <label for="female">女</label>
+            <input type="radio"  id="male" value="男" v-model="user.sex"> <!--根据源码(genRadioModel) 数据和value绑定 如果数据中变量等于value值 就动态渲染当前元素的checked的值-->
+            <label for="male">男</label><br>
+
+            <span>爱好:</span>
+            <input type="checkbox" name="" id="basket" value="basket" v-model="user.likes">
+            <label for="basket">篮球</label>
+            <input type="checkbox" id='foot' value="foot" v-model="user.likes">
+            <label for="foot">足球</label>
+            <input type="checkbox" id='pp' value="pp" v-model="user.likes">
+            <label for="pp">乒乓</label><br>
+
+            <span>城市:</span>
+            <select name="" id="" v-model="user.cityid" > <!--当cityid的值等于option的value值,就会给option加上一个select-->
+                <option value=""></option>
+                <option :value="city.id" v-for="(city, index) in citys" :key="city.id">{{city.name}}</option>
+            </select><br>
+            <span>介绍:</span>
+            <textarea name="" id="" cols="30" rows="10" v-model="user.info"></textarea><br>
+            <input type="submit" name="" id="" value="注册" @click="submit">
+        </form>
+    </div>
+</body>
+</html>
+
+<script src='../ku/vue.js'></script>
+
+<script>
+    new Vue({
+      el:'.demo',
+      data:{
+        user:{
+            username:'admin',
+            password:'',
+            sex:'男',
+            info:'',
+            likes:['pp'],
+            cityid:'1',
+            },
+        citys:[
+        {id:1,name:'shanghai'},
+        {id:2,name:'beijin'},
+        {id:3,name:'shengzhen'}
+            ],
+      },
+      methods: {
+        submit(){
+            console.log('发送的请求数据',this.user);
+        }  
+      },
+    })
+</script>

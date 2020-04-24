@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .box{
+        height: 190px;
+        width: 170px;
+        background-color: red;
+        position: absolute;
+    }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>
+<script>
+    var box=document.querySelector(".box");
+    var boxstyle=getComputedStyle(box,null);
+    document.onmousemove=function(){
+        // clientx 是获取可见窗口的坐标
+        //pageX获取整个页面的鼠标坐标
+        box.style.left=arguments[0].pageX-(parseInt(boxstyle.width)/2)+"px";
+        box.style.top=arguments[0].pageY-(parseInt(boxstyle.height)/2)+"px";
+    }
+</script>

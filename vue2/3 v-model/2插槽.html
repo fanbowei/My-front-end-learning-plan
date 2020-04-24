@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="app">
+        <alert-com><p>{{name}}{{myname}}</p></alert-com>
+    </div>
+</body>
+</html>
+
+<script src='../ku/vue.js'></script>
+
+<script>
+
+    Vue.component('alert-com',{
+        template:`<div class="alert">
+                    <h1>提示</h1>
+                    <div class="content">
+                        <slot></slot>
+                    </div>
+                </div>`,
+                data(){
+                    return{
+                        name:'asdasd'
+                    }
+                },
+                
+    })
+
+    let app=new Vue({
+        el:'.app',
+        data(){
+            return{
+                name:"???",
+                myname:'asd'
+            }
+        },
+       
+
+    })
+
+    
+</script>

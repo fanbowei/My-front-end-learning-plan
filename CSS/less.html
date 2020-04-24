@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- less是一个css的预处理语言
+        less是css的增强版,通过less可以编写更少的代码实现更强大的样式 
+        less中添加了许多的新特性
+    less语法大体和css一样,但是less增加了许多对css的扩展
+    所有的游览器无法执行less,要执行必须先把less转换成css-->
+        <style>
+        html{
+            --color:#bfa
+        }
+        /* calc为计算函数 */
+        .box1{
+            height: calc(1000px/2);
+            width: 100px;
+            background-color: var(--color);
+        }
+        </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+    <div class="box4"></div>
+</body>
+</html>

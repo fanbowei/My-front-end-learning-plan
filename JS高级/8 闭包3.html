@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+   //console.log 与alert的返回值都是undefind
+
+
+   function foo() {
+       getname=function(){alert(1)};//没有使用var 会自动上升到全局变量
+       return this;
+     }
+     foo.getname=function(){alert(2)}//这个getnme为foo的内部变量
+     foo.prototype.getname=function(){alert(3)}
+     var getname=function(){alert(4)} //有赋值操作会覆盖到函数的值
+     function getname() {alert(5)  }
+
+
+    //  foo.getname(); //2
+    //  getname();         //4
+    //  foo().getname();   //1
+    //  getname();     //1
+    //  new foo.getname();     //new跟最近的小括号时一对,中间的内容为一个整体
+    //  new foo().getname()
+     new new foo().getname();
+     var d=new foo()
+     var dd=new d.getname()
+
+</script>

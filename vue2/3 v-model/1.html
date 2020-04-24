@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="app">
+        <input type="text" v-model="username">{{username}}
+        <input type="text" @input='changeva' :value='name'>
+        <input-com></input-com>
+        <li-com class="my"></li-com>
+        
+    </div>
+</body>
+</html>
+
+<script src='../ku/vue.js'></script>
+
+<script>
+
+    let com=Vue.component('input-com',{
+        template:`<input type="text" v-model="$parent.username"></input>`,
+        data(){
+            return {             
+            }
+        }
+    })
+
+    Vue.component('li-com',{
+        template:`<li>{{myname}}</li>`,
+        data(){
+            return {    
+                myname:''         
+            }
+        }
+    })
+
+    new Vue({
+        el:'.app',
+        data:{
+            username:'',
+            name:'',
+        },
+        methods: {
+            changeva(e){
+               this.name=e.target.value
+                this.$children.sort(this.$children._uid)[1].myname=this.name
+            }
+        },
+
+    })
+</script>

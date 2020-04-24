@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas{
+            background-color: blanchedalmond;
+        }
+    </style>
+</head>
+<body>
+    <!-- 绘画路径 路径就是不同颜色和宽度的线段或者曲线连接形成的不同形状的点的集合
+        首先  创建点的起始点
+    然后使用画图命令画出路径
+之后把路径闭合
+一旦路径生成就可以描边或者填充来渲染
+
+    beginPatch（）新建一条路径，生成之后图像绘画会被指向到路径上准备生成路径
+    生成路径的第一步叫做beginPatch（）本质上路径就是由很多子路径构成，这些子路径都是在一个列表中，所有的
+子路径（线，弧形）构成图像，而每次调用方法之后清空列表
+
+    moveto（x，y
+    将笔移动到指定的坐标x和y）
+    当canvas初始化或者调用beginpatch，通常使用moveto（）设置起点
+
+    lineto（x，y）
+    绘制一条路径从起始位置到指定xy
+    closepatch（）
+闭合路径之后图像绘画命令又重新指向上下文-->
+
+<canvas></canvas>
+</body>
+</html>
+
+<script>
+    var test=document.getElementsByTagName("canvas")[0];
+    var pen=test.getContext("2d");
+    
+    pen.moveTo(50,50);//起始位置
+    pen.lineTo(50,100);//移动位置
+    pen.lineTo(100,100);
+    // pen.lineTo(50,50);
+    pen.closePath();//闭合路径
+    // pen.fill()//使图像填充 会自动合并路径
+    pen.stroke();//描绘 （连接点）
+    pen.beginPath();//清空路径容器
+
+    pen.moveTo(100,50);
+    pen.lineTo(100,150);
+    pen.lineTo(200,200);
+    pen.fill();
+    pen.beginPath();
+
+    pen.moveTo(0,0)
+    pen.lineTo(10,10)
+    pen.stroke();
+    pen.beginPath();
+    //moveto 表示一个新的图像，当时没有begin（）时，图像任然时存放在同一个容器中，当调用函数时，就会全部重新渲染一遍
+    
+    //绘制矩形
+    // pen.rect(0,0,100,100)//绘制矩形，但是没有描边或者填充
+    // pen.fill();
+
+
+    //linecap
+    //时canvas 2d api中如何指定绘画每一条线段的末尾，有三个值 butt 线段以方形结束，round 圆形结束 square线段以方形结束，但是增加了一个宽度和线段相同，高度时线段一般的矩形
+    pen.lineWidth=10;
+    pen.lineCap="round"
+    pen.moveTo(270,100);
+    pen.lineTo(270,50);
+    pen.lineTo(300,0)
+    pen.stroke();
+</script>

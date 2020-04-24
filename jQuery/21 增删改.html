@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="ul1">
+        <li>aaaa</li>
+        <li title="hello">bbb</li>
+        <li class="box">ccc</li>
+        <li title="hello">dddd</li>
+        <li title="two">eee</li>
+        <li>ffff</li>
+    </ul>
+    <br>
+    <br>
+    <ul id="ul2">
+        <li>aaaa</li>
+        <li title="hello">bbb</li>
+        <li class="box">ccc</li>
+        <li title="hello">dddd</li>
+        <li title="two">eee</li>
+        <li>ffff</li>
+    </ul>
+</body>
+</html>
+<script src="js/jquery-3.4.1.js"></script>
+<script>
+    // $('<span>span</span>').appendTo($('#ul1'))
+    $('#ul1').append('<span>apendto span</span>')//apend与appendto不同
+    $('#ul1').prepend('<span>prependto span</span>')//prepend,向元素内部的最前面添加一个元素
+    $('#ul1').children('[title=hello]').before('<span>before span</span>');//before外部插入，向元素的前面或者后面插入文本值
+    $('#ul1').children('[title=hello]').after('<span>after span</span>');
+    $('#ul2').children('[title=hello]').replaceWith('<p>replace p</p>');//replacewith一段文本值替换元素，replaceall用一个元素替换一个元素
+    //empty清除父元素下所有的子元素，remove清除一个元素
+    // $('#ul2').empty();
+</script>

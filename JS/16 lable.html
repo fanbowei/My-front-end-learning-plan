@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- lable :
+        使用break语句的时候可在在break后面加一个lable来控制break停止的循环 -->
+<!-- console.time(“”) 可以开启一个计时器
+console。timeend（“”）停止一个计时器 -->
+        <script>
+            outer:
+            for(var i=0;i<10;i++)
+            {
+                finder:
+                for(var j=0;j<10;j++)
+                {
+                    for(var k=0;k<10;k++)
+                    {
+                        if(i==5)
+                        break finder;
+                    }
+                }
+                document.write(j);
+            }
+        </script>
+</body>
+</html>

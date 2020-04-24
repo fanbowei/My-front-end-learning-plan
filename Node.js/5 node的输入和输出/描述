@@ -1,0 +1,21 @@
+删除目录的语法格式
+fs.rmdir(path,callback)
+
+输入输出
+引入readline模块
+创建readline接口实例
+var rl=readline.creatInterface({
+    input:process.stdin,
+    output:process.stdout
+})
+
+question方法
+rl.question('asd',function(answer){
+    console.log('adasd':+answer)
+    rl.close()
+})
+
+close时间监听
+rl.on('close',function(){
+    process.exit(0);
+})

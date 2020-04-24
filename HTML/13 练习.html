@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas style="background-color:blanchedalmond;" height="300"></canvas>
+</body>
+</html>
+
+<script>
+    var can=document.getElementsByTagName('canvas')[0];
+    var pen=can.getContext('2d')
+    pen.translate(150,150)
+    pen.save()
+    
+    var fg=0
+    var flg=0
+    var n=1
+    setInterval(function(){    
+        if(fg>=100)
+        n*=-1;
+        if(fg<=0)
+        n=1;
+        fg+=n
+        flg++;
+        pen.clearRect(-150,-150,300,300)
+        pen.save();
+        pen.rotate(Math.PI*0.005*flg*n);
+        pen.beginPath();
+        pen.strokeRect(-fg,-fg,2*fg,2*fg)  
+        pen.restore();
+
+        pen.save()
+        pen.rotate(Math.PI*0.005*-flg*n);
+        pen.beginPath()
+        pen.strokeRect(-2*fg,-2*fg,4*fg,4*fg) 
+        pen.restore()
+
+    },10)   
+    
+    pen.restore();
+</script>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: center;
+            margin: 100px auto;
+            
+        }
+        .tab1 tr ,.tab1 td{
+            padding: 10px;
+            border: 1px solid black;
+            
+        }
+        .tab2 tr,.tab2 td{
+          
+           text-align: left;
+        }
+  
+    </style>
+</head>
+<body>
+    <table class="tab1">
+        <tr>
+            <td>Name</td><td>Email</td><td>Salary</td><td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>ccc</td><td>ccc</td><td>ccc</td><td><a href="javascript:;" class="aa">deleted</a></td>
+        </tr>
+        <tr>
+            <td>bbb</td><td>bbb</td><td>bbb</td><td><a href="javasrcipt:;" class="aa">deleted</a></td>
+        </tr>
+
+
+
+        <table class="tab2">
+        
+            <tr >
+                <td>添加新员工</td><td></td>
+            </tr>
+            <tr>
+                <td>name:</td><td><input type="text"class="nam"></td>
+            </tr>
+            <tr>
+                <td>email:</td><td><input type="text"class="ema"></td>
+            </tr>
+            <tr>
+                <td>salary:</td><td><input type="text" class="sal"></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;"><input type="submit"class="sub" value="submit"></td>
+            </tr>
+        </table>
+    </table>
+</body>
+</html>
+<script src="js/jquery-3.4.1.js"></script>
+<script>
+    //添加
+    $(':submit').click(function(){
+        //收集输入的数据
+        var name=$('.nam').val();
+        var email=$('.ema').val();
+        var salary=$('.sal').val();
+
+         //生成对象的标签并插入
+        $('.tab1').append('<tr><td>'+name+'</td><td>'+email+'</td><td>'+salary+'</td><td><a href="javasrcipt:;" class="aa1">deleted</a></td></tr>')
+        //清除输入
+        $('.nam').val("");
+        $('.ema').val("");
+        $('.sal').val("");
+
+        $('.tab1 tr td .aa1').unbind().click(function(){
+            if(confirm("确认删除吗"))
+       {
+        $(this).parent().parent().remove();
+       }
+        })
+    })
+
+
+
+    //删除
+    $('.tab1 tr td a').click(function(){
+       if(confirm("确认删除吗"))
+       {
+        $(this).parent().parent().remove();
+       }
+    })
+</script>
+

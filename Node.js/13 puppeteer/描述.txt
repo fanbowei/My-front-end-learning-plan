@@ -1,0 +1,7 @@
+chrome59/60之后,chrome自带headless(无界面模式)很方便做自动化测试或者爬虫,但是如何和headless模式的chrome交互是一个闻楼梯
+,通过启动chrome时的命令行参数仅能实现简易的启动时初始化操作,selenium,webdriver等是一些方案但是不够扁平化
+
+puppeteer是谷歌推出的一个通过devtools协议控制headless chrome的node库,可以通过pupperteer的提供的api直接控制chrome
+模拟大部分用户操作来进行ui text 或者作为爬虫访问页面数据来收集数据
+
+npm i puppeteer

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: center;
+            margin: 100px auto;
+        }
+        .tab1 tr ,.tab1 td{
+            padding: 10px;
+            border: 1px solid black;
+            
+        }
+        .tab2 tr,.tab2 td{
+          
+           text-align: left;
+        }
+  
+    </style>
+</head>
+<body>
+    <table class="tab1">
+        <tr>
+            <td>Name</td><td>Email</td><td>Salary</td><td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>ccc</td><td>ccc</td><td>ccc</td><td><a href="javascript" class="aa">deleted</a></td>
+        </tr>
+        <tr>
+            <td>bbb</td><td>bbb</td><td>bbb</td><td><a href="javasrcipt" class="aa">deleted</a></td>
+        </tr>
+
+
+
+        <table class="tab2">
+        
+            <tr >
+                <td>添加新员工</td><td></td>
+            </tr>
+            <tr>
+                <td>name:</td><td><input type="text"class="nam"></td>
+            </tr>
+            <tr>
+                <td>email:</td><td><input type="text"class="ema"></td>
+            </tr>
+            <tr>
+                <td>salary:</td><td><input type="text" class="sal"></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;"><input type="submit"class="sub" value="submit"></td>
+            </tr>
+        </table>
+    </table>
+</body>
+</html>
+<script>
+var arra=document.getElementsByClassName("aa")
+for(var i=0;i<arra.length;i++)
+{
+    arra[i].onclick=function(){
+        // 点击超链接会自动跳转页面，这是超链接的默认行为。可以在响应函数的最后返回false取消跳转
+        var tr =this.parentNode.parentNode//使用arr【i】时候，for循环执行完毕，响应函数没有值
+        // 删除之前弹出提示框
+        if(confirm("确认删除吗"))
+        tr.parentNode.removeChild(tr);
+       return false;
+    }
+}
+var submit=document.getElementsByClassName("sub")[0];
+var nam=document.querySelector(".nam");
+var ema=document.querySelector(".ema");
+var sal=document.querySelector(".sal");
+
+submit.onclick=function(){
+    var tr=document.createElement("tr")
+    tr.innerHTML="<td>"+nam.value+"</td><td>"+ema.value+"</td><td>"+sal.value+"</td><td>"+"<a class='aa1' href='javascript:;'>deleted</a></td>"
+    var tab=document.getElementsByClassName("tab1")[0];
+    tb=tab.getElementsByTagName("tbody")[0];
+    tb.appendChild(tr);
+    var a=document.getElementsByClassName("aa1")[0];
+    a.onclick=function(){   
+        var tr =a.parentNode.parentNode
+        if(confirm("确认删除吗"))
+        tr.parentNode.removeChild(tr);
+       return false;
+    }
+
+}
+
+</script>

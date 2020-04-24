@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    let a=()=>{
+     if(Date.now()%2==0)
+     {
+        console.log('now');
+     }   
+     else
+     {
+        throw new Error('出错了')
+     }
+    }
+
+    try {
+      a()  
+    } catch (error) {
+        alert(error)
+    }
+</script>

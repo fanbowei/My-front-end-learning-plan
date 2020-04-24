@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script src='./js/socket.io.js'></script>
+<script>
+   let con=io.connect('http://localhost:3000')
+    
+   con.on('connect',function(){
+       console.log('这是连接事件');
+   })
+   con.on('news',function(data){
+       console.log(data);
+   })
+
+   con.emit('my other event',{
+       username:'小明',
+       chatcontent:'吃饭了没'
+   })
+</script>

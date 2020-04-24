@@ -1,0 +1,33 @@
+响应头
+
+HTTP/1.1 200 OK
+Server: nginx
+Date: Sun, 15 Mar 2020 13:26:44 GMT
+Content-Type: text/plain
+Transfer-Encoding: chunked
+Connection: keep-alive
+Access-Control-Allow-Origin: https://www.bilibili.com
+Access-Control-Allow-Credentials: true
+Access-Control-Allow-Headers: Origin,No-Cache,X-Requested-With,If-Modified-Since,Pragma,Last-Modified,Cache-Control,Expires,Content-Type,Access-Control-Allow-Credentials
+X-Cache-Webcdn: JD
+X-Trace: 200-1584278804474-0-0-0-26-26;200-1584278804472-0-0-0-44-44
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+Connection: keep-alive
+Cookie: _uuid=B2FCE124-FAE5-2C01-DB90-D2FC15E6103C24491infoc; buvid3=A10B03BB-FA3B-43B7-B89B-BC0B2950BE17190950infoc; stardustvideo=1; rpdid=|(k)~RJR~luk0J'ul~YJ)mk|~; CURRENT_FNVAL=16; laboratory=1-1; LIVE_BUVID=AUTO3815763891793949; INTVER=-1; CURRENT_QUALITY=80; sid=iunabu92; DedeUserID=257799249; DedeUserID__ckMd5=3478e5920a36e278; SESSDATA=93fa979e%2C1585293159%2C4be2f921; bili_jct=3a07f80879a1b574deb0298e2b97041c; bp_t_offset_257799249=365860402497410045; PVID=2
+Host: data.bilibili.com
+Origin: https://www.bilibili.com
+Referer: https://www.bilibili.com/video/av21588133?p=21
+Sec-Fetch-Dest: empty
+Sec-Fetch-Mode: cors
+Sec-Fetch-Site: same-site
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36 Edg/80.0.361.66
+00111115842788054451584278802646|web_player_abtest|HTML5PlayerNew9018362|frame_time|1360|be405bdbda1058d1a9a33a7069426902|||21588133|35562480|21|2|4|3|2|1|80|2|||1-1: 
+
+
+响应正文
+<html>
+<body>
+</body>
+</html>

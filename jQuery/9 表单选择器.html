@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        用户名:<input type="text"><br>
+        密码：<input type="password"><br>
+        爱好: <input type="checkbox" checked="checked">篮球<input type="checkbox">足球<input type="checkbox">羽毛球<br>
+        性别：<input type="radio" name="sex" value="male">男<input type="radio"name="sex"value="female">女<br>
+        邮箱： <input type="text" name="email"disabled> <br>
+        所在地：<select name="" id=""><option value="1">北京</option><option value="2" selected>天津</option><option value="3">湖北</option></select> 
+        <br><input type="submit" name="" id="" value="提交">
+    </form>
+</body>
+</html>
+<script src="js/jquery-3.4.1.js"></script>
+<script>
+    // $(':text:disabled').css('backgroundColor','red');//:text 选择input为text的 ：disabled选择input不可选中的
+    // console.log($(':checkbox:checked').length);
+    $(':submit').click(function(){
+        alert($('option:selected').html())
+    })
+</script>

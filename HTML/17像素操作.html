@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        getimagedata()获得一个包含画布像素数据的imagedate对象，他代表了画布区域的对象数据
+
+        can.getimagedata(sx,sy,sw,sh)
+        sx sy将要被提取的图像数据矩形左上角的xy坐标
+        sw，sh将要被提取的数据矩形区域的宽和高
+
+        
+        imagedata对象中存放canvas对象真实的像素数据，它包含以下的只读属性
+        width height图片的宽度和高度，单位像素
+        data uint8clampedarry类型的一维数组包含rgba格式的整型数据
+        每一个像素的rgba
+        r（0-255）
+        g（0-255）
+        b（0-255）
+        a（0-255）
+    -->
+    <canvas style="background-color: blanchedalmond;" height="300"></canvas>
+</body>
+</html>
+<script>
+
+       function getpx(imgd,x,y,obj=[]){
+        if(obj)
+        {
+            var w=imgd.width;
+            var h=imgd.height;
+            
+            imgd.data[(y*w+x)*4]=obj[0]
+            imgd.data[(y*w+x)*4+1]=obj[1]
+            imgd.data[(y*w+x)*4+2]=obj[2]
+            imgd.data[(y*w+x)*4+3]=obj[3]
+        }
+
+
+    }
+    var can=document.getElementsByTagName('canvas')[0];
+    var pen=can.getContext('2d');
+    
+
+    pen.save();
+
+    pen.beginPath();
+
+    pen.fillRect(0,0,100,100);
+
+    pen.restore();
+
+    var imgdata=pen.getImageData(0,0,can.width,can.height)//得到区域内的像素
+    
+
+    // //放置像素对象
+    // pen.putImageData(imgdata,100,100)
+
+    //单像素操作
+
+    
+    for(var i=0;i<100;i++)
+    {
+        getpx(imgdata,1,i,[255,255,255,255])
+        getpx(imgdata,i,i,[255,255,255,255])
+        getpx(imgdata,i,1,[255,255,255,255])
+       
+    }
+    console.log(imgdata)
+    pen.putImageData(imgdata,0,0);
+    
+
+ 
+    
+
+
+</script>
+

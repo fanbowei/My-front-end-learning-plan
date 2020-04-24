@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- bom 
+        游览器对象模型 可以通过js来操作游览器
+    bom中给我们提供了一组对象，用来完成游览器的操作
+bom对象  window  window对象代表整个游览器的窗口，同时也是网页的全局对象
+        navigator 代表游览器当前的信息 通过改对象可以识别不同的游览器
+        lacation  代表当前游览器的地址栏信息，通过lacation可以跳转页面
+        history   代表游览器的历史记录，通过该对象来操作游览器的历史记录
+        由于隐私原因，不能获取具体的历史记录，只能操作游览器向前向后翻页
+        screen    代表用户的屏幕信息，该对象可以获取到用户的显示器的相关信息
+        这些对象都是作为window对象的属性保存的-->
+
+
+        
+
+</body>
+</html>
+
+<script>
+
+    alert(window.navigator.appName);
+    //由于历史原因，navigator 对象中大部分属性已经不能识别游览器了
+    //一般使用uesragent来判断游览器的信息，不同的游览器有不同的useragent来描述浏览器信息内容
+    if(/Chrome/i.test(navigator.userAgent))
+    alert("");
+</script>

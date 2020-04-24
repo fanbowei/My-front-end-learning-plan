@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 函数作用域
+        调用函数时候创建作用域。函数执行完毕，作用域销毁
+        在函数作用域中可以访问全局作用域的变量
+    在函数作用域中会先操作函数的变量，没有会寻找上一级 
+在函数中访问全局变量可以使用window
+        函数中不使用var声明的变量都会称为全局变量-->
+        <script>
+            var a=10;
+            function fun()
+            {
+                alert(a);
+                d=100;
+            }
+            fun();
+            console.log(d);
+            
+        </script>
+</body>
+</html>

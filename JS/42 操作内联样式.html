@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            height: 100px;
+            width: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <button>点我一下</button>
+    <button>点我一下</button>
+</body>
+</html>
+
+<script>
+    var btn=document.getElementsByTagName("button");
+    btn1=btn[0];
+    btn2=btn[1];
+    var box1=document.getElementsByClassName("box1")[0];
+    btn1.onclick=function(){
+        // 通过js修改元素样式
+        // 语法：元素。style。样式名=样式值
+        // 如果css样式中含有- 这种不合法需要修改命名 去掉减号，驼峰命名
+        // js通过修改内联样式，会有较高的优先级，但是在样式中写了import，则js不会生效
+        box1.style.margin="0 auto";
+        box1.style.backgroundColor="green";
+    }
+    btn2.onclick=function(){
+        console.log(box1.style.height);
+        // 只能获取元素的内联样式，css中的无法读取
+    }
+
+</script>

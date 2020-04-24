@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+            list-style: none;
+        }
+        .box{
+            height: 300px;
+            width: 320px;
+            margin:10px auto;
+            padding: 10px 0;
+            background-color: chartreuse;
+            position: relative;
+            overflow: hidden;
+        }
+        ul{
+            /* 利用js来获取宽度 */
+            position: absolute;
+            left: 0;
+        }
+        li{
+            float: left;
+            margin:0 10px;
+        }
+        img{
+            width: 300px;
+            height: 300px;
+        }
+        .nav{
+            position: absolute;
+            z-index: 5;
+            top: 260px;
+            left: 130px;
+        }
+        a{
+            height: 10px;
+            width: 10px;
+            display: inline-block;
+            background-color: crimson;
+            z-index: 10;
+            opacity: 0.5;
+        }
+        a:hover{
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li><img src="未标题-1.jpg" alt=""></li>
+            <li><img src="未标题-2.jpg" alt=""></li>
+            <li><img src="未标题-3.jpg" alt=""></li>
+            <li><img src="未标题-4.jpg" alt=""></li>
+            <li><img src="未标题-5.jpg" alt=""></li>
+            <li><img src="未标题-1.jpg" alt=""></li>
+        </ul>
+        <div class="nav">
+            <a href="javascript:;" class="aa"></a>
+            <a href="javascript:;" class="aa"></a>
+            <a href="javascript:;" class="aa"></a>
+            <a href="javascript:;" class="aa"></a>
+            <a href="javascript:;" class="aa"></a>
+        </div>
+    </div>
+</body>
+</html>
+
+<script src="donghus.js"></script>
+<script>
+   
+    var img=document.getElementsByTagName("img");
+    var ul=document.getElementsByTagName("ul")[0];
+    var a=document.getElementsByClassName("aa");
+    //默认显示索引
+    var index=0;
+    a[index].style.backgroundColor="black";
+    //点击超链接切换图片
+    for(var i=0;i<a.length;i++){
+        a[i].index=i;
+    a[i].onclick=function(){
+        clearInterval(time);
+        index=this.index;
+        a[index].style.backgroundColor="black";
+        move(ul,20,-320*index,function(){;});
+        for(var j=0;j<a.length;j++)
+        {
+            if(j==index)
+            continue;
+            a[j].style.backgroundColor="";
+        }
+        autochange();
+    }
+    }
+    //设置ul的自动宽度
+    ul.style.width=img.length*320+"px";
+    var time;
+    function seta(){
+        for(var j=0;j<a.length;j++)
+                {
+                    if(index>=img.length-1)
+                     {
+                            index=0;
+                            ul.style.left=0;
+                        }
+                    if(j==index)
+                    {a[index].style.backgroundColor="black";continue;}
+                    a[j].style.backgroundColor="";
+                }
+    }
+    autochange();//开启图片自动切换
+    function autochange(){
+        clearInterval(time);
+        time=setInterval(function(){
+            //索引自增
+            index++;
+            index%=img.length;
+            move(ul,5,-320*index,function(){
+                seta();
+               
+            });
+        
+        
+        },3000)
+      
+    }
+
+   
+    
+    
+
+</script>

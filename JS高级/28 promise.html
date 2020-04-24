@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<!-- 
+    理解:
+    promise对象:代表了未来某个时间将要发生的某件事(通常是一个异步操作)
+    有了promise对象,可以将异步操作以同步的流程表达出来,避免了层层嵌套的回调函数(回调地狱)
+    es6的promise是一个构造函数,用来生产promise实例
+
+    使用promise的基本步骤(2步)
+    创建promise对象
+    let promise=new Promise((resolve,reject)=>{
+        //初始化promise状态为pendin
+        //执行异步操作
+        if(异步操作成功)
+        {
+            resolve(value);//修改promise的状态为fullfilled
+        }
+        else
+        {
+            reject(errmsg);//修改promise的状态为rejectd
+        }
+    })
+ -->
+
+ <script>
+     let promise=new Promise((resolve,reject)=>{
+        //初始化promise状态为pendin
+        //执行异步操作
+        setTimeout(()=>{
+            //如果成功
+            resolve();//函数参数为value,读取promise直接返回value,value为执行异步任务才成功的数据
+            //如果失败
+            //reject()
+        },1000);
+        //根据异步任务的执行状态来切换promise的执行状态
+
+     })
+     console.log(promise)
+     promise.then(
+    (xml)=>{//成功执行的的步骤
+        console.log('success')
+     },
+     (xml)=>{//失败执行的步骤
+        console.log('defeat')
+     })
+     //promise默认返回值成功
+ </script>

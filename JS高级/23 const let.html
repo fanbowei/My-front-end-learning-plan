@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<!-- 
+    let 
+    作用与var类似用于声明一个变量
+
+    特点
+    在块作用域中有效
+    不能重复声明
+    不会预处理,不存在提升
+
+    应用
+    循环遍历加监听
+    适用let取代var
+ -->
+
+ <!-- 
+     const
+     定义一个常量 
+
+     特点:不能修改 其他和let相同
+
+     应用:保存不用改变的数据
+  -->
+
+ <script>
+     for(let i=0;i<3;i++)//js引擎的for循环执行的原理是每一次都会执行这三个语句,相当于每一次循环就会创造一个新的块每一次的i都是独立的,后面的循环会记住前一次的i的值
+     {
+         setTimeout(function () {  //类似加立即执行函数(多一个作用域)形成闭包//i循环完一次,那个i创造的作用域就被清除,
+             console.log(i)
+         },1000)
+           
+         
+     }
+
+     const a=10;
+     console.log(a)
+   
+ </script>

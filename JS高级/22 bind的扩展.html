@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<!-- 
+        Funciton.prototype.bind(obj)
+        作用 将函数的this绑定为obj,并将函数返回
+
+        区别bind和call,apply
+        都能指定函数中的this
+        call() apply()是立即调用函数
+        bind()是将函数返回
+ -->
+
+ <script>
+     var obj={
+         name:'xm',
+         age:11
+     }
+
+     function fun(mes) { 
+         console.log(this.name)
+         console.log(mes)
+      }
+      fun.bind(obj,'asdf')()
+
+      setTimeout(function asd(){console.log(this)}.apply(obj),1000)//call方法被调用立即执行
+ </script>

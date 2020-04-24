@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box,.box2{
+            height: 100px;
+            width: 100px;
+            position: absolute;
+            background-color: darkkhaki;
+        }
+        .box2{
+        left: 200px;
+        top: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+    </div>
+    <div class="box2"></div>
+</body>
+</html>
+<script>
+    var box=document.getElementsByClassName("box")[0];
+    var box2=document.getElementsByClassName("box2")[0];
+
+   function drag(obj){
+    obj.onmousedown=function(boxevent){    
+        var ox=boxevent.clientX-obj.offsetLeft;
+        var oy=boxevent.clientY-obj.offsetTop;
+        // clientx 鼠标相对于文档的偏离量 ，offsetleft元素相对于文档的偏移量
+
+         document.onmousemove=function(event){
+          
+            obj.style.top=(event.clientY-oy)+"px";
+            obj.style.left=(event.clientX-ox)+"px";  
+               
+        }
+        document.onmouseup=function(){
+            document.onmousemove=null;
+            document.onmouseup=null;
+            
+        }
+        
+        return false;
+    }
+    
+   }
+
+
+   //封装拖拽函数
+   drag(box);
+   drag(box2);
+   
+</script>
+<!-- 
+    onmousedown鼠标按下不松开
+    onmousemove
+    onmouseup鼠标松开
+
+
+    当我们拖拽一个页面中的内容时候，游览器会默认去搜索内容
+    此时会导致拖拽异常，如果不喜欢发生可以return false来取消行为
+ -->

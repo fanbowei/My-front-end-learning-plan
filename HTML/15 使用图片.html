@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        canvas操作图片的时候必须要等图片加载完成
+        drawimage（image，x，y，width，height）
+        其中img是image或者canvas对象，x，y是在其目标canvas里的起始坐标
+
+
+        createpattern（image repetition）
+        image 图片源
+        epetition：repeat repeatx repeaty no-repeat
+        一般情况下我们都会将creatpattern返回的对象作为fillstyle的值
+
+        渐变
+        线性渐变 
+        createLineearGradient（x1，y1,x2,y2）表示渐变的起点和终点
+        gradient。addcolorstop（position color）
+        addcolorstop方法接受2个参数
+        position 参数必须是一个0.0和1.0之间的数值，表示渐变中颜色所在的相对的位置
+        color参数必须是一个有效的css颜色
+
+
+        径向渐变
+        createradiagradient（x1,y1,r1,x2,y2,r2）
+        前三个参数表示定义一个以xy为圆形r为半径的圆
+        后三个参数表示以x2y2为圆心r2为半径的圆
+     -->
+     <canvas style="background-color:blanchedalmond;" height="300"></canvas>
+</body>
+</html>
+<script>
+    window.onload=function(){//插入图片必须要等图片加载完成
+        var can=document.getElementsByTagName("canvas")[0];
+        var pen=can.getContext("2d");
+        var img=new Image()
+        img.src="11.jpg"
+        img.onload=function(){
+            draw();
+        }
+
+        function draw(){
+            // pen.drawImage(img,0,0,300,300); 插入图片
+
+
+            //pen.fillStyle=pen.createPattern(img,"repeat") 将图片当成矩形的背景        
+            //pen.fillRect(0,0,200,200)
+            // pen.clearRect(0,0,100,100)
+
+
+            //线性渐变
+            // var gradient=pen.createLinearGradient(0,0,200,200)
+            // gradient.addColorStop(0,'red');
+            // gradient.addColorStop(0.5,'blue');
+            // gradient.addColorStop(1,'green');
+            // pen.fillStyle=gradient;
+            // pen.fillRect(0,0,200,200)
+
+
+            //径向渐变
+            pen.fillStyle=pen.createRadialGradient(150,100,50,100,100,100)
+            pen.fillStyle.addColorStop(0,'red');
+            pen.fillStyle.addColorStop(1,'blue');
+            pen.fillRect(0,0,200,200);
+            
+
+        }
+        
+    }
+
+</script>

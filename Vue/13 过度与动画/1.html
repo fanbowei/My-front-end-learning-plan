@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 指定显示隐藏的过度样式 */
+        .fade-enter-active, .fade-leave-active {
+            transition: all .5s;
+        }
+        /* 指定隐藏时候的样式 */
+        .fade-enter, .fade-leave-to {
+            opacity: 0;
+            color:red;
+         
+        }
+        .fade-enter-to,.fade-leave{
+           
+        }       
+    </style>
+</head>
+<body>
+    <!-- 
+        vue动画的理解
+        操作css的transition或animation
+        vue会给目标元素添加/移除特定的class
+
+        基本过度动画的编码
+        1在目标元素外包裹<transition name="xxx">
+        2定义class样式
+            1指定过度样式:transition
+            2指定隐藏时样式:opacity
+        3过度的类名
+        xxx-enter-active 指定显示的transition
+        xxx-leave-active 指定隐藏的transition
+        xxx-enter 指定隐藏时的样式
+     -->
+
+     <div id="demo">
+        <button @click="show = !show">
+          Toggle
+        </button>
+        <transition name="fade">
+          <p v-if="show">hello</p>
+        </transition>
+      </div>
+</body>
+</html>
+<script src='../ku/vue.js'></script>
+
+<script>
+    new Vue({
+  el: '#demo',
+  data: {
+    show: true
+  }
+})
+</script>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+        .box{
+            margin-top: 100px;
+        }
+        ul{
+           display: flex;
+           
+        }
+        li{
+            flex-grow: 1;
+            text-align: center;
+            display: block;
+            border: 1px solid black;
+            font-size: 18px;
+            padding: 10px 0;
+           position: relative;
+           overflow: hidden;
+            
+        }
+        li div{
+            background-color: red;
+            width: 100%;
+            height: 100%;
+            transform:rotate(180deg) ;
+            position: absolute;
+            top: 46px;
+            transition: all 0.5s;
+            
+            
+        }
+        li:hover div{
+            top: 0px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li>
+                <a href="">我的主页</a>
+                <div class="down"></div>
+               
+            </li>
+
+            <li>
+                <a href="">新闻头条</a>
+                <div class="down"></div>
+            </li>
+
+            <li>
+                <a href="">最新电影</a>
+                <div class="down"></div>
+            </li>
+
+            <li>
+                <a href="">腿长18</a>
+                <div class="down"></div>
+            </li>
+
+            <li>
+                <a href="">小说大全</a>
+                <div class="down"></div>
+            </li>
+
+            <li>
+                <a href="">旅游度假</a>
+                <div class="down"></div>
+            </li>
+
+            <li>
+                <a href="">次品退货</a>
+                <div class="down"></div>
+            </li>
+
+            <li>
+                <a href="">电视剧</a>
+                <div class="down"></div>
+            </li>
+
+            <li>
+                <a href="">今日团购</a>
+                <div class="down"></div>
+            </li>
+            
+            
+        </ul>
+    </div>
+</body>
+</html>
+<script>
+
+</script>

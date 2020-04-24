@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p id="title">
+        商品标题价格
+    </p>
+    <img width="150px" height="150px">
+    <p id="dos">
+        商品描述信息
+    </p>
+    <button name="女装">女装</button>
+    <button name="包包">包包</button>
+    <button name="拖鞋">拖鞋</button>
+</body>
+</html>
+<script src="jquery-3.4.1.js"></script>
+<script>
+    var btn=document.getElementsByTagName('button');
+    for(var i=0;i<btn.length;i++)
+    {
+
+        btn[i].onclick=function () {
+            $.ajax({
+                type:'get',
+                url:'1.php',
+                data:('name='+this.name),
+                success:function (xml) {
+                    var str=xml.split(' ');
+                    var img=document.getElementsByTagName('img')[0];
+                    var p=document.querySelector('#title');
+                    img.src=str[1];
+                    p.innerHTML='商品标题价格<br> '+str[0]
+
+                },
+                error:function () {
+                    alert(xml.status)
+                }
+            })
+        }
+    }
+
+</script>

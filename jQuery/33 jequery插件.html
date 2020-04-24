@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script src="js/jquery-3.4.1.js"></script>
+<script>
+   //扩展jquery的工具方法
+    //$.extend(object)
+   //扩展jquery对象的方法
+    //$fn.extend(object)
+    
+    
+    // 添加一个比较两个数大小的方法
+    $.extend( {
+        min:function(a,b){return a>b?a:b },
+        max:function(a,b){return a<b?a:b }
+    })
+    // alert($.min(1,3))
+    $.fn.extend({
+        checkAll:function(){this.prop('checked','true')}
+    })
+
+</script>

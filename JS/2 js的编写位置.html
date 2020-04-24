@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- js可以写在外部文件中,然后通过script来yin'ru -->
+    <!-- script一但用于引入外部文件就不能在编写代码 ,浏览器会自动忽略
+        如果需要可以在创建一个标签-->
+    <script src="2 js.js">
+        // alert("aa");
+        // 可以将js代码写道script标签中
+    </script>
+</head>
+<body>
+    <!-- js可以写在onclick中 -->
+    <button onclick="alert('aaa')">按钮</button>
+    <!-- js可以写在超链接的href属性中,当点击超链接会执行js代码 -->
+    <a href="javascript:alert('aaa');">超链接</a>
+    <!-- 虽然js可以写在标签的属性中,但是属于结构和行为耦合,不方便维护 -->
+   
+</body>
+</html>

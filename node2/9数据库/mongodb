@@ -1,0 +1,18 @@
+mongodb的数据模型时面向文档的,所谓的文档就是一种类似json的对结构,简单理解mongodb存的就是各种对象(bson)
+
+mongod启动服务
+mongo进入服务端
+
+mongodb基本命令
+db 查看当前操作哪一个数据库
+show dbs:查看数据库列表
+use test 切换到test数据库 如果不存在则创建一个test库
+db.students.insert({}):向当前数据库的students集合中插入一个文档
+show collections 展示当前数据库中的所有集合
+
+
+向数据库中插入文档
+db.<collection(集合名称)>.insert(doc)  向一个集合中插入一个文档
+
+
+1270.0.1 localhost都代表本台机器

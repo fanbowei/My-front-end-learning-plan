@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<!-- 
+    iterator是一种接口机制,为各种不同的数据结构提供统一的访问机制
+    作用:
+    1为各种数据结构,提供一个统一的,简便的访问接口
+    2使得数据结构的成员能够按照某种次序排序
+    3es6创造了一种新的遍历命令for of 循环iterator接口主要供for of消费
+
+    工作原理:
+    创建一个指针对象(遍历器对象),指向数据结构的起始位置
+    第一次调用next方法,指针自动指向数据结构的第一个成员
+    接下来不断调用next方法,指针会一直往后移动,直到指向最后一个成员
+    每次调用next方法返回的都是一个包含value和done的对象,{value:当前值 done:布尔值}
+    value表示当前的成员的值,done对应的布尔值表示当前的数据的结构时候遍历结束
+    当遍历结束的时候返回的value值时undefind,done的值为true
+
+    原生具备iterator接口的数据
+    array  arguments set容器  map容器  string
+ -->
+
+ <script>
+     function iterator(obj){
+        let index=0//标识指针起始位置
+        return {//指针对象
+            next(){//指针对象的next方法
+                return index<obj.length?{value:obj[index++],done:false}:{value:obj[index++],done:true};
+            }
+        }
+     }
+
+     let arr=[1,2,3,4,5];
+     let iteratorobj=iterator(arr);
+     console.log(iteratorobj.next())
+
+    //  for of 只能遍历数组
+    for(let i of arr)
+    {
+        console.log(i)
+    }
+
+
+ </script>

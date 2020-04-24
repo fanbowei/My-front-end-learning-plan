@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var fun=Function("console.log('hell0');");
+        fun.name=123;
+        fun();
+        console.log(fun.name);
+
+
+// 函数声明
+        function fan()
+        {
+            name=123;
+            console.log("hello");
+        }
+        fan();
+        console.log(fan.name);
+
+
+
+        // 函数表达式 创建一个匿名函数，然后创建一个对象赋值给它
+        var aa=function(a,b){
+            var d=a+b;
+            return d;
+        };
+        aa(2,5);
+        (function()
+        {
+            alert("aaa");
+        })();
+        //立即执行函数
+    </script>
+     <!-- 函数 -->
+     <!-- 创建一个函数对象
+        var fun=Function（）； 可以将要执行的代码以字符串传递给构造函数
+        函数中也可以创建对象 -->
+
+
+        <!-- 函数的参数
+            如果实参的个数少于形参的个数，则没有对应的实参会使undefined
+            如果return语句不跟值会返回undefined
+         -->
+</body>
+</html>

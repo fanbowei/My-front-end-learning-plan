@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+
+    /*
+    reduce遍历数组 concat合并数组
+    */
+    Array.prototype.flatten=function(){
+        return this.reduce((pre,item)=>{
+            if(Array.isArray(item))
+            {
+                return pre.concat(item.flatten())
+            }
+            else
+            {
+                return pre.concat(item)
+            }
+        },[])
+    }
+
+
+    /*
+    ...+some()+concat()
+    some用来判断是否满足条件
+    ...用来拆分数组
+    concat可以合并多个单项
+    */
+    Array.prototype.flatten2=function(){
+        let arr=[].concat(...this)
+        while(arr.some((item)=>{Array.isArray(item)}))
+        {
+            arr=[].concat(...arr)
+        }
+        return arr
+    }
+    
+</script>

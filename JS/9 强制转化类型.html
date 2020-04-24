@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var a=123;
+        a=a.toString();
+        a=String(a);
+
+
+        a=Number(a);
+
+        var b=undefined;
+        b=Number(b);
+        console.log(typeof NAN);
+        console.log(typeof b);
+
+
+        var c="123px";
+        c=parseInt(c);
+        console.log(c);
+
+
+
+        var d=0xa;
+        console.log(d);
+    </script>
+
+    <!-- 强制数据转换，将一个数据类型强制转换为其他类型
+        将其他类型转换成string
+        1 交永被转换类型的tostring（）方法  方法不会影响原变量 null和undeifined没有tostring方法
+        2调用string（）函数，并将被转换的数据作为参数 使用string（）函数使用相当于调用tostring（）
+        undefined和null直接加上双引号-->
+
+
+        <!-- 将其他类型转换为number
+            1 使用number（）函数 字符串转数值 如果是纯数字，则直接转换 ，只要有非数字则转换成nan
+            如果字符串是空串或者全部是空格则转换成0
+            2. 布尔转数字 true 1  false 0 null 0- UNDEFINED转数字 weiNAN
+            
+            转换字符串
+            parseINT（）parsefloat（）把一个字符串转换为整数 遇到第一个非数字停止
+            如果对非字符串使用parseint会先转换为字符串然后操作
+            parseint（a ，10）后面的参数表示指定数字的进制
+
+         
+            在js中如果要表示16进制的数，则需要以0x开头
+            如果需要表示8进制则需要以0开头
+            如果要表示二进制，则需要以0b开头
+        -->
+
+
+
+
+        <!-- 转换为boolean 使用boolean函数 除了零和nan 空串 null undefined的数都是true -->
+</body>
+</html>

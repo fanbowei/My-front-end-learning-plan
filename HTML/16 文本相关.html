@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        canvas提供了两种方法来渲染文本
+        filltext(text,x,y)
+        在指定的xy位置填充文本
+        stroketext（text，x，y）
+        在指定的位置绘制本文边框
+        文本样式
+        font=value 当我们用来绘制文本的样式，这个字符串使用和css font属性相同的语法
+        默认的字体是10px sans-serif
+        font属性在指定时，必须要有大小和字体，缺一不可
+
+        textalign=value
+        文本对齐选项 可选值包括 left right center
+        
+
+        textbaseline
+        文本基线对齐
+        top文本基线在文本块的顶部
+        middle 文本基线在文本中间
+        bottom文本基线在文本底部
+
+
+        measuretext()方法返回一个textmetric对象，包含关于文本尺寸的信息
+
+        文本阴影
+        shadowoffsetx shadowoffsety用来设置阴影在x和y轴的延时距离
+        shadowblur 用来设置阴影的模糊程度
+        shadowcolor 是css标准颜色，用来设置阴影的颜色，默认是全透明的黑色
+     -->
+    <canvas style="background-color: blanchedalmond;" height="300"></canvas>
+</body>
+</html>
+
+<script>
+    var can=document.getElementsByTagName('canvas')[0];
+    var pen=can.getContext('2d');
+
+    pen.save()
+    pen.fillStyle="red"
+    pen.strokeStyle="red"
+    pen.font="110px a"
+    pen.textAlign="center"
+    pen.shadowOffsetX=5
+    pen.shadowOffsetY=3
+    pen.shadowColor="black"
+    pen.textAlign="middle"
+    //得到文本的信息
+    var obj=pen.measureText('aadf').width 
+
+    pen.beginPath()
+    //设置文本居中
+    pen.fillText('aadf',(can.width-obj)/2,(can.height-110)/2);
+    pen.strokeText('adf',200,200)
+    pen.restore();
+    
+</script>

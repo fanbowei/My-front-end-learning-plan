@@ -1,0 +1,143 @@
+promise需要实现的功能
+
+function fn(resolve,reject)
+{
+    setTimeout(()=>{//异步任务
+    if(true)
+    {
+        resolve()//这是未来的事件,现在并不能看出函数体
+    }
+    else
+    {
+        reject()
+    }
+    })
+    
+}
+
+var p1=new promise(fn)
+p1.then(function(res){
+    成功的事件
+})
+p1.catch(functon(){
+    失败的事件
+})
+
+p1peomise对象发送了异步操作,必然会有一个未来事件,在未来执行,这个过程由传入的函数对象fn执行
+函数fn里面必然需要由成功执行和失败执行的函数
+
+创建构造对象
+class promise{
+    constructor(fn){
+        this.successlist=[],//成功的事件函数级放在这个里面
+        this.faillist=[]//失败的事件放在这里
+        this.state='penging'
+        //传入函数对象(异步操作的函数内容)
+        fn(this.resolvefn.bind(this),this.rejectfn.bind(this))
+    }
+    then(successfn,failfn){
+        if(typeof successfn=='function')
+        {
+            this.successlist.push(successfn)
+        }
+        if(typeof failfn=='function')
+        {
+            this.faillist.push(failfn)
+        }
+    }
+    catch(failfn)
+    {
+        if(typeof failfn=='function')
+        {
+            this.faillist.push(failfn)
+        }
+    }
+    resolvefn(res)
+    {
+        this.state='fullfilled'
+        this.successlsit.forEach((item,index)=>{
+            item(res)
+        })
+    }
+    rejectfn(res)
+    {
+        this.state='rejected'
+        this.faillist.forEach((item,index)=>{
+            item(res);
+        })
+        throw Error(res)
+    }
+
+}
+
+
+//构造函数的作用:1声明成功函数放置的数组对象 2,声明失败函数放置的数组对象3定义初始化状态4调用传入进行执行异步内容的函数(在未来)
+
+2传入成功或者失败函数需要调用的函数
+作用:将成功和失败的函数传入值成功或失败的数组里面
+
+
+
+async
+function getConstant() {
+    return 1
+}
+ 
+async function getAsyncConstant() {
+    return 1
+}
+ 
+async function getPromise() {
+    return new Promise((resolved, rejected)=> {
+        resolved(1)
+    });
+}
+ 
+async function test() {
+    a = 2
+    c = 1
+    await getConstant();
+    d = 3
+    await getPromise();
+    d = 4
+    await getAsyncConstant();
+    return 2
+
+}
+
+
+promise
+function getConstant() {
+    return 1;
+}
+ 
+function getAsyncConstant() {
+    return Promise.resolve().then(function () {
+        return 1;
+    });
+}
+ 
+function getPromise() {
+    return Promise.resolve().then(function () {
+        return new Promise((resolved, rejected) => {
+            resolved(1);
+        });
+    });
+}
+ 
+function test() {
+    return Promise.resolve().then(function () {
+        a = 2;
+        c = 1;
+        return getConstant();
+    }).then(function () {
+        d = 3;
+        return getPromise();
+    }).then(function () {
+        d = 4;
+        return getAsyncConstant();
+    }).then(function () {
+        return 2;
+    });
+
+}

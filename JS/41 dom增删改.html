@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+        .box1{
+             
+            width: 300px;
+            border: 1px solid black;
+            margin-left: 200px;
+            padding-left: 20px;
+            padding: 30px ;
+            float:left; 
+            clear: both;
+        }
+        li{
+            float: left;
+            width: 50px;
+            line-height:50px;
+            text-align: center;
+            border: 1px solid black;
+            background-color: chartreuse;
+        }
+        button{
+            margin-left: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="box1">
+            <span>你喜欢哪个city</span>
+
+            <ul class="city">
+                <li class="bj">北京</li>
+                <li>上海</li>
+                <li>东京</li>
+                <li>首尔</li>
+            </ul>
+        </div>
+    </div>
+
+    <form action="javascript:;">
+
+        <button class="b1">创建一个广州节点</button><br>
+        <button class="b2">将广州节点插入到bj前面</button><br>
+        <button class="b3">使用广州节点替换bj节点</button><br>
+        <button class="b4">删除bj节点</button><br>
+        <button class="b5">读取city内部html代码</button><br>
+        <button class="b6">设置bj的html代码</button><br>
+        <button class="b7">创建一个广州节点</button><br>
+    </form>
+</body>
+</html>
+<script>
+function myclick(check,fun)
+{
+    var btn=document.querySelector(check);
+    btn.onclick=fun;
+}
+
+myclick(".b1",function(){
+    // 创建li元素节点 
+    // 创建文本节点
+    var li =document.createElement("li");//需要一个标签名作为参数，根据表标签名创建节点并返回
+    var text=document.createTextNode("广州");//需要一个文本内容作为参数
+    //将text设置为li的子节点
+    li.appendChild(text);
+    var ul=document.querySelector(".city");
+    ul.appendChild(li);
+   
+})
+
+myclick(".b2",function(){
+    var li =document.createElement("li");var text=document.createTextNode("广州"); li.appendChild(text);var ul=document.querySelector(".city");ul.appendChild(li);
+    var bj=document.querySelector(".bj");
+    ul.insertBefore(li,bj);
+    // insertbefore 父节点的方法，参数为一个新节点，一个老节点 ，将新节点插入到老节点前面
+    
+})
+
+myclick(".b3",function(){
+    var li =document.createElement("li");var text=document.createTextNode("广州"); li.appendChild(text);var ul=document.querySelector(".city");ul.appendChild(li);
+    var bj=document.querySelector(".bj");
+    ul.replaceChild(li,bj);
+    // 替换子节点
+})
+
+myclick(".b4",function(){
+ 
+    var bj=document.querySelector(".bj");
+    bj.parentNode.removeChild(bj);
+
+    
+})
+
+myclick(".b5",function(){
+    var city=document.querySelector(".city");
+    alert(city.innerHTML);
+})
+
+myclick(".b6",function(){
+    var bj=document.querySelector(".bj");
+    bj.innerHTML="湖北"
+
+})
+
+
+
+myclick(".b7",function(){
+    // var city=document.querySelector(".city")
+    // city.innerHTML+="<li>广州</li>"
+    var city=document.querySelector(".city")
+    var li=document.createElement("li")
+    li.innerHTML="广州"
+    city.appendChild(li);
+
+})
+</script>

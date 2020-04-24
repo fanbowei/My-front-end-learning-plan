@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+</body>
+</html>
+
+<script>
+    let obj={};
+
+  let fun=()=>{
+      console.log(this)
+  };
+  fun.call(obj)//call apply无法修改箭头函数this的指向,普通函数在调用的时候才会决定this,箭头函数在定义的时候this就确定了
+
+  
+</script>

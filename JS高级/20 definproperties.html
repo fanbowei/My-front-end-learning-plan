@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    var obj={
+        name:'aaa',
+        age:12
+    }
+    var obj1=Object.create(obj,{
+        sex:{
+            value:'nv',
+            writable:false,
+            configurable:true,
+        },
+    })
+    console.log(obj1)
+
+    var name='abcg '
+
+    // Object.defineProperties(obj1,{
+    //     name:{
+    //         get:function(){//获取属性值的时候调用
+    //             return name
+    //         },
+
+    //         set:function(value){//修改扩展属性值时候调用set,需要传入一个参数,当修改的时候自动传入修改的值
+    //             name=value
+    //         }
+    //     }
+    // })
+
+
+        var aad='aaac'
+    Object.defineProperty(obj1,'aaf',{  
+            get:function(){//获取属性值的时候调用
+                return aad
+            },
+
+            set:function(value){//修改扩展属性值时候调用set,需要传入一个参数,当修改的时候自动传入修改的值
+                aad=value
+            }
+    })
+
+
+
+    //任意一个对象的属性都有set和get属性
+    var obj4={
+        name:'xm',
+        age:14,
+
+        get age(){
+            return 'nv'
+        },
+        get name(){
+            return 14
+        }
+    }
+   
+</script>
+<!-- value:指定值
+    writeable:标识当前属性值时候能够被修改 默认为false
+    configurable:标识当前属性能否被删除,默认为false
+    enumerable:标适当前属性能否用for in 枚举 默认false -->

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .red{
+        background-color: red;
+    }
+    .blue{
+        background-color: blue;
+    }
+</style>
+<body>
+    <!-- 
+        在应用的界面中.某些元素的样式是变化的
+        class/style绑定就是专门用来实现动态样式效果的技术
+
+        class绑定: class='xxx'
+        xxx是字符串 或者对象 或者数组
+
+        style绑定
+        :style='{color:activeColor,fontsize:fonsize+'px'}'
+     -->
+
+     <div id="test" >
+         <h2 :class="myclass1">class绑定 </h2>
+         <h2 :class="myclass2">style绑定</h2> <!--类名不确定-->
+         <h2 :class="{red:true ,blue:true}">style绑定</h2> <!--类名确定,但是不确认有没有-->
+         <button v-on:click="updata">更改</button>
+
+         style的绑定
+         <p :style="{color:mycolor,fontSize:myfont+'px'}">Lorem ipsum dolor sit ores commodi.</p>
+     </div>
+
+
+</body>
+</html>
+
+<script src='../ku/vue.js'></script>
+
+<script>
+    new Vue({
+        el:'#test',
+        data(){
+            return {
+                myclass1:'red',
+                myclass2:'blue',
+                mycolor:'red',
+                myfont:'29'
+            }
+        },
+        methods: {
+            updata(){
+                this.myclass2='red'
+            }
+        },
+    })
+</script>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    div{
+        width: 700px;
+        height: 500px;
+        border: 1px red solid;
+        /* background-color: #bfa; */
+        background-image: url("../html/11.jpg");
+        /* 如果背景图片小于元素，则图片会自动铺满元素
+            如果背景图片大于元素，则会有一部分图片无法显示 */
+            /* background-repeat:用来设置背景图片的重复方式
+            repeat 默认值 背景沿着x轴y轴双方向进行平铺
+            repeat-x只沿着x轴平铺
+            no-repeat 图片不会重复 */
+            /* background-position 用来设置背景图片的背景位置
+                通过top left bottom right center来表示图片的位置
+                还可以通过偏移量来表示*/
+                background-repeat: no-repeat;
+                /* background-position: left right;
+                 */
+                 background-position: 0 0;
+                 /* background-clip：（设置边框的范围）可选值
+                    boeder-box：默认值，背景会出现在边框的下班
+                    padding-box背景只会出现在内容区和内边框
+                    content-box 背景只会出现在内容区 */
+                    /* background-origin 背景图片计算偏移量的原点
+                    padding-box 默认值从够内边距开始计算
+                    conten-box偏移量从内容区开始计算*/
+                    /* background-size 当图片大于元素无法全部显示
+                    可以设置，通过调整像素来控制图片的大小
+                     auto会默认等比例缩放
+                     */
+                     /* backgound-attachment用来控制子元素的背景图片是否随着滚动条滚动
+                     scroll 默认值，默认滚动
+                     fixed 背景会固定在页面，不会动 
+                     注意：backg-size要写在background-positi/后面
+                     background-oigin要卸载clip前面*/
+
+    }
+    </style>
+</head>
+<body>
+    <div>
+       
+    </div>
+</body>
+</html>

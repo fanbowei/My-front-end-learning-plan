@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+        ajax引擎,内置的程序代码帮我们实现ajax请求
+     -->
+    <!-- 
+        ajax是一种特别的http请求
+        对于服务器没有任何的区别,区别在于游览器端
+        游览器端发送请求,只有xhr或者fetch发送的才是ajax请求,其他所有的都是非ajax请求
+        
+        游览器端接受到响应
+        一般请求:游览器一般会直接显示响应体的数据,也就是刷新跳转页面
+        ajax请求,游览器会不对界面进行任何的更新操作,只是调用监视的回调函数并且传入相关的响应数据
+     -->
+
+    <!--
+        xhr 的api
+        xmlhttprequest()创建xhr对象的构造函数
+        status 状态码
+        statustext 响应状态文本
+        readystate:标识请i去状态的只读属性 0初始 1 open之后 2 send之后 3请求中 4请求完成
+        onreadystatechange 绑定readystate改变的监听
+        response 响应体数据,类型取决responsetype的指定
+        timeout 指定请求超出时间,默认为0代表没有限制
+        ontimeout 绑定超时的监听
+        onerror 绑定请求网络错误的监听
+        open('请求方式',url) 初始化一个请求
+        send(data)发送请求
+        abort()请求中断
+        getresponseheader(name)获取指定名称的响应头值
+        getallresponseheaders获取所有响应头组成的字符串
+        setresquestheader(name,value)设置请求头
+       
+        -->
+
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            height: 100px;
+            width: 100px;
+            background-color: red;
+        }
+
+    </style>
+
+
+
+<script>
+    window.onload=function(){
+        var btn=document.getElementsByTagName("button")[0];
+        var box1=document.getElementsByClassName("box1")[0];
+
+        // clientwidth clientheight 返回元素可见高和宽，不带单位可以直接计算（内容区加上内边距） 属性都是只读的不能修改
+        //ofsetheight ofsetwidth可以获取整个元素的代销（内容去，内边距，边框）
+        //ofsetparent 可以获取当前元素的定位父元素，会获取到离当前元素最近开启了定位的祖先元素，如果都没有开启则返回body
+        //offsetleft offsettop 当前元素向对应定位父元素的偏移量  scrollheight 可以获取有滚动条的长和高
+        //scrollleft  scrolltop可以获取滚动条滚动的距离  当scrollheight-scrolltop==clienheight时，表示滚动条拖到了低
+
+    }
+</script>
+</head>
+<body>
+    <div class="box1"></div>
+    <button>点我一下</button>
+</body>
+</html>

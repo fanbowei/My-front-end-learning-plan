@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            height: 300px;
+            width: 300px;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <canvas style="background-color: red;" height="300"></canvas>
+    </div>
+</body>
+</html>
+
+<script>
+    var can=document.getElementsByTagName('canvas')[0];
+    var pen=can.getContext('2d');
+    
+
+    pen.save();//开始写save 把相关的样式压入栈中
+
+
+
+    //所有的样式写在save和beginpath之间
+    pen.beginPath();//每次开始时候清空路径容器
+
+//图像画这里
+    pen.fillRect(10,10,100,100);
+
+
+
+    pen.restore();//结束写 弹栈  
+    //相当于块级作用域
+
+
+// save 保存的状态有 strokestyle 
+// fillstyle  linewidth   linecap  linejion
+</script>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+ 
+</body>
+</html>
+
+<script src='../ku/vue.js'></script>
+
+<script>
+    (()=>{
+        const a={
+        firstname:'a',
+        lastname:'b'
+    }
+
+    //用来数据双向绑定
+     Object.defineProperty(a,'fullname',{
+        get(){
+            return this.firstname+'-'+this.lastname
+        },
+
+        //用来监视属性值变化
+        set(value){//value是当前属性的最新的值
+            let arr=value.split('-')
+            this.firstname=arr[0]
+            this.lastname=arr[1]
+        }
+     })
+     console.log(a.fullname);
+
+     a.firstname='c'
+     a.lastname='d'
+     console.log(a.fullname);
+
+     a.fullname='e-f'
+     console.log(a.firstname);
+     console.log(a.lastname); 
+    })();
+
+
+</script>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script src="./js/jquery-3.4.1.js"></script>
+
+<script >
+    $.ajax('http://127.0.0.1:3000/test_get',{
+        method:'get',
+        data:{name:'kebe',age:18},
+        success:function(data){
+            console.log(data);
+        },
+        error:function(data){
+            console.log(data);
+        }
+
+    })
+
+
+    $.ajax('http://127.0.0.1:3000/test_post',{
+        method:'post',
+        data:{name:'kebe',age:18},
+        success:function(data){
+            console.log(data);
+        },
+        error:function(data){
+            console.log(data);
+        }
+
+    })
+
+
+    
+</script>

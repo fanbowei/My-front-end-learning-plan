@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div.red{color:red;}
+        /* 交集选择器可以选择符合多个条件的元素
+         */
+         .a.b.c{font-size: 60px;}
+         /* 并集选择器，同时选择多个选择器对应的元素  */
+         /* 子元书选择器
+         语法：父元素>子元素 */
+         div>span{color:red;}
+         /* 后代选择器 祖先 后代{} */
+         div span{color:blue;}
+         /* 兄弟选择器，语法：上一个+下一个 
+         ~选择下面所有的兄弟*/
+         p+span{
+             color:sandybrown;
+
+         }
+    </style>
+
+</head>
+<body>
+    <div class="red a b d">div</div>
+    <p class="a b c">ppp</p>
+    <div>
+        一个div
+        <p>
+            div中的p<br>
+        
+            <span>p中的span<br></span>
+        </p>
+        <span>div中的span</span>
+    </div>
+</body>
+</html>

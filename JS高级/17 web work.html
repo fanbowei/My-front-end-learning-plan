@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text">
+    <button>主线程</button>
+    <button>分线程</button>
+</body>
+</html>
+<script>
+    // var work=new Worker('./17.js');
+    // work.postMessage('aaa')
+    // work.onmessage=function(e){
+    //     console.log(e.data)
+    //}
+
+    //主线程计算斐波那契数列  数据过大页面直接卡死
+    function feb(i){
+        return i>2?feb(i-1)+feb(i-2):1;
+        }
+
+        var input=document.querySelector('input');
+        var btn1=document.getElementsByTagName('button')[0];
+        var btn2=document.getElementsByTagName('button')[1];
+        btn1.onclick=function(){
+            var vel=input.value;        
+            alert(feb(vel))
+        }
+
+        //分线程计算 不会影响主页面
+        btn2.onclick=function(){
+            var vel=input.value;
+             var work=new Worker('./17.js');
+        work.postMessage(vel)
+        work.onmessage=function(e){
+        alert(e.data)
+        }
+        }
+       
+</script>
+<!-- 
+    h5规划提供了js分线程的实现,取名:web workers
+        相关api
+        worker 构造函数,加载分线程执行js文件
+        worker.prototype.onmessage 用于接收另一个线程的回调函数
+        worker.prototype.postMessage:向另一个线程发送消息
+
+        不足
+        worker内部不能操作dom(更新ui)
+        不能跨域加载js
+        不是每个游览器都支持这个新特性
+ -->

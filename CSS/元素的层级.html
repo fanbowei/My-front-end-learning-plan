@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .a{width: 100px;height: 100px;background-color: teal;
+position: absolute;z-index: 3;
+    }
+
+
+    
+    .b{width: 100px;height: 100px;background-color: rgba(255,0,0,.3);
+    position: absolute;top: 50px;left: 50px;z-index: 2;
+    }
+    
+    
+    
+    .c{width: 100px;height: 100px;background-color: turquoise;
+    position:absolute;top: 100px;left: 100px;z-index: 1;
+    }
+    .d{
+        height: 50px;
+        width: 50px;
+        background-color:yellow;
+    }
+      </style>
+    <!-- 对于开启了定位的元素可以通过z-index来指定元素的层级
+        z-index需要你一参数，值越大的层级高
+        如果元素层级一样，则优先显示结构考下的元素 -->
+        <!-- 祖先元素 的层级再高也不会盖住后代元素，
+            祖先相当与水，后代相当于船，水涨船高-->
+
+</head>
+<body>
+    <div class="a">1</div>
+    <div class="b">2</div>
+    <div class="c">3<div class="d">4</div></div>
+</body>
+</html>

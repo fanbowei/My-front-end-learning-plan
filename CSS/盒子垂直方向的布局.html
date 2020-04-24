@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box{background-color: red;}
+        .box1{width: 100px;
+        height: 100px;
+        background-color: blue;
+        margin-bottom: 100px;
+    }
+       .box2{background-color: red;width:200px;height:200px;overflow:auto;}
+       .box3{background-color: blue;width:100px;height:300px;}
+    </style>
+</head>
+<body>
+    <!-- <div class="box">
+        <div class="box1">
+        </div>
+        <div class="box1"></div>
+    </div> -->
+    <!-- 子元素大小超过了父元素，子元素会益处 
+    一般使用overflow来处理
+    可选值：visible默认值（子元素会超出父元素）
+            hidden隐藏（益处内容会被裁剪）
+            scroll（生成滚动条）
+            auto（根据需要生成滚动条）-->
+    <div class="box2">
+        <div class="box3"></div>
+    </div>
+</body>
+</html>

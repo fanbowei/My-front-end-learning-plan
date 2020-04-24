@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button>
+        anniu
+    </button>
+</body>
+</html>
+<script src="jquery-3.4.1.js"></script>
+<script>
+    var btn=document.getElementsByTagName('button')[0];
+    btn.onclick=function () {
+        $.ajax({
+            type:'get',
+            url:'1.php',
+            data:'',
+            success:function (xml) {
+                var a=JSON.parse(xml);
+                alert(a['name'])
+            },
+            error:function (xml) {
+
+            }
+        })
+    }
+</script>

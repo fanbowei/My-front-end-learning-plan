@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button>
+    发送信息
+</button>
+</body>
+</html>
+<script>
+    window.onload=function (ev) {
+    var btn=document.getElementsByTagName("button")[0];
+    btn.onclick=function () {
+        //创建一个异步对象
+        var xmlhttp=new XMLHttpRequest();
+        //设置请求方式和请求地址
+        //函数的参数 method请求的类别 url文件在服务器上的位置 asyn true异步 false同步
+        xmlhttp.open('GET','1.php',true)
+        //发送请求
+        xmlhttp.send();
+        //监听状态变化
+        xmlhttp.onreadystatechange=function (e) {
+            //判断是否请求成功 http状态码200-299 且304都代表成功
+            if(xmlhttp.status>=200&&xmlhttp.status<=300||xmlhttp.status===304)
+                console.log('成功了')
+            //处理返回的结果
+            if(xmlhttp.readyState===4)
+                //当结处理状态为第四个代表处理了
+            console.log('接受到了数据')
+        }
+
+    }
+
+    }
+</script>

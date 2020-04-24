@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>history</h1>
+    <a href="52 text.html" target="_black">aaa</a>
+    <!-- //length可以访问当前链接数量
+        back 可以用来回到上一个页面，做哟个和回退按钮一样
+        forward 可以跳转到下一个页面、
+        go 可以指定跳转到指定的页面 go（1）go（-2） -->
+        <button>
+            点我一下
+        </button>
+</body>
+</html>
+<script>
+    var btn=document.getElementsByTagName("button")[0];
+    btn.onclick=function(){
+        history.back();
+    }
+</script>

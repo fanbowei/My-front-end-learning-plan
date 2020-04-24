@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+     function iterator(){
+        let that=this    
+        if(that instanceof Array)
+        {
+            let index=0
+            return {//指针对象
+            next(){//指针对象的next方法
+                return index<that.length?{value:that[index++],done:false}:{value:that[index++],done:true};
+            }
+        }
+        }
+
+        else{
+            let index=0
+            let thatarr=Object.keys(that);
+            return {
+            next(){
+                 return index<thatarr.length?{value:thatarr[index]+':'+that[thatarr[index++]],done:false}:{value:thatarr[index]+':'+that[thatarr[index++]],done:true};
+                    }
+                
+                }
+
+                
+        }
+     
+     }
+     Object.prototype[Symbol.iterator]=iterator;
+     Array.prototype[Symbol.iterator]=iterator;
+     
+
+     let obj={'name':'xm','age':11,'sex':'nv'};
+     let arr=[1,1,2,3,4];
+     for(let i of obj)
+     {
+         console.log(i)
+     }
+
+
+     for(let i of arr)
+     {
+         console.log(i)
+     }
+
+
+
+    // console.log( Object.keys(obj))//keys()返回一个数组里面有所有的key
+    </script>
+
+
+

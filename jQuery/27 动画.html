@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    div{
+        height: 100px;
+        width: 100px;
+        background-color: red;
+    }
+    
+    </style>
+</head>
+<body>
+    <div></div>
+    <button>慢慢淡出</button>
+    <button>慢慢淡入</button>
+    <button>淡入淡出切换</button>
+    <!-- fadein 带动画显示  先改变透明度然后display none 参数可以设置时间
+        fadeout 带动画隐藏
+        fadetoggle 带动画显示隐藏切换 -->
+</body>
+</html>
+<script src="js/jquery-3.4.1.js"></script>
+<script>
+    $('button').eq(0).click(function(){
+        $('div').fadeOut();
+    })
+    $('button').eq(1).click(function(){
+        $('div').fadeIn();
+    })
+</script>

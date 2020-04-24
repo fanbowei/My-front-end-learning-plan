@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+
+    var xhr = new XMLHttpRequest()
+
+    xhr.onreadystatechange=function(){
+        if(xhr.readyState===4&&xhr.status<=300&&xhr.status>=200)
+        {
+            let obj=xhr.response
+            console.log(obj);
+        }
+    }
+
+    xhr.open('post','http://127.0.0.1:3000/test_post')
+    //设置post特有的请求头
+    xhr.setRequestHeader('content-type','application/x-www-form-urlencoded')
+
+    xhr.send('nsme=ko&age=18');
+
+</script>

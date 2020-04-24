@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<!-- 
+    set容器:无序不可重复的多个value的集合体
+    set()
+    set(array)
+    add(value)
+    delete(value)
+    has(value)
+    clear()
+    size
+ -->
+
+ <!-- 
+     map容器:无序的key不重复的多个key-value的集合体
+     map()
+     map(array)
+     set(key,value)//添加
+     get(key)
+     delete(key)
+     has(key)
+     clear()
+     size
+  -->
+
+  <!-- 
+      指数运算符 **
+      array.peototype.includes(value)判断数组中是否包含指定value
+   -->
+  <script>
+      let arr=[1,2,3,1]//无序不重复
+      let set=new Set(arr)
+      console.log(set)
+      arr5=[11,22,66,4,5,4,9,2,8,7,6,9];
+    //   function fun(arr) {
+          
+    //         return [...new Set(arr)]
+    //     }
+        
+         // console.log(fun(arr5))
+     
+        let fun5= arr5 => [...new Set(arr5)]
+        console.log(fun5(arr5))
+        console.log(...arr5)
+  </script>
+
+ 

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script src='promise.js'></script>
+<script src='Ppromise.js'></script>
+<script>
+    let a= new promise((resolve,reject)=>{
+       setTimeout(() => {
+           resolve(3)
+       }, 100);
+   })
+   a.then(
+       value=>{
+          
+           console.log(value);
+       },
+       reason=>{
+        //     return new promise((resolve,reject)=>{
+        //     setTimeout(() => {
+        //         reject(5)   
+        //     });
+        // })   
+
+        
+       }
+   ).then(
+       value=>{
+           console.log('----------');
+           console.log(value);
+       },
+   ).catch(
+       ()=>{
+        console.log('====');   
+       }
+   )
+
+
+   
+</script>

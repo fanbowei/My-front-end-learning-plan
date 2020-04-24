@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button>
+        anniu
+    </button>
+</body>
+</html>
+<script src="jquery-3.4.1.js"></script>
+<script>
+    var btn=document.getElementsByTagName('button')[0];
+    btn.onclick=function () {
+    $.ajax({
+        type:'get',
+        url:'1.php',
+        success:function (xml) {
+           var name=xml.getElementsByTagName('name')[0]
+            alert(name.innerHTML);
+           //返回的xml也是一个document;可以直接使用js中的方法
+        },
+        onerror:function(xml){
+
+        }
+    })
+    }
+</script>

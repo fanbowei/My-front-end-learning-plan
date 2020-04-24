@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+   .box,.box2{
+       width: 100px;
+       height: 100px;
+       font-size: 100px;
+   }
+   .box{background-color: red;margin-bottom: 100px;}
+   .box2{background-color: blue;margin-top: 100px;}
+   /*  相邻的垂直方向的外边距会重叠
+   兄弟元素发生垂直时会去两者之间的较大的值
+   一正一副会取和  
+      如果都是负的取绝对值较大的值
+      兄弟之间的重叠对于开发有利*/
+      .box3{width:200px;height: 200px;}
+      .box4{width:100px;height: 100px;}
+      .box3{background-color: red;border-top: snow 1px solid}
+      .box4{background-color: seagreen;margin-top: 100px;}
+      /* 在父子元素中，子元素的上外边距会传递给父元素
+      处理：暂时没有完美的办法（利用父元素的内边距padding在减小父元素的高）或者
+      不让元素相邻（加一个边框）*/
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="box2"></div>
+    <div class="box3"><div class="box4"></div></div>
+    
+</body>
+
+</html>

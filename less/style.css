@@ -1,0 +1,28 @@
+div {
+  background-color: red;
+}
+div {
+  background-color: green;
+}
+.box1 .box2 {
+  width: 100px;
+}
+.box1 > .box3 {
+  width: 100px;
+}
+.box1:hover {
+  width: 100px;
+}
+.box4 {
+  color: red;
+}
+.box4 .box2 {
+  width: 100px;
+}
+.box4 > .box3 {
+  width: 100px;
+}
+.box4:hover {
+  width: 100px;
+}
+/*# sourceMappingURL=./style.css.map */

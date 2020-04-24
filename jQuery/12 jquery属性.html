@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>
+<script src="js/jquery-3.4.1.js"></script>
+<script>
+   alert($('div').css('width'))
+   alert( $('div').attr('class'));//读取元素的属性值(不能读取css)（css（）只能读取css）
+   $('div').attr('class','box2') //读写合一
+   alert( $('div').attr('class'));
+   $('div').addClass('box3');//给元素添加class  
+   alert( $('div').attr('class'));
+   $('div').removeClass('box3')//元素移除class removeclass
+   alert( $('div').attr('class'));
+
+
+   //attr prop 都可以控制属性 attr控制属性为非布尔值，prop控制属性值为布尔值
+    //removeattr（name）删除属性
+</script>

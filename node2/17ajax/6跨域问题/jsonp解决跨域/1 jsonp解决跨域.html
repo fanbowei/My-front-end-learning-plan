@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        function dosomething(a){
+            console.log(a);
+        }
+    </script>
+    <script src="http://127.0.0.1:3000/test_get"></script>
+
+  <!-- 
+      关于jsonp解决跨域的说明
+      1:原理 利用了标签发送get请求'天然跨域'
+      2:套路 创建script节点,指定src
+            定义好一个处理数据的函数
+            后端返回符合函数调用的字符串
+
+      3:局限性 只能解决get请求的跨域问题
+               必须需要后端人员配合
+   -->
+    
+</body>
+</html>

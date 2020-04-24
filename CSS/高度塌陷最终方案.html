@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .box1{
+        border: 1px red solid;
+    }
+    .box2{
+        width: 100px;
+        height: 100px;
+        background-color: yellowgreen;
+        float: left;
+    }
+    /* .box3{clear:left;} */
+    .box1::after{
+        display: block;
+        clear: both;
+        content: "";
+    }
+    /* 在元素的最后加一个伪元素，变成块，加上clear和内容 */
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="box2">
+            
+        </div>
+
+        <!-- <div class="box3"></div> -->
+    </div>
+</body>
+</html>

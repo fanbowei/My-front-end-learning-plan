@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head> 
+<body>
+    
+</body>
+</html>
+<script>
+    //每一个函数都有一个prototype属性,默认指向空对象(原型对象)
+    //原型对象中有一个属性constructor,它指向函数对象 ,声明当前的构造器是谁
+    //所有的实例对象也有一个属性_proto_该属性指向当前实例的原型对象(隐私原型对象)
+    //显示的prototype可以使用,隐私的_proto_不能更改
+    function fun(){
+    }
+    fun.prototype.eat=function(){alert()}
+    
+    var fun1=new fun()
+    console.log(fun.prototype)
+    console.log(fun1._proto_)
+    console.log(fun)
+    console.log(fun1)
+    fun1.eat()
+    //当需要定义公共的方法的时候,可以放在原型对象上,让所有的实例使用
+
+    //对象 实例对象 函数对象(除了属性方法,还能直接被调用) 
+    //原型链 _proto_
+    //当使用对象没有属性时候会沿着_proto_去原型对象中找,直到找到boject的原型对象(因为object的原型对象的原型为null),如果没有返回undfind
+
+    // a.b //寻找a(a是变量)沿着作用域链找 a.b是属性,沿着a的原型链找
+    
+    //所有的原型对象都是普通对象,普通对象都是new object出来的(构造函数的原型对象是普通对象,不是构造函数创建的,而是由object创造的)
+    console.log(Object)
+
+
+    // a instanceof   B原理
+    //如果B函数的显示原型对象在a的(隐私原型对象)原型链上,返回true
+</script>

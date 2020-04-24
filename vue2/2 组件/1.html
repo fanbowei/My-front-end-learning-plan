@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="app">
+        <hello-com></hello-com>
+    </div>
+</body>
+</html>
+<script src='../ku/vue.js'></script>
+<script>
+    let com=Vue.component("hello-com",{
+        template:'<h1>{{msg}}<button @click="toggle">切换</button></h1>',
+        data() {
+            return {
+                msg:'hello',
+                isshow:true
+            }
+        },
+        methods: {
+            toggle(){
+                 (this.isshow=!this.isshow)?this.msg='aaa':this.msg=""
+                
+            }
+        },
+    })
+    new Vue({
+        el:'.app',
+        data:{
+
+        },
+        comments:{
+            'hello-com':com
+        }
+
+    })
+
+    
+</script>

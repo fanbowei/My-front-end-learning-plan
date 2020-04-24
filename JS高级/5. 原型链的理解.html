@@ -1,0 +1,27 @@
+! <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        1 实例的隐式原型对象=构造函数的显示原型对象
+        2 所有的原型对象都是普通的对象,普通对象都是new Object出来的
+        3 Object的显示原型对象的隐式原型对象为null(不然无线循环)
+        所有的构造函数(包括自定义)都是Function构造的的实例,所以所有构造函数实例的隐式原型对象=Function的显示原型对象(prototype)
+        所有的(函数对象)显示原型对象的的隐式原型对象(_proto_)都是Object的显示原型对象
+        Object也是函数对象,所以Object算是Function的实例,所有实例的隐式原型对象等于构造函数的显示原型对象
+        Function的显示原型对象也是new Object出来的,所以Function的显示原型对象的隐式原型对象等于Objexct的显示原型对象
+        Function是new Funciton出来的 自己构造自己,自己是自己的实例 所以Funciont的显示原型对象等于自己隐式原型对象是同一个
+        Function的显示和隐式是同一个,并且是new Object出来的,所以根据原型链可以找到Object的显示原型对象
+        
+        
+        Object是Function产生的 Function是自己产生的,但是根据原型链,Function的上一级是Object
+        根据原型链,最终找到的是Objet的显示原型对象(它的隐式为null)
+        根据构造函数最终找到的是Function(Function自己创造自己)
+        所以万物皆对象
+    -->
+</body>
+</html>

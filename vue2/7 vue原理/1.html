@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+
+
+    <div class="app">
+        <div>
+            asdsad--{{msg}} {{msg}}--asdsad
+            <div v-html='msg'></div>
+        </div>
+        <h1 v-html='msg'>{{msg}}</h1>
+        <input type="text" v-model="msg">
+       <br> <button @click='changemsg' >修改msg</button>
+    </div>
+</body>
+</html>
+
+<script src='../ku/vue.js'></script>
+
+
+<script>
+    class vue{
+        constructor(options){
+            this.$el=document.querySelector(options.el)//通过选择器获取根对象
+
+            //数据创造之前
+            if(options.beforecreate)
+            {
+                options.beforecreate()
+            }
+
+            this.$options=options
+            this.$watcheevent={}//事件集合
+            //代理属性
+
+
+            //函数挂在前
+            if(options.beforeMount)
+            {
+                options.beforeMount()
+            }
+
+            this.proxdata()//函数的外层作用域看定义
+            this.observe()
+            this.compie(this.$el.childNodes)
+
+            //函数挂在后
+            if(options.mount)
+            {
+                options.mount()
+            }
+            
+        };
+
+        //查找节点和指令绑定事件
+        compie(comnode){
+            comnode.forEach((node)=>{
+
+                if(node.nodeType==1)
+                {
+                    if(node.hasAttribute('v-html'))
+                    {
+                        let vmkey=node.getAttribute('v-html').trim();
+                        node.innerHTML=this[vmkey]
+                        let watcher=new watch(this,vmkey,node,'innerHTML',1);
+                        if(!this.$watcheevent[vmkey])
+                        {
+                            this.$watcheevent[vmkey]=[]
+                        }
+                        this.$watcheevent[vmkey].push(watcher)
+                        node.removeAttribute('v-html')
+                    }
+                    if(node.hasAttribute('v-model'))
+                    {
+                        let vmkey=node.getAttribute('v-model').trim();
+                        if(this.hasOwnProperty(vmkey))
+                        {
+                            node.value=this[vmkey];
+                            let watcher=new watch(this,vmkey,node,'value',1);
+                            if(!this.$watcheevent[vmkey])
+                            {
+                                this.$watcheevent[vmkey]=[]
+                            }
+                            node.addEventListener('input',  (e)=> {
+                                this[vmkey]=node.value
+                            })
+                            this.$watcheevent[vmkey].push(watcher)
+                            node.removeAttribute('v-model')
+
+                        }
+
+
+                    }
+                
+                    //判断是否有绑定事件
+                    if(node.hasAttribute('@click'))
+                    {
+                        let vmkey=node.getAttribute('@click').trim();
+                        node.addEventListener('click',(e)=>{
+                            this.$options.methods[vmkey].call(this) 
+                        })
+                        node.removeAttribute('@click')
+                    }
+                
+                
+                    //递归遍历
+                    if(node.childNodes.length>0)
+                    {
+                        this.compie(node.childNodes)
+                    }
+
+                }
+
+                if(node.nodeType==3)
+                {
+                    let reg=/\{\{(.*?)\}\}/g;
+                    node.textContent=node.textContent.replace(reg,(match,vmkey)=>{//match为匹配的正则内容,vmkey为匹配的括号中的内容
+                        //分隔内容成三部分
+                        //遍历数组找出所有的{{}},记录在新的数组中
+                        
+                        let reg1=/(\{\{.*?\}\})/g;
+                        let ct=node.textContent.trim().split(reg1)
+                        ct.ctj=[]
+                        ct.forEach((item,index)=>{
+                            if(reg1.test(item))
+                            {
+                               ct.ctj.push({index,vmkey})
+                            }
+                         })
+
+
+
+                        vmkey=vmkey.trim();//去除空格
+
+                        if(this.hasOwnProperty(vmkey))
+                        {
+                            let watcher=new watch(this,vmkey,node,'textContent',3,ct);
+                            if(!this.$watcheevent[vmkey])
+                            {
+                                this.$watcheevent[vmkey]=[]
+                            }
+                            this.$watcheevent[vmkey].push(watcher)
+                            
+
+                        }
+                        
+
+
+                        return this[vmkey]
+                    })
+                    
+                }
+            })
+        }
+        
+
+        //数据代理
+        proxdata(){
+            for(let key in this.$options.data)
+            {
+                Object.defineProperty(this,key,{ //给this添加一个key属性
+                    configurable:false,//不能修改这个属性
+                    enumerable:true,//是否能够迭代(循环)
+                    set(newvalue){
+                        this.$options.data[key]=newvalue
+                    },
+                    get(){
+                        return this.$options.data[key]
+                    },
+                     
+
+                })
+            }
+        }
+        
+        //监听数据变更触发事件
+        observe(){
+            let that=this
+            
+            //劫持事件
+            for(let key in this.$options.data)
+            {
+                //保存当前value
+                let value=this.$options.data[key];
+                Object.defineProperty(this.$options.data,key,{
+
+                    //get/set中this指向调用的数(this.$options.data)
+                    get(){
+                        return value
+                    },
+                    set(val){
+                        value=val
+                        //循环调用当前属性所保存的事件
+                        if(that.$watcheevent[key])
+                        {
+                            that.$watcheevent[key].forEach(element => {
+                               element.updata();
+                            });
+                        }
+                    }
+                })
+            }
+        }
+    }
+
+        
+    class watch{
+        constructor(vm,key,node,property,nodetype,ct=[]){
+            this.vm=vm;
+            this.key=key;
+            //vm数据绑定的html节点
+            this.node=node;
+            //property vm数据说绑定的html节点的属性名称
+            this.property=property;
+            this.nodetype=nodetype
+            this.ct=ct
+            this.reg=/\{\{(.*?)\}\}/g;
+
+        }
+        updata(){
+            if(this.nodetype==3)
+            {
+                this.ct.ctj.forEach((item)=>{
+                    this.ct[item.index]=this.vm[item.vmkey]
+                })
+                this.node.textContent=this.ct.join('')
+            }
+            else
+            {
+                this.node[this.property]=this.vm[this.key]
+            }
+        }
+    }
+    
+    
+    let app=new vue({
+        el:'.app',
+        data:{
+            msg:'hello',
+            username:'xm'
+        },
+        methods:{
+            changemsg(){
+                this.msg='我会了'
+            }
+        },
+        beforecreate()
+        {
+            console.log('数据创造前');
+        },
+        beforeMount() {
+            console.log('数据挂在前');
+        },
+        mount(){
+            console.log('数据挂在后');
+        }
+    })
+</script>
+
+
+
+
+<script>
+    new Vue({
+      el:'#app',
+      data:{
+          msg:''
+      }  ,
+      methods: {
+          changemsg(){
+            this.msg='helllo'
+          }
+      },
+    })
+</script>

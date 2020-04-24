@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+        .box2{
+            width: 100px;
+            height: 200px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <!-- 每通过style修改一次样式，游览器就需要重新渲染一次页面
+        这样性能较差 -->
+        <!-- 我们可以修改box的class属性来切换样式
+        这样只需要修改一次就可以修改多个样式，游览器只需要渲染一次，性能比较好 -->
+        <div class="box">
+
+        </div>
+        <button>aaa</button>
+</body>
+</html>
+
+<script>
+    var btn=document.getElementsByTagName("button")[0];
+    var box=document.getElementsByTagName("div")[0];
+    btn.onclick=function(){
+        // box.className+=" box2"
+        if(!hasclass(box,"box2"))
+        addclass(box,"box2");
+    }
+    //定义一个函数向元素中添加指定的class属性值
+    function addclass(obj,name){
+        // 参数： 1 要添加class属性的对象 2要添加的class值
+        obj.className+=" "+name;
+    }
+    //判断一个函数中是否有指定的class
+    function hasclass(obj,name)
+    {//\b单词边界
+        // var reg=/\bname\b/ig;  字面量不能传递变量
+        var reg=new RegExp("\\b"+name+"\\b");
+        return reg.test(obj.className);
+    }
+
+
+
+    //定义一个函数删除class属性
+    function removeclass(obj,name){
+        var reg=new RegExp("\\b"+name+"\\b");
+        obj.className=obj.className.replace(reg,"");
+    }
+
+    //定义以后函数切换类
+    function toggleclass(obj,name)
+    {
+        if(hasclass(obj,name))
+        {
+            removeclass(obj,name);
+        }
+        else{
+            addclass(obj,name);
+        }
+    }
+</script>

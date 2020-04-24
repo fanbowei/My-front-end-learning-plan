@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    'use strict'
+    let a;
+    console.log(a)
+
+
+    eval('var a=1;alert(a)') 
+</script>
+<!-- 
+        理解:
+        1 除了正常运行(混杂模式)的模式,es5添加了第二中运行模式(严格模式steict mode),
+        这种模式使得javascript在更严格的语法条件下运行
+
+        2 目的/作用
+        消除javascript语法的一些不合理,不严谨之处,减少一些怪异的行为
+        消除代码运行的一些不安全之处,为代码的安全运行保驾护航
+        为未来版本的javascript做好铺垫
+
+        3 使用
+        在全局或函数的第一条语句定义为'use strict';
+        如果游览器不支持,只能解析为一条简单的语句,没有任何作用
+
+        4 语法和行为的改变
+        必须使用var声明变量
+        禁止自定义的函数中this指向window
+        创建eval作用域
+        对象不能有重名的属性
+
+ -->

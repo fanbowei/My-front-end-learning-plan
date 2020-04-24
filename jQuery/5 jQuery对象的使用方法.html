@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.4.1.js"></script>
+    <script>
+        $(function(){
+            var $btn=$("button");
+            console.log($btn.length);
+            console.log($btn[1].innerHTML);
+            $.each($btn,function(i,n)
+            {
+                // console.log(i,n.innerHTML);
+                //this 指向n（当前遍历的dom元素）
+                console.log(this.innerHTML);
+            })
+            console.log($('#btn3').index())
+            //创建伪数组(属性名变成索引下标 ，通过【】访问)
+            var arr={};
+            arr.length=0;
+            arr[arr.length++]="123";
+            arr[arr.length++]="123";
+            console.log(arr.length);
+            console.log(arr);
+
+        })
+    </script>
+</head>
+<body>
+    <button>按钮1</button>
+    <button>按钮2</button>
+    <button id="btn3">按钮3</button>
+    <button>按钮4</button>
+
+    <!-- 
+        执行jquery函数返回对象
+        jquery对象内部包含的时dom元素的伪数组（可能只有一个对象）
+        jauery对象有很多属性和方法
+
+
+        基本行为  length 得到伪数组的长度
+                [index]/get(index)
+                each()    遍历数组
+                index()
+
+
+
+         伪数组
+         object对象     length属性 数值下标属性  
+     -->
+</body>
+</html>

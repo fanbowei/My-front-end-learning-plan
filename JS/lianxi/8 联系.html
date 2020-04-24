@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            height: 100px;
+            width: 100px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+
+    </div>
+</body>
+</html>
+
+<script>
+    var box=document.getElementsByClassName("box")[0];
+    var boxstyle=getComputedStyle(box);
+    document.onkeydown=function(event){
+        
+        if(event.keyCode==65)
+        {
+            box.style.left=parseInt(boxstyle.left)-10+"px";
+        }
+        if(event.keyCode==68)
+        {
+            box.style.left=parseInt(boxstyle.left)+10+"px";
+        }
+        if(event.keyCode==83)
+        {
+            box.style.top=parseInt(boxstyle.top)+10+"px";
+        }
+        if(event.keyCode==87)
+        {
+            box.style.top=parseInt(boxstyle.top)-10+"px";
+        }
+        return false;
+    }
+</script>

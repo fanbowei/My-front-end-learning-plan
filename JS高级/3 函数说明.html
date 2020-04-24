@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    //函数是具有特定功能的n条语句封装体
+    //只有函数是可执行的,其他都是不可执行的
+
+    //函数自调用等于window.函数()
+
+    //构造函数  所有的函数都是构造函数
+    function proson(name,age) {
+        this.name=name
+        this.age=age
+      }
+      var peoson1=new proson('aaa',18)
+      console.log(typeof peoson1)
+      
+
+      function see() {
+          alert("")
+        }
+        var seee=new see();//同时可以使用new的方式来调用
+        console.log(typeof seee)//new操作符会返回的是实例化对象
+       //this 指向当前的构造函数的实例对象
+
+
+
+       //call aplly
+       function fun3() 
+       {
+           console.log(this);
+         }
+         fun3();//fun3()==window.fun3()
+         fun3.call(seee);//强制改变this的指向,同时可以传递参数,通过argrment来调用
+
+
+         //回调函数的定义
+         //自己定义的函数 ,但不是自己调用,满足一定条件执行
+         //
+
+         //IFEE 函数自调用(立即执行函数)
+         //只执行一次,代码执行到函数立即执行
+         //内部数据是私有的
+         (function ccc() { alert('222') })()
+</script>

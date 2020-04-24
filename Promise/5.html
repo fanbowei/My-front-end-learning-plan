@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        promise如何串联执行多个操作任务
+            promise的then()返回一个新的promise,可以开成then()的链式调用
+            通过then的链式调用串联多个同步/异步任务
+     -->
+
+     <!-- 
+         promise异常穿透
+            当使用promise的then链式调用,可以在最后指定失败的回调
+            前面任何操作除了异常,都会传到最后失败的回调中处理
+        当执行任务失败,并且then中没有失败的函数相当于抛出异常((reason)=>{throw reason}),相当于返回一个失败的promise对象,并且执行下一个then,直到找到catch
+
+
+
+        中断promise链
+            当使用promise的then链式调用时,在中间中断,不再调用后面的回调函数
+            解决:在回调函数中返回一个pendding状态的promise对象
+      -->
+</body>
+</html>
+
+<script>
+    
+    
+</script>

@@ -1,0 +1,15 @@
+creat
+    对象模型.creat(文档对象,回调函数)
+    模型对象,creat(文档对象),返回值是一个promise
+
+read
+    模型对象.find(查询条件,投影) 返回一个数组
+    模型对象.findone(查询条件,投影),找到了返回对象,不然返回null
+
+updata
+    对象模型.updataone(查询条件,要更新的内容,配置对象)
+    对象模型.updatamany(查询条件,要更新的内容,配置对象)
+
+delete
+    模型对象.deleteone(查询条件)
+    模型对象.deletmany(查询条件)

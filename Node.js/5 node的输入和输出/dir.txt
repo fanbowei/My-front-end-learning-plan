@@ -1,0 +1,131 @@
+1.html
+tools.js
+2.js
+1.js
+描述
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+   let a= new Promise((succ,errp)=>{
+       let arr={a:'xm',b:10}
+        succ(arr)
+   })
+   console.log(a)
+</script>
+let tools=require('./tools.js')
+async function a() {
+    
+    let sss=await tools.fsstat('1.html')
+    console.log(sss.isDirectory())
+
+  }
+  a()
+
+let fs=require('fs')
+
+function fsread(url){
+    return new Promise((succ,erro)=>{
+        let fd=fs.readFile(url,{flag:'r',encoding:'utf-8'},function (err,data) { 
+            if(err)
+            {
+                //失败执行的内容
+                erro(err);
+            }
+            else{
+                // 成功执行的内容
+                succ(data);
+            }
+         })
+    })
+}
+
+
+ //封装写入模块
+ function fswrite(url,str) {
+    return new Promise(function(succ,erro){
+      fs.writeFile(url,str,{flag:'a',encoding:'utf-8'},function (er) {
+          if(er)
+          {
+              console.log('写入失败');
+              erro(er);
+             
+          }
+          else
+          {   console.log('写入内容成功')
+              succ('写入内容成功');
+          }
+        })
+    })
+  }
+
+  function fsreaddir(url) { 
+    return new Promise((succ,erro)=>{
+        fs.readdir(url,function(err,files){
+                if(err)
+                {   
+                    erro(err)
+                }
+                else
+                {
+                    succ(files)
+                }
+            })
+    })
+ }
+
+
+ //返回文件类型
+ function fsstat(url) {
+     return new Promise((succ,erro)=>{
+         fs.stat(url,function (err,stats) {
+             if(err)
+             {
+                 console.log('读取错误')
+                 erro();
+             }
+             else
+             {
+                 succ(stats);
+             }
+           })
+     })
+   }
+  module.exports={fsread,fswrite,fsreaddir,fsstat}删除目录的语法格式//读取目录
+//fs.readdir(path,callback)
+
+let fs=require('fs');
+let tools=require('./tools.js')
+// fs.readdir('../../',function(err,files){
+//     if(err)
+//     {   
+//         console.log(err)
+//     }
+//     else
+//     {
+//         console.log(files)
+//     }
+// })
+
+
+
+//修改某个文件目录下的内容
+async function dosomething() {
+    let dir=await tools.fsreaddir('./');
+    dir.forEach(async function(name,i){
+        let content=await tools.fsread(name)
+        await tools.fswrite('dir.txt',name+'\n')
+        await tools.fswrite('dir.txt',content)
+    })
+  }
+  dosomething()
+
+

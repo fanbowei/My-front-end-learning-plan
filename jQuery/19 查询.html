@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <ul>
+            <span>span文笔1</span>
+            <li>aaaa</li>
+            <li title="hello">bbbb title=hello</li>
+            <li class="box">ccc</li>
+            <li title="hello">dddd title=hello</li>
+            <li id="cc" title="two"><span>文本2</span></li>
+            <li style="display: none;">隐藏的</li>
+            <span>span文本3</span>
+        </ul>
+    </div>
+    <!-- 
+        childer(),子标签中查找
+        find（）后代中招
+        parent 父标签
+        prevall（） 前面所有兄弟标签
+        nextall（）后面所有兄弟标签
+        siblings（）前后所有兄弟元素
+     -->
+</body>
+</html>
+<script src="js/jquery-3.4.1.js"></script>
+<script>
+    // $('ul').children('span:eq(1)').css('color','red')
+    $('ul').find('span:eq(1)').css('color','red')
+    // $('ul').parent().css('color','red')
+    // $('#cc').prevAll().css('color','red')//prev(next一样)前面一个  prevall前面说有的兄弟
+    // $('#cc').siblings().css('color','red')
+
+</script>

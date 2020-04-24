@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+     class Person{
+        constructor(name,age){
+            this.name=name;
+            this.age=age;
+        }
+        showmsg(){
+            console.log(this.name)
+            return ;
+        }
+     };
+     class childPerson extends Person{
+        constructor(name,age){
+            super(name,age);//调用父类的构造方法
+        }
+        showmsg(){//方法的重写
+            return this.age
+        }
+     }
+     console.log(new childPerson('xm',11).showmsg())
+     
+</script>

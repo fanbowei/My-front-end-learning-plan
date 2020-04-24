@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    //借用构造函数继承
+    // 套路 
+    //定义父类构造函数
+    //定义子类构造函数
+    //在子类构造函数中调用父类构造函数
+    //关键
+    //在子类构造函数中通用super()调用父类构造函数
+    function person(a,b) {
+        this.a=a
+        this.b=b
+        alert(this)
+      }
+      //假继承 原型链没有关系
+    function xiaoming() {
+        person.call(this,1,2)
+      }
+     var c= new xiaoming()
+     console.log(c.a)
+      //组合继承 同时使父类的实例称为子类的显示原型对象同学修改构造器
+      xiaoming.prototype=new person();
+      xiaoming.prototype.constructor=xiaoming;
+
+     
+
+</script>

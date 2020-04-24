@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var obj=new Object();
+        obj.name=1;
+        obj.name2=2;
+        obj.fun=function(){alert("a")};
+        obj.fun();
+// 函数作为对象的属性时称作为方法
+//枚举对象的属性 for 。。。in
+for(var n in obj)
+{
+    console.log(n);
+    console.log(obj[n])
+;}
+
+var obj2={
+    fun:function()
+    {
+        alert("aa");
+    }
+}
+obj2.fun();
+    </script>
+</body>
+</html>

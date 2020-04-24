@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+           
+            z-index:9999 ;
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+        }
+        .body{
+            min-height: 700ox;
+            max-height: 750px;
+            max-width: 500px;
+            width: auto;
+            margin: 0 auto;
+            background-color: white;;
+            position: relative;
+            border :3px solid black;
+        }
+        .body .top{
+            padding: 30px 20px 0;
+            background-color: rgb(43, 155, 247);
+            height: 50px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .top .username{
+            border-radius: 50%;
+            background-color: white;
+            margin: 0;
+            height: 40px;
+            width: 40px;
+            font-size: 27px;
+            text-align: center;
+            line-height: 40px;
+            cursor: pointer;
+        }
+        .top .textmsg,.top .addfriend{
+            margin: 0;
+            height: 40px;
+            color: white;
+            text-align: center;
+            line-height: 40px;
+        }
+        .top .addfriend{
+            font-size:40px ;
+            width: 40px;
+            cursor: pointer;
+        }
+        .search{
+            height: 40px;
+            width: 100%;
+            background-color: white;
+            position: relative;
+        }
+        .search input{
+            background-color: rgb(236, 234, 234);
+            height: 20px;
+            width: 80%;
+            margin: 0 auto;
+            border: 0;
+            position: absolute;
+            top: 10px;
+            left: 0;
+            padding-left: 10px;
+            right: 0;
+            border-radius: 10px;
+            outline: none;
+            opacity: .5;
+        }
+        .search input::placeholder{
+            color: rgb(114, 113, 113);
+            text-align: center;
+            
+        }
+
+        .button{
+            height: 86px;
+            width: 100%;
+            position: absolute;
+            background-color: #f6f6f6;
+            bottom: 0px;
+            display: flex;
+            justify-content: space-around;
+            vertical-align: bottom;
+            border-top: 1px solid rgb(168, 167, 167);
+        }
+        .button .friends, .button .msg{
+            margin-top: 45px;
+            height: 30px;
+            cursor: pointer;
+            position: relative;
+        }
+        .button .msg .pmsg{
+            background-image: url('../msg.jpg');
+            background-size:contain;
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            top: -40px;
+            
+        }
+        .button .friends .pfriedns{
+            background-image: url('../friedns.jpg');
+            background-size:contain;
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            top:-40px;
+            left: 5px;
+            
+        }
+
+
+
+        .main{
+            border-top: 1px solid rgb(168, 167, 167);
+            overflow: auto;
+            height: 620px;
+        }
+        .main::-webkit-scrollbar{
+                width:0px
+        }
+        .main .people{
+            padding:0px;
+            margin: 0px;
+        }
+        .main .people .person{
+            height: 79px;
+            background-color: #f6f6f6;
+            list-style:none;
+            border-bottom: 1px solid rgba(114, 113, 113,.5);
+            
+        }
+
+    </style>
+</head>
+<body>
+    <div class="body">
+
+        <div class="top">
+            <div class="username">
+                樊
+            </div>
+            <div class="textmsg">
+                消息
+            </div>
+            <div class="addfriend">
+                +
+            </div>
+        </div>
+
+        <div class="search">
+            <input type="text" placeholder="搜索好友">
+        </div>
+
+        <div class="main">
+            <ul class="people">
+                <li class="person">
+                    
+                </li>
+                <li class="person">
+                </li>
+                <li class="person">
+                </li>
+            </ul>
+        </div>
+
+        <div class="button">
+            
+            <div class="msg">
+                消息
+                <div class="pmsg"></div>
+            </div>
+            <div class="friends">
+                联系人
+                <div class="pfriedns"></div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    
+</script>

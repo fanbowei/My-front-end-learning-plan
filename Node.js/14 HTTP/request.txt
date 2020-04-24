@@ -1,0 +1,20 @@
+请求头(放之请求相关的信息)
+POST /log/web?0000171584278232271https%3A%2F%2Fwww.bilibili.com%2Fvideo%2Fav21588133%3Fp%3D21|333.788.selfDef.exposureByOp||1584278236000|0|0|1251x988|1|{%22event%22:%22exposureByOp%22,%22value%22:{%22type%22:%22special%22,%22id%22:545,%22title%22:%22%E3%80%90%E5%A4%A7%E5%AD%A6%E8%81%8C%E5%9C%BA%E5%BF%85%E5%A4%87%E3%80%91Word%E8%B6%85%E8%AE%A4%E7%9F%A5%E7%B3%BB%E7%BB%9F%E8%AF%BE%22}}|{%22hitGroup%22:%22863_658%22}||B2FCE124-FAE5-2C01-DB90-D2FC15E6103C24491infoc|zh-CN|1-1 HTTP/1.1
+Host: data.bilibili.com
+Connection: keep-alive
+Content-Length: 0
+Origin: https://www.bilibili.com
+Sec-Fetch-Dest: empty
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36 Edg/80.0.361.66
+Content-Type: text/plain;charset=UTF-8
+Accept: */*
+Sec-Fetch-Site: same-site
+Sec-Fetch-Mode: no-cors
+Referer: https://www.bilibili.com/video/av21588133?p=21
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6
+Cookie: _uuid=B2FCE124-FAE5-2C01-DB90-D2FC15E6103C24491infoc; buvid3=A10B03BB-FA3B-43B7-B89B-BC0B2950BE17190950infoc; stardustvideo=1; rpdid=|(k)~RJR~luk0J'ul~YJ)mk|~; CURRENT_FNVAL=16; laboratory=1-1; LIVE_BUVID=AUTO3815763891793949; INTVER=-1; CURRENT_QUALITY=80; sid=iunabu92; DedeUserID=257799249; DedeUserID__ckMd5=3478e5920a36e278; SESSDATA=93fa979e%2C1585293159%2C4be2f921; bili_jct=3a07f80879a1b574deb0298e2b97041c; bp_t_offset_257799249=365860402497410045; PVID=2
+
+
+
+请求体(一般是post请求的内容)

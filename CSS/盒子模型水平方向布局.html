@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 500px;
+            height: 200px;
+            border:red solid 10px;
+            
+        }
+        .box1{
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+            
+            
+            /* 元素在父元素中水平方向的属性由以下几个因数决定
+                margin-left
+                border-left
+                padding-left
+                width
+                padding-right
+                border-right
+                margin-right
+                上面七个子元素值之和等于父元素内容区宽度之和
+                上面等式必须成立，如果不成立，在没有auto的情况下
+                默认调整margin-right
+                如果某个值（margin-right margin-left width）为auto则会调整
+                那个值
+                如果有几个auto默认优先调整width为最大*/
+                /* 如果将两个外边距设定为auto，width为默认值，
+                外边距则会设置成两个相同的值 
+                开发中常利用这一点来水平居中*/
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="box1">
+            </div>
+    </div>
+</body>
+</html>

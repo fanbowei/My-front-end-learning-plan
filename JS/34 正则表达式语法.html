@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 使用字面量创建正则表达式
+        // a|b表示或者的意思 []中的内容依然是或的关系
+        // [^ab]表示除了ab
+        var reg=/a|b/i;
+        var c="bSa"
+        alert(reg.test(c));
+
+
+        var reg1=/[a-z]/i;
+        var c1="t";
+        alert(reg1.test(c1));
+
+        var reg2=/a[b|cd]c/;
+        var c2="adc";
+        alert(reg2.test(c2));
+// 量词 {}可以控制一个内容连续出现的次数，量词只对前面的一个内容有用
+//   /（ab）{1，3}/   {吗，n}表示m-n次
+// ^表示开头含有的内容  $表示结尾含有的内容 同时使用，表示必须完全符合表达式
+        var reg3=/a{3}/g;
+        var c3="aaba";
+        alert(reg3.test(c3));
+
+// 手机号的规则
+        var phone="13111111111";
+        var reg5=/^1[3-9][0-9]{9}$/;
+        alert(reg5.test(phone));
+    </script>
+
+    
+</body>
+</html>

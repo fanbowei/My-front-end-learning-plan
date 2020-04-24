@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>    
+//作用域  代码执行的区域
+//作用域的产生 代码执行的时候
+//作用域的销毁 局部销毁(函数执行完)  全局销毁(关闭游览器)
+// 作用域的作用 防止污染变量 隔离变量
+//作用域链 查找变量时候会在当前作用域中寻找,如果当前没有会向外出作用域去找,直到找到全局作用域,还没有就会报错
+ var a={}
+ console.log(a.text)
+</script>
+
+<!-- 
+    作用域代码定义的时候产生 ,只有一个
+    执行上下文在代码执行前马上执行,可以有多个
+    执行上下文的时候产生作用域链
+
+    在作用域中查找变量去哪找
+    去当前作用域下的执行上面问对象中找
+ -->

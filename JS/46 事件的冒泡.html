@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            height: 200px;
+            width: 200px;
+            background-color: red;
+        }
+        .s1{
+            background-color: burlywood;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        woshibox1
+        <span class="s1">
+            我是span
+        </span>
+    </div>
+</body>
+</html>
+<script>
+    var s1=document.getElementsByClassName("s1")[0];
+    var box=document.getElementsByClassName("box")[0];
+    var body=document.body;
+
+   function myclick(obj,fun)
+    {
+        obj.onclick=fun;
+    }
+// span单击函数
+//cancelbubble取消冒泡事件
+    myclick(s1,function(){
+        alert("woshis1");
+        var even=arguments[0]||window.event;//解决兼容性的问题
+        even.cancelBubble=true;
+    })
+
+    // box单击函数
+myclick(box,function(){
+    alert("woshibox");
+    var even=arguments[0]||window.event;//解决兼容性的问题
+        even.cancelBubble=true;
+})
+    // body单击函数
+
+    myclick(body,function(){
+        alert("woshibody");
+    })
+
+    // 事件的冒泡bubble 事件的冒泡就是事件的向上传导，当后代元素被触发，祖先元素相同事件也会触发
+    //在开发中事件的冒泡是有用的，如果不希望发生冒泡可以通过对象事件来取消冒泡
+</script>

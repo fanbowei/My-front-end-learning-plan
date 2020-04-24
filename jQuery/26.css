@@ -1,0 +1,79 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.on {
+  background-color: red;
+}
+a {
+  height: 10px;
+  width: 10px;
+  background-color: black;
+  display: block;
+  float: left;
+  border-radius: 50%;
+  border: 1px solid white;
+  opacity: 0.5;
+  margin-left: 2px;
+}
+.box {
+  height: 300px;
+  width: 300px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+}
+.box .inner {
+  position: absolute;
+  left: -300px;
+  height: 300px;
+}
+.box .inner img {
+  width: 300px;
+  height: 300px;
+  vertical-align: top;
+}
+.box:hover .btnl {
+  display: block;
+}
+.box:hover .btnr {
+  display: block;
+}
+.box .da {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  padding: 0;
+  top: 270px;
+  width: 80px;
+}
+.btnl {
+  height: 60px;
+  width: 40px;
+  position: absolute;
+  top: 130px;
+  left: 10px;
+  opacity: 0.5;
+  background-image: url(img/1.png);
+  background-size: 400px 400px;
+  background-position: -290px -34px;
+  background-color: black;
+  display: none;
+  cursor: pointer;
+}
+.btnr {
+  height: 60px;
+  width: 40px;
+  position: absolute;
+  background-color: black;
+  top: 130px;
+  left: 250px;
+  opacity: 0.5;
+  background-image: url(img/1.png);
+  background-size: 400px 400px;
+  background-position: -237px -34px;
+  display: none;
+  cursor: pointer;
+}
+/*# sourceMappingURL=./26.css.map */

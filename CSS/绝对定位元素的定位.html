@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .a{
+        width: 200px;
+        height: 200px;
+        background-color: violet;
+        position: relative;
+    }
+    .b{
+        width: 100px;
+        height: 100px;
+        background-color: turquoise;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;bottom: 0;
+        margin:auto ;
+    }
+    /* 当元素开启了绝对定位要满足下面的等式
+    left+border+padding-left+margin-left+height+maigin+right+padding-right+border-right+right
+     当发生过度约束时如果u没有auto
+     则自动调整right
+     如果有auto（margin width left right）则调整auto*/
+     /* 同时也存在垂直等式也必须满足 */
+    </style>
+</head>
+<body>
+    <div class="a">
+        <div class="b"></div>
+    </div>
+</body>
+</html>

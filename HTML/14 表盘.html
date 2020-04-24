@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas style="background-color:blanchedalmond;" height="300"></canvas>
+</body>
+</html>
+<script>
+    var can=document.getElementsByTagName("canvas")[0];
+    var pen=can.getContext("2d");
+    pen.translate(150,150);
+    pen.rotate(1.5*Math.PI);//改变坐标轴，跟数学方向一直xy轴交换
+    pen.lineCap="round"
+   
+    setInterval(function(){
+        pen.clearRect(-150,-150,300,300)
+         //外层空心圆盘
+    pen.save();
+
+pen.lineWidth=14;
+pen.strokeStyle='#325FA2';
+
+pen.beginPath();
+pen.lineCap="round"
+pen.arc(0,0,140,0,2*Math.PI)
+pen.stroke();
+
+pen.restore();
+
+
+pen.save();
+pen.lineWidth=8;
+//大刻度
+for(var i=0;i<12;i++)
+{
+    pen.beginPath();
+    pen.rotate(1/6*Math.PI);
+    pen.moveTo(110,0)
+    pen.lineTo(120,0)
+    pen.stroke();
+}
+
+//小刻度
+for(var i=0;i<60;i++)
+{
+    if(i%5==0)
+    {
+        pen.rotate(1/30*Math.PI);
+        continue;
+     }
+    pen.lineWidth=4;
+    pen.beginPath();
+    pen.moveTo(117,0)
+    pen.lineTo(120,0)
+    pen.stroke();
+    pen.rotate(1/30*Math.PI);
+}
+
+pen.restore();
+
+
+var date=new Date();
+var s=date.getSeconds();
+var m=date.getMinutes()+s/60;
+var h=date.getHours()+m/60;
+if(h>12)
+h=h-12;
+//时针
+pen.save();
+
+pen.lineWidth=14
+pen.rotate(1/6*h*Math.PI);
+pen.beginPath();
+pen.moveTo(-20,0)
+pen.lineTo(80,0)
+pen.stroke();
+
+
+pen.restore();
+
+//分针
+ pen.save();
+
+pen.lineWidth=7
+pen.rotate(1/30*m*Math.PI);
+pen.beginPath();
+pen.moveTo(-20,0)
+pen.lineTo(100,0)
+pen.stroke();
+
+
+pen.restore();m
+
+//秒针
+pen.save();
+pen.strokeStyle='#d40000'
+pen.fillStyle='#d40000'
+pen.lineWidth=3
+pen.rotate(1/30*s*Math.PI);
+pen.beginPath();
+pen.moveTo(-30,0)
+pen.lineTo(90,0)
+pen.stroke();
+
+
+
+pen.beginPath();
+pen.arc(0,0,10,0,2*Math.PI)
+pen.fill();
+
+
+pen.beginPath();
+pen.lineWidth=6
+pen.arc(100,0,10,0,2*Math.PI)
+pen.stroke();
+
+
+pen.restore();
+    },1000)
+
+</script>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .error{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<!-- 
+    messages: {
+		required: "This field is required.",
+		remote: "Please fix this field.",
+		email: "Please enter a valid email address.",
+		url: "Please enter a valid URL.",
+		date: "Please enter a valid date.",
+		dateISO: "Please enter a valid date ( ISO ).",
+		number: "Please enter a valid number.",
+		digits: "Please enter only digits.",
+		creditcard: "Please enter a valid credit card number.",
+		equalTo: "Please enter the same value again.",
+		maxlength: $.validator.format( "Please enter no more than {0} characters." ),
+		minlength: $.validator.format( "Please enter at least {0} characters." ),
+		rangelength: $.validator.format( "Please enter a value between {0} and {1} characters long." ),
+		range: $.validator.format( "Please enter a value between {0} and {1}." ),
+		max: $.validator.format( "Please enter a value less than or equal to {0}." ),
+		min: $.validator.format( "Please enter a value greater than or equal to {0}." )
+	}, -->
+
+    <form action="xxx" id="myf">
+
+        用户名 <input type="text" name="username" required minlength="6"><br>
+        密码    <input type="password" name="password" id="psw1" required minlength="6" maxlength="8"><br>
+        确认    <input type="password" name="password" id="psw2" required equalTo="#psw1"><br>
+        <input type="submit" value="提交">
+    </form>
+</body>
+</html>
+<script src="js/demo-141027224348/jquery.js"></script>
+<script src="js/demo-141027224348/jquery.validate.js"></script>
+<script>
+    $('#myf').validate({//可以添加回调函数用于修改提示信息//根据name属性来寻找
+        messages:{
+            username:{
+                required:'用户名不能为空',
+                minlength:"用户名最少为6个字符"
+            },
+            password:{
+                required:'密码不能为空',
+                minlength:"密码最少为6个字符",
+                maxlength:"密码最多为8个字符",
+                equalTo:"密码不相同"
+
+            }
+        }
+    });
+</script>

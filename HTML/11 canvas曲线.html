@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 绘画圆arc（x，y，radius，startangle，endangle，anticlockwise）
+         画一个以x，y为圆心，r为半径，start开始 end结束 anticlock（true顺时针）为方向的圆-->
+        <canvas style="background-color:blanchedalmond;" height="300"></canvas>
+</body>
+</html>
+<script>
+    var can=document.getElementsByTagName('canvas')[0];
+    var pen=can.getContext('2d');
+
+
+    pen.save();
+    pen.beginPath();
+    pen.moveTo(100,100)
+    pen.arc(100,100,50,0,0.5*Math.PI);//以弧度计算 1弧度=57° 1pi=180°
+    pen.closePath();
+    pen.stroke();
+    pen.restore();
+
+    pen.save();
+    pen.beginPath();
+    //三点一个圆弧
+    pen.moveTo(0,0)
+    pen.arcTo(10,100,250,20,50);
+    pen.stroke();
+    pen.restore();
+
+
+    //贝塞尔曲线 quadraticCurveTo(cp1x,cp2y,x,y)cp为一个控制点，xy为结束点
+    //起始点为moveto
+    pen.save();
+    pen.beginPath();
+    pen.moveTo(0,0);
+    pen.quadraticCurveTo(100,0,100,200);
+    pen.stroke();
+    pen.restore();
+
+    //三次贝塞尔
+    //beziercurveto（cp1x,cp1y,cp2x,cp2y,x,y）
+    pen.save()
+    pen.beginPath();
+    // pen.clearRect(0,0,300,300);
+    pen.moveTo(0,0)
+    pen.bezierCurveTo(20,100,100,40,50,50);
+    pen.stroke();
+
+    pen.restore();
+
+
+</script>
+
+
+<!-- arcTo(x1,y1,x2,y2,r)
+根据给定的控制点和半径画一段弧形
+肯定经过x1 y1 不一定经过x2y2（只是控制方向） -->

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box">
+        <h2>测试 v-for遍历数组</h2>
+        <ul>
+           <li v-for="(person,index) in persons" :key="person.id">
+               {{person.id}}----{{person.name}}----{{person.age}}
+                ----<button @click="deletep(index)">删除</button>----<button @click="updatap(index,{id:Date.now(),name:'xiaoming',age:198})">更新</button>
+           </li> 
+        </ul>
+        <h2>测试 v-for遍历对象</h2>
+        <ul>
+            <li v-for="(prop, key) in persons[1]" :key="key">{{key}}---{{prop}}</li>
+        </ul>
+
+    </div>
+</body>
+</html>
+
+<script src='../ku/vue.js'></script>
+<script>
+    let vm=new Vue({
+        el:'.box',
+        data:
+        {
+
+            /*
+            data中所有层次的属性都有对应的set方法(数组内部除外,只有用重写的方法才能监视)
+            重写数组做的事:调用原本的方法2更新界面
+            */
+            persons:
+            [
+                {id:1,name:'tom',age:18},
+                {id:2,name:'bob',age:28},
+                {id:3,name:'ac',age:98},
+            ],
+
+        },
+        methods: 
+        {
+            deletep(index)
+            {
+                this.persons.splice(index,1)
+            },
+            updatap(index,obj)
+            {
+                // this.persons[index]=obj  只有重新赋值才能监视到,这种方法是改变指针的方法,
+                this.persons.splice(index,1,obj)
+            }
+        },
+    })
+</script>

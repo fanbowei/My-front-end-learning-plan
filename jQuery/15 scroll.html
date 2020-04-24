@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            height: 200px;
+            width: 200px;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, deleniti. Placeat officiis tempore velit natus numquam ullam exercitationem vero magni, facilis modi, laborum rerum iste nemo dolores, fugiat omnis id.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, deleniti. Placeat officiis tempore velit natus numquam ullam exercitationem vero magni, facilis modi, laborum rerum iste nemo dolores, fugiat omnis id.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, deleniti. Placeat officiis tempore velit natus numquam ullam exercitationem vero magni, facilis modi, laborum rerum iste nemo dolores, fugiat omnis id.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, deleniti. Placeat officiis tempore velit natus numquam ullam exercitationem vero magni, facilis modi, laborum rerum iste nemo dolores, fugiat omnis id.</p>    
+    </div>
+    <button>
+        anniu
+    </button>
+</body>
+</html>
+
+<script src="js/jquery-3.4.1.js"></script>
+<script>
+$('button').click(function(){
+    console.log($('div').scrollTop())
+})
+</script>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box1,.box2{
+            height: 100px;
+            width: 100px;
+            border: 1px solid black;
+            
+        }
+        .box2{
+            height: 50px;
+            width: 150px;
+            margin-top: 50px;
+        }
+    </style>
+
+    <script>
+        window.onload=function(){
+// 当鼠标在大div中移动时,在box2中显示坐标
+            var box1=document.getElementsByClassName("box1")[0];
+            var box2=document.getElementsByClassName("box2")[0];
+          //onmousemove当鼠标发生移动时候触发
+
+        //   当事件函数被触发时游览器会将事件对象作为实参传进响应函数
+        // 在事件对象中封装了当前事件相关的一切信息:鼠标坐标 键盘的按键  clientx可以获取指针的x坐标
+        // 在ie8中事件对象是保存在window中    
+        box1.onmousemove=function(){
+                box2.innerHTML="x="+arguments[0].clientX+"   y="+arguments[0].clientY;
+            }
+            
+
+        }
+
+    </script>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+</body>
+</html>

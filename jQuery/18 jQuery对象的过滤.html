@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box" id="div1"> div1 class=box id=div1</div>
+    <div class="box" id="div2"> div2 class=box id=div2</div>
+    <div id="div3"> div3</div>
+    <span class="box"> span class=box</span>
+    <br>
+    <ul>
+        <li>aaaa</li>
+        <li title="hello">bbbb title=hello</li>
+        <li class="box">ccc</li>
+        <li title="hello">dddd title=hello</li>
+        <li title="two"><span>bbbb</span></li>
+        <li style="display: none;">隐藏的</li>
+    </ul>
+</body>
+</html>
+<script src="js/jquery-3.4.1.js"></script>
+<script>
+    // $('ul>li').first().css('color','red')
+    // $('ul>li:first').css('color','red')
+    // $('ul>li').eq(0).css('color','red'); //eq查找指定排名的元素
+   // $('li').filter('[title][title!=hello]').css('color','red')//有title属性，且title属性不为hello
+    $('li').has('span').css('color','red');//has()查找对应元素中是否有指定的元素
+</script>

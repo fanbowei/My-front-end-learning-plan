@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        注册全局指令
+        vue.directive('my-directive',function(el,binding){
+            el.innerHTML=binding.value.touppercase()
+        })
+
+        注册局部指令
+        directive:{
+            'my-directive':{
+                bind(el,binding){
+                    el.innerHTML=bindding.value.touppercase()
+                }
+            }
+        }
+
+        使用指令
+        v-my-directive="xxx"
+     -->
+
+     <div id="demo" v-cloak >
+         <p v-uppertext="msg"></p>    
+         <p v-lowertext="msg"></p>    
+     </div>
+</body>
+</html>
+
+<script src='../ku/vue.js'></script>
+<script>
+    Vue.directive('uppertext',function(el,binding){
+        
+        el.textContent=binding.value.toUpperCase()
+        //el指令属性所在的标签对象
+        //binding 包含一些指令相关的对象
+    })
+
+    new Vue({
+        el:'#demo',
+
+        data:
+        {
+            msg:'we will rock you!',
+            nowupper:true
+        },
+        
+        directives:
+        {
+            lowertext(el,binding)
+            {
+                el.textContent=binding.value.toLowerCase()
+            }
+        }
+
+    })
+</script>

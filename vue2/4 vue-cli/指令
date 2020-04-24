@@ -1,0 +1,4 @@
+安装vue脚手架     npm i -g @vue/cli
+创建vue项目        vue create test
+运行项目             npm run serve
+打开可视化构建          vue ui

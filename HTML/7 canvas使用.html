@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            text-decoration: none;
+            list-style: none;
+        }
+        html,body{
+            height: 100%;
+            overflow: hidden;
+        }
+        #test{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="test">
+        <span>您的游览器不支持画布</span>
+        <!-- 类似img 当加载不出来可以有提示语言 -->
+    </canvas>
+    
+    <!-- 默认初始颜色和body背景色一样 canvas是元素具有一般元素的属性 -->
+
+    <!--canvas 只支持一种原生的图像绘制矩形，其他的图形绘画都至少需要生吃一条路径 -->
+</body>
+</html>
+
+<script>
+    //拿到画布
+    
+    var test=document.querySelector('#test');
+
+    if(test.getContext)
+    {
+        var ctx=test.getContext('2d');
+    }
+    ctx.lineJoin="bevel"
+    ctx.fillStyle="blue"//通过填充样式来修改颜色
+    ctx.strokeStyle="yellow"//设置边框的颜色
+    ctx.lineWidth="10"//设置边框的宽度，必须为正数其他值会默认被忽略
+    //innejoin 设置线条和线条间的结合处的样式（默认miter）round 圆角 bevel斜线 miter 直线
+//不能添加单位
+    ctx.fillRect('100','10','100','100')
+    ctx.strokeRect('0.5','10.5','200','100')//边框在像素线上两边各自0.5，0.5渲染成了1像素   渲染的像素为99.5 100.5 可以偏移0.5像素
+    ctx.clearRect('20','10','100','100')
+   //绘制矩形的三种方式
+   //1 绘制一个填充的矩形（默认填充颜色为黑色）fillrect（x，y，width，height）
+   //2 绘制一个矩形的边框 边框默认一像素 strokerect（x，y，width，height）
+   // 清除指定区用，让清除部分完全透明 clearrect（x,y,width,height）
+
+   //canvas绘制时同步进行的，严格按照一条一条语句执行
+
+</script>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            height: 100px;
+            width: 100px;
+            list-style: none;
+            float: left;
+        }
+        li:nth-child(1)
+        {
+            background-color: red;
+           
+        }
+        li:nth-child(2)
+        {
+            background-color: beige;
+        }
+        li:nth-child(3)
+        {
+            background-color: yellow;
+        }
+        .box1{
+            height: 200px;
+            width: 400px;
+            background-color: red;
+            display: none;
+            clear: both;
+        }
+        .box2{
+            height: 200px;
+            width: 400px;
+            background-color: beige;
+            clear: both;
+        }
+        .box3{
+            height: 200px;
+            width: 400px;
+            background-color: yellow;
+            clear: both;
+            display: none;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li>10</li>
+            <li>20</li>
+            <li>30</li>
+        </ul>
+
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <div class="box3"></div>
+    </div>
+</body>
+</html>
+<script src="js/jquery-3.4.1.js"></script>
+<script>
+    //1
+    // $('li:first').click(function(){
+    //     $('.box2').css('display','none');
+    //     $('.box3').css('display','none');
+    //     $('.box1').css('display','block');
+       
+    // })
+    // $('li:gt(0):lt(1)').click(function(){
+    //     $('.box1').css('display','none');
+    //     $('.box3').css('display','none');
+    //     $('.box2').css('display','block');
+       
+    // })
+    // $('li:last').click(function(){
+    //     $('.box2').css('display','none');
+    //     $('.box1').css('display','none');
+    //     $('.box3').css('display','block');
+       
+    // })
+
+        //2
+        // $('li').click(function(){//隐式遍历，直接绑定三个
+        // $('.box div').css('display','none')//隐式遍历，直接修改三个
+        // $('.box div')[$(this).index()].style.display="block";
+        // //找当当前点击的li的下标，修改对应的div
+        // })
+
+
+            var indexb=1;//记录当前显示的block下标
+        $('li').click(function(){
+            $('.box div')[indexb].style.display="none";
+            $('.box div')[$(this).index()].style.display="block"
+            indexb=$(this).index();
+        })
+</script>

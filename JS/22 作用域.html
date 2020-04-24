@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var obj={
+            name:123,
+        }
+        alert(window.obj.name);
+
+        console.log(a);
+        fun();
+        var a=123;
+        function fun()
+        {
+            alert("aaa");
+        }
+        // 使用var关键字声明变量，会在所有的代码执行之前被声明但不会被赋值
+        //函数声明提前 会在代码执行之前就会被创建
+
+    </script>
+    <!--js中有两种作用域 
+        1 全局作用域 直接编写在script标签中的代码 全局作用域在页面打开时创建，页面关闭时销毁，在全局作用域有有一个全局对象window
+        它代表游览器的窗口  在全局作用域中创建的变量都会作为window的属性保存 创建的函数都会成为window的方法保存
+        2 函数作用域  -->
+</body>
+</html>

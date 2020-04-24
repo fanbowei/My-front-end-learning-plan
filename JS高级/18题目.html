@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+     var a={n:1}
+     var b=a;
+     //操作属性的优先级高于普通的赋值
+     a.x=a={n:2}
+     console.log(a.x,b.x)
+
+
+     var x=10;
+     //作用域在定义时候就生成了
+     function fn() {
+         console.log(x)
+       }
+       function show(f) 
+       {
+           var x=20
+           console.log(f)
+           f();
+         }
+         show(fn)
+
+
+         //作用域只有函数和全局
+    var obj2={
+         a:20,
+        fun2:function(){
+            console.log(fun2)
+            //fun2是全局变量obj2中的一个方法
+            // 如果没有obj2 只有fun2调用,相当于window.fun2,同理这里为obj2.fun2
+        }
+    }
+    obj2.fun2()
+
+
+    
+</script>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            border: 10px solid blue;
+            padding: 100px;
+            /* 外边距不会影响可见的宽度但是会影响盒子的位置 */
+            margin-top: 100px;
+            /* 元素在页面中是按照自左向右排序的，所以默认情况下
+                左上元素会移动自己，右下元素会移动其他元素 */
+                margin-bottom: 100px;
+                /* maigin可以设置负值，会与正值的方向相反 */
+        }
+        .box1{background-color: red;
+        width: 100px;
+    height: 100px;}
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="box1"></div>
+</body>
+</html>

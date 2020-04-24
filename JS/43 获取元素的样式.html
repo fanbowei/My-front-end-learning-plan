@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{
+            height: 100px;
+            width: 100px;
+            background-color: red;
+        }
+    </style>
+
+
+    <script>
+        window.onload=function(){
+            var btn=document.getElementsByTagName("button")[0];
+            var box1=document.getElementById("box1");
+            btn.onclick=function(){
+                // 获取元素当前显示的样式  currentstyle 当前的样式 只有ie支持
+                // alert(box1.currentStyle.height);
+
+              
+                // getcomputed style（）也是获取样式，是windows的方法
+                // 第一个参数：要获取样式的元素  第二个：可以传递一个伪元素，一般传递null
+                // 该方法会返回一个对象，对象中封装了元素对应的样式
+                // 如果获取的值没有设置，则会返回真实的值  改方法得到的样式是只读的不能修改
+                var obj=getComputedStyle(box1,null);
+                alert(obj.width)
+
+                //定义一个函数，用来获取指定元素的当前样式
+                function getstyle(obj ,name){
+                    if(window.getComputedStyle)
+                    return getComputedStyle(obj ,null)[name];
+                    else
+                    return obj.currentStyle[name];
+                }
+
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="box1"></div>
+    <button>
+        点我一下
+    </button>
+</body>
+</html>
+

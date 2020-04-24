@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+            font-size: 12px;
+        }
+        
+        .box{
+            width: 120px;
+            margin: 0 auto;
+        }
+        .cc{
+            background-color: rgb(247, 243, 239);
+            transition:all 0.3s;
+            max-height: 200px;
+            overflow: hidden;
+            
+        }
+        .call{
+            max-height: 25px;
+            
+        }
+        .fhl::before{
+            content:'▷';
+        }
+        .fhb::before{
+            content: "▽";
+        }
+        span{
+            background-color: #6a6c69;
+            display:block;
+            color: white;
+            font-size: 13px;
+            line-height: 25px;
+            padding-left: 5px;
+            cursor: pointer;
+            user-select: none;
+        }
+        .box:first-child div:first-child span{
+            border-top-right-radius: 6px;
+            border-top-left-radius: 6px;
+        }
+        span~a{
+            color: #0fb2d3;
+            display: block;
+            line-height: 25px;
+            border-top: solid 1px rgba(0,0,0,.3);
+            padding:0 5px;
+        }
+        span~a::after{
+            content:"⇨";
+            float: right;
+            display: none;
+        }
+        span~a:hover{
+            background-color: teal;
+        }
+        span~a:hover::after{
+            display: inline;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="cc">
+            <span class="menu fhb">在线工具</span>
+            <a href="javascript:;">图像优化</a>
+            <a href="javascript:;">收藏夹图标生成器</a>
+            <a href="javascript:;">邮件</a>
+            <a href="javascript:;">密码</a>
+            <a href="javascript:;">梯度图像</a>
+            <a href="javascript:;">按钮生成器</a>
+        </div>
+
+        <div class="call cc">
+            <span class="menu fhl">支持我们</span>
+                <a href="javascript:;">推荐我们</a>
+                <a href="javascript:;">链接我们</a>
+                <a href="javascript:;">网络资源</a>
+        </div>
+
+        <div class="call cc">
+            <span class="menu fhl">支持我们</span>
+                <a href="javascript:;">推荐我们</a>
+                <a href="javascript:;">链接我们</a>
+                <a href="javascript:;">网络资源</a>
+        </div>
+
+        <div class="call cc">
+            <span class="menu fhl">支持我们</span>
+                <a href="javascript:;">推荐我们</a>
+                <a href="javascript:;">链接我们</a>
+                <a href="javascript:;">网络资源</a>
+        </div>
+    </div>
+</body>
+</html>
+
+<script src="donghus.js"></script>
+<script>
+    //当有call这个类，div就折叠
+    //跟每个span绑定单击响应事件
+    var span=document.getElementsByClassName("menu");
+    //创建一个变量保存当前打开的div
+    var open=span[0].parentNode;
+    var openspan=span[0];
+    for(var i=0;i<span.length;i++)
+    {
+        span[i].onclick=function(){
+           toggleclass(this.parentNode,"call");
+           if(this.parentNode!=open)
+           {
+               if(!hasclass(open,"call"))
+               {toggleclass(open,"call");}
+           }
+           open=this.parentNode;
+
+        //判断符号      
+           for(var j=0;j<span.length;j++)
+           {
+               if(span[j]==this){
+               toggleclass(this,"fhb");
+               toggleclass(this,"fhl");continue;
+               }
+               else{
+                removeclass(span[j],"fhb");
+               if(!hasclass(span[j],"fhl"))
+               addclass(span[j],"fhl");
+               }
+           }
+
+
+          }
+
+
+        
+
+        
+    }
+</script>

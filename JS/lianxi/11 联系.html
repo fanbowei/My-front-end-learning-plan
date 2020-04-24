@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            pad: 0;
+
+        }
+        .box{
+            height: 100px;
+            width: 100px;
+            background-color: red;
+            position: absolute;
+       
+
+
+        }
+        button{
+            margin-top: 100px;
+        }
+    </style>
+</head>
+<body>
+        <!-- 点击按钮以后box向右移动 -->
+        <div class="box"></div>
+    <button>按钮1</button>
+    <button>按钮2</button>
+</body>
+</html>
+<script>
+    var btn1=document.getElementsByTagName("button")[0];
+    var btn2=document.getElementsByTagName("button")[1];
+    var box=document.getElementsByClassName("box")[0];
+    function getstyle(obj,name){
+        return getComputedStyle(obj,null)[name];
+        //对象可以通过【】来调用，括号里面可以是任意值
+    }
+    var time;
+    btn1.onclick=function(){
+        clearInterval(time);
+        time=setInterval(function(){
+            box.style.left=parseInt(getstyle(box,"left"))+1+"px";
+
+            if(parseInt(getstyle(box,"left"))>=500)
+            {
+                clearInterval(time);
+            }
+        },10.7)     
+    } 
+
+
+
+    btn2.onclick=function(){
+        clearInterval(time);
+        time=setInterval(function(){
+            box.style.left=parseInt(getstyle(box,"left"))-1+"px";
+
+            if(parseInt(getstyle(box,"left"))<=0)
+            {
+                clearInterval(time);
+            }
+        },10.7)     
+    }
+
+
+    //封装动画 参数：1要执行动画的对象  2速度  3执行动画的目标位置
+    function move(){
+
+    }
+</script>

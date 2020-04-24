@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        api(语法)
+        excutor函数,执行器 (resolve,reject)=>{}
+        resolve函数,内部定义成功我们调用的函数 value=>{}
+        reject函数,内部定义失败我们调用的函数
+
+        promise,resolve(value) 返回一个成功的实例对象
+        promise.reject(reason) 返回一个失败的实例对象
+
+        promise.all(p数组) 返回一个新的peomise,只有所有的promise都成功了才成功
+
+        promise.race(promises)
+        返回一个新的promise,第一个完成的结果状态就是最终的状态
+     -->
+
+     <!-- 
+        抛出异常的时候,pedding也会变成rejected
+        reason为抛出的error
+      -->
+
+      
+</body>
+</html>
+
+<script>
+    
+    new Promise((resolve,reject)=>{
+        throw new Error('...')
+    })
+</script>

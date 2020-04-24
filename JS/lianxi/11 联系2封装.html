@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            pad: 0;
+
+        }
+        div{
+            height: 100px;
+            width: 100px;
+            background-color: red;
+            position: absolute;
+        }
+        .box2{
+            top:300px
+        }
+        button{
+            margin-top: 100px;
+        }
+    </style>
+</head>
+<body>
+        <!-- 点击按钮以后box向右移动 -->
+        <div class="box"></div>
+    <button>按钮1</button>
+    <button>按钮2</button>
+    <button>按钮3</button>
+    <div class="box2"></div>
+</body>
+</html>
+<script>
+    var btn1=document.getElementsByTagName("button")[0];
+    var btn2=document.getElementsByTagName("button")[1];
+    var btn3=document.getElementsByTagName("button")[2];
+    var box=document.getElementsByClassName("box")[0];
+    var box2=document.getElementsByClassName("box2")[0];
+    box.time=0;
+    box2.time=0;
+    //封装获取属性的函数
+    function getstyle(obj,name){
+        return getComputedStyle(obj,null)[name];
+        //对象可以通过【】来调用，括号里面可以是任意值
+    }
+    
+   
+    //封装动画 参数：1要执行动画的对象  2速度  3执行动画的目标位置
+    function move(obj,speed,target ){
+        clearInterval(obj.time);
+
+        if(parseInt(getstyle(obj,"left"))>=target)
+        speed*=-1;
+//time保存在对象中，可以开启清除自己的time
+        obj.time=setInterval(function(){
+            obj.style.left=parseInt(getstyle(obj,"left"))+speed+"px";
+
+            if(parseInt(getstyle(obj,"left"))<=target&&speed<=0)
+            {
+                obj.style.left=target;
+                clearInterval(obj.time);
+            }
+            if(parseInt(getstyle(obj,"left"))>=target&&speed>=0)
+            {
+                obj.style.left=target;
+                clearInterval(obj.time);
+            }
+        },10.7)     
+    }
+
+
+
+
+    btn1.onclick=function(){
+        move(box,1,500);
+    }
+    btn2.onclick=function(){
+        move(box,1,0);
+    }
+    btn3.onclick=function(){
+        move(box2,1,800);
+    }
+</script>

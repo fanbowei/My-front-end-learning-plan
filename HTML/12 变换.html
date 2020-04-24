@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas style="background-color:blanchedalmond;" height="300"></canvas>
+
+</body>
+</html>
+<!-- 
+    canvas中的变换
+    translate(x,y)移动，在canvas中translate时累加的
+
+    rotate（angle）
+    这个方法只接受一个旋转角度，顺时针方向以弧度为单位，旋转的中心始终时canvas的原点，入股要改变
+    需要用到translate
+    rotate也是累加的
+
+    scale（x，y）
+    scale 方法接受两个参数，x，y分别是对应轴的缩放因子都必须是正值
+    canvas中scale是累乘的
+ -->
+
+
+ <script>
+     var can=document.getElementsByTagName('canvas')[0];
+     var pen=can.getContext('2d');
+
+    pen.save();
+    pen.beginPath();
+    pen.translate(50,50);
+    pen.rotate(0.25*Math.PI);
+    pen.strokeRect(10.5,10.5,50,50);
+    pen.restore();
+
+
+ </script>

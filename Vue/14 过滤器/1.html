@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        理解过滤器
+        功能:对要显示的数据进行特定格式化后再显示
+        注意:并没有改变原本数据,可是产生新的对象的数据
+
+        编码:
+        vue.filter(filtername,function(value[]){
+            进行一定数据处理
+            return newvalue
+        })
+
+        使用过滤器
+        <div>{{mtdata | filtername}}</data>
+        <div>{{mydata | filtername(arg)}}</div>
+     -->
+     <div class="demo">
+         <h2>显示格式化的日期事件
+            <p v-cloak>{{starttime | dateformat('YYYY-MM-DD')}}</p>
+            <p v-cloak>{{starttime | dateformat('HH:MM:DD')}}</p>
+         </h2>
+     </div>
+</body>
+</html>
+<script src="https://cdn.bootcss.com/moment.js/2.24.0/moment.js"></script>
+<script src='../ku/vue.js'></script>
+
+
+<script>
+//定义一个过滤器 dateformat
+Vue.filter('dateformat',(value,arg='YYYY-MM-DD HH:MM:SS')=>{//最终显示函数的返回值
+    return moment(value).format(arg)
+})
+
+    new Vue({
+        data:{
+            starttime:Date.now()
+        }
+        
+    }).$mount('.demo')
+</script>
